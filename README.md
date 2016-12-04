@@ -1,2 +1,2 @@
 # VJTI-RegDesk
-Institute event registration portal
+Institute event registration website
