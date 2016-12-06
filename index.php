@@ -7,7 +7,7 @@
 	 *
 	 */
 
-	// to check if a user is logged in
+	// authenticate
 	require_once(__DIR__ . '/includes/authenticate.php');
 
 	$user_username = $err_msg = "";
@@ -35,7 +35,7 @@
 		<p>
 			Don't have an account?
 			<br>
-			<a href="signup.php"><button type="button">Sign Up!</button></a>
+			<a href="public/signup.php"><button type="button">Sign Up!</button></a>
 		</p>
 	</form>
 </div>

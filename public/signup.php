@@ -7,18 +7,20 @@
 	 *
 	 */
 
+	// authenticate
+	require_once(__DIR__ . '/../includes/authenticate.php');
+
 	// get the database constants
 	require_once(__DIR__ . '/../includes/dbconfig.php');
 
-	// start the session
-	session_start();
+	// connect to the database
+	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+	$err_msg = '';
 
 	if (!isset($_SESSION['user-id'])) {
 		// user is not logged in
 		if (isset($_POST['submit'])) {
-			// connect to the database
-			$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
 			// grab the data
 			$first_name = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
 			$last_name = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
@@ -39,18 +41,25 @@
 				$result = mysqli_query($dbc, $query);
 				if (mysqli_num_rows($result) == 0) {
 					// username is unique
-					if ($password1 != $password2) // password don't match
+					if ($password1 != $password2) // passwords don't match
 						$err_msg = 'The passwords don\'t match.';
-					if (!confirm_email($email)) // email is invalid
+					if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // email is invalid
 						$err_msg = 'The email provided is invalid.';
-					if (!confirm_contact($contact)) // contact is invalid
+					if (!validate_contact($contact)) // contact is invalid
 						$err_msg = 'The contact number provided is invalid.';
 					else {
 						// insert data into database
 						$query = "INSERT INTO users (username, password, id, first_name, last_name, email, contact, gender, programme, year, branch) VALUES ('$username', SHA('$password1'), '$id', '$first_name', '$last_name', '$email', '$contact', '$gender', '$programme', '$year', '$branch')";
         				mysqli_query($dbc, $query);
-						$redirect_page = __DIR__ . '/dashboard.php';
-						header('Location: ' . $redirect_page);
+        				// login the user
+        				$query = "SELECT user_id FROM users WHERE username = '$username'";
+        				$result = mysqli_query($dbc, $query);
+        				$row = mysqli_fetch_array($result);
+        				$_SESSION['user_id'] = $row['user_id'];
+        				$_SESSION['username'] = $username;
+
+        				// redirect to confirmation page
+						header('Location: confirmsignup.php');
 
 					}
 				}
@@ -63,19 +72,18 @@
 				$err_msg = 'Please fill the required fields.';
 			}
 		}
-	}
+	}/*
 	else {
 		// user is logged in so redirect to dashboard
-		$redirect_page = __DIR__ . '/../view/dashboard.php';
-		header('Location: ' . $redirect_page);
-	}
+		header('Location: dashboard.php');
+	}*/
 
-	function confirm_email($email) {
+	// function that validates mobile number. number should begin with 7, 8 or 9 and have 10 digits.
+	function validate_contact($contact) {
+		if (preg_match('/^[789]\d{9}$/', $contact))
+			return true;
 
-	}
-
-	function confirm_contact($contact) {
-
+		return false;
 	}
 ?>
 
@@ -85,16 +93,22 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
+<h1>Join VJTI-RegDesk</h1>
+<h3>Easy. Simple. Effective.</h3>
+
+<div>
+<h3>Create your account</h3>
+<p><?php echo $err_msg; ?></p>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 	<fieldset>
 		<legend>Name</legend>
-		<input type="text" name="first_name" placeholder="First" required>
-		<input type="text" name="last_name" placeholder="Last" required>
+		<input type="text" name="first_name" placeholder="First" required value="<?php if(isset($first_name)) echo $first_name; ?>">
+		<input type="text" name="last_name" placeholder="Last" required value="<?php if(isset($last_name)) echo $last_name; ?>">
 	</fieldset>
 
 	<fieldset>
 		<legend>Username</legend>
-		<input type="text" name="username" placeholder="Pick a username" required>
+		<input type="text" name="username" placeholder="Pick a username" required value="<?php if(isset($username)) echo $username; ?>">
 	</fieldset>
 
 	<fieldset>
@@ -105,18 +119,65 @@
 
 	<fieldset>
 		<legend>e-mail</legend>
-		<input type="text" name="e-mail" placeholder="Your email address" required>
+		<input type="text" name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
 	</fieldset>
 
 	<fieldset>
 		<legend>Contact</legend>
-		<input type="text" name="contact">
+		<input type="text" name="contact" placeholder="Your mobile number" value="<?php if(isset($contact)) echo $contact; ?>">
+	</fieldset>
+
+	<fieldset>
+		<legend>Gender</legend>
+		<input type="radio" name="gender" value="M" id="Male"><label for="Male">Male</label>
+		<input type="radio" name="gender" value="F" id="Female"><label for="Female">Female</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>ID</legend>
+		<input type="text" name="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
+	</fieldset>
+
+	<fieldset>
+		<legend>Programme and Year</legend>
+		<label for="programme">Programme:</label>
+		<select name="programme">
+		<?php
+			$programmes = array('B.Tech.', 'M.Tech.', 'M.C.A.', 'PhD', 'Diploma');
+			foreach ($programmes as $programme) {
+				echo '<option value="'.$programme.'">'.$programme.'</option>';
+			}
+		?>
+		</select>
+		<label for="year">Year:</label>
+		<select name="year">
+		<?php
+			$years = array('First', 'Second', 'Third', 'Fourth');
+			foreach ($years as $year) {
+				echo '<option value="'.$year.'">'.$year.'</option>';
+			}
+		?>
+		</select>
+	</fieldset>
+
+	<fieldset>
+		<legend>Branch</legend>
+		<select name="branch">
+		<?php
+			$query = "SELECT branch_id, branch_name FROM branches";
+			$rows = mysqli_query($dbc, $query);
+			while($row = mysqli_fetch_array($rows)) {
+				echo '<option value="'.$row['branch_id'].'">'.$row['branch_name'].'</option>';
+			}
+		?>
+		</select>
 	</fieldset>
 
 	<!--Do the rest-->
-
+	<br>
 	<input type="submit" name="submit" value="Create account">
 </form>
+</div>
 
 <!--Render footer-->
 <?php
