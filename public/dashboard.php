@@ -15,7 +15,7 @@
 ?>
 
 <p>
-	This is Dashboard! <?php echo $_SESSION['username']; ?>
+	This is Dashboard! <?php echo $_SESSION['name']; ?>
 </p>
 
 <?php

@@ -24,7 +24,7 @@
 			// grab the data
 			$first_name = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
 			$last_name = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
-			$username = mysqli_real_escape_string($dbc, trim($_POST['username']));
+			//$username = mysqli_real_escape_string($dbc, trim($_POST['username']));
 			$password1 = mysqli_real_escape_string($dbc, trim($_POST['password1']));
 			$password2 = mysqli_real_escape_string($dbc, trim($_POST['password2']));
 			$email = mysqli_real_escape_string($dbc, trim($_POST['email']));
@@ -35,12 +35,12 @@
 			$year = mysqli_real_escape_string($dbc, trim($_POST['year']));
 			$branch = mysqli_real_escape_string($dbc, trim($_POST['branch']));
 
-			if (!empty($first_name) && !empty($last_name) && !empty($username) && !empty($password1) && !empty($password2) && !empty($email) && !empty($id)) {
-				// make sure someone isn't registered with same username
-				$query = "SELECT user_id FROM users WHERE username = '$username'";
+			if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($password1) && !empty($password2) && !empty($id)) {
+				// make sure someone isn't registered with same email
+				$query = "SELECT user_id FROM users WHERE email = '$email'";
 				$result = mysqli_query($dbc, $query);
 				if (mysqli_num_rows($result) == 0) {
-					// username is unique
+					// email is unique
 					if ($password1 != $password2) // passwords don't match
 						$err_msg = 'The passwords don\'t match.';
 					if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // email is invalid
@@ -49,14 +49,22 @@
 						$err_msg = 'The contact number provided is invalid.';
 					else {
 						// insert data into database
-						$query = "INSERT INTO users (username, password, id, first_name, last_name, email, contact, gender, programme, year, branch) VALUES ('$username', SHA('$password1'), '$id', '$first_name', '$last_name', '$email', '$contact', '$gender', '$programme', '$year', '$branch')";
+						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified, join_date) VALUES ('$email', SHA('$password1'), $id, '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0, NOW())";
         				mysqli_query($dbc, $query);
-        				// login the user
-        				$query = "SELECT user_id FROM users WHERE username = '$username'";
+
+        				// send activation mail
+        				$query = "SELECT user_id FROM users WHERE email = '$email'";
         				$result = mysqli_query($dbc, $query);
         				$row = mysqli_fetch_array($result);
-        				$_SESSION['user_id'] = $row['user_id'];
-        				$_SESSION['username'] = $username;
+        				$user_id = $row['user_id'];
+        				require_once(__DIR__ . '/../controls/mailer.php');
+        				$activation_link = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
+        				$to = $email;
+        				$from = 'regdesk.vjti@gmail.com';
+        				$from_name = 'VJTI RegDesk';
+        				$subject = 'RegDesk Account Activation';
+        				$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>".$activation_link."</a><br><br>You can login to your account after activation.";
+        				singlemail($to, $from, $from_name, $subject, $body);
 
         				// redirect to confirmation page
 						header('Location: confirmsignup.php');
@@ -64,15 +72,16 @@
 					}
 				}
 				else {
-					// username exits. ask user for a different one.
-					$err_msg = 'The username has been taken. Choose another one.';
+					// email exits. ask user for a different one.
+					$err_msg = 'The email id has been used. Choose another one. <a href="forgot.php">Forgot password?</a>';
 				}
 			}
 			else {
 				$err_msg = 'Please fill the required fields.';
 			}
 		}
-	}/*
+	}
+	/*
 	else {
 		// user is logged in so redirect to dashboard
 		header('Location: dashboard.php');
@@ -106,20 +115,24 @@
 		<input type="text" name="last_name" placeholder="Last" required value="<?php if(isset($last_name)) echo $last_name; ?>">
 	</fieldset>
 
+	<!--
 	<fieldset>
 		<legend>Username</legend>
 		<input type="text" name="username" placeholder="Pick a username" required value="<?php if(isset($username)) echo $username; ?>">
+	</fieldset>
+	-->
+
+	<fieldset>
+		<legend>e-mail</legend>
+		<input type="email" name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
+		<p>This will be used for all further communications with you. If you don't have one, you should. Seriously.</p>
 	</fieldset>
 
 	<fieldset>
 		<legend>Password</legend>
 		<input type="password" name="password1" placeholder="Create a password" required>
 		<input type="password" name="password2" placeholder="Confirm password" required>
-	</fieldset>
-
-	<fieldset>
-		<legend>e-mail</legend>
-		<input type="text" name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
+		<p>No rules. Just make sure it's not easy to crack.</p>
 	</fieldset>
 
 	<fieldset>
@@ -143,18 +156,19 @@
 		<label for="programme">Programme:</label>
 		<select name="programme">
 		<?php
-			$programmes = array('B.Tech.', 'M.Tech.', 'M.C.A.', 'PhD', 'Diploma');
-			foreach ($programmes as $programme) {
-				echo '<option value="'.$programme.'">'.$programme.'</option>';
+			$query = "SELECT programme_id, programme_name FROM programmes";
+			$programmes = mysqli_query($dbc, $query);
+			while ($programme = mysqli_fetch_array($programmes)) {
+				echo '<option value="'.$programme['programme_id'].'">'.$programme['programme_name'].'</option>';
 			}
 		?>
 		</select>
 		<label for="year">Year:</label>
 		<select name="year">
 		<?php
-			$years = array('First', 'Second', 'Third', 'Fourth');
-			foreach ($years as $year) {
-				echo '<option value="'.$year.'">'.$year.'</option>';
+			$years = array('First' => 1, 'Second' => 2, 'Third' => 3, 'Fourth' => 4);
+			foreach ($years as $key => $value) {
+				echo '<option value="'.$value.'">'.$key.'</option>';
 			}
 		?>
 		</select>
@@ -165,15 +179,14 @@
 		<select name="branch">
 		<?php
 			$query = "SELECT branch_id, branch_name FROM branches";
-			$rows = mysqli_query($dbc, $query);
-			while($row = mysqli_fetch_array($rows)) {
-				echo '<option value="'.$row['branch_id'].'">'.$row['branch_name'].'</option>';
+			$branches = mysqli_query($dbc, $query);
+			while($branch = mysqli_fetch_array($branches)) {
+				echo '<option value="'.$branch['branch_id'].'">'.$branch['branch_name'].'</option>';
 			}
 		?>
 		</select>
 	</fieldset>
 
-	<!--Do the rest-->
 	<br>
 	<input type="submit" name="submit" value="Create account">
 </form>
