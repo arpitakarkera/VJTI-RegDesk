@@ -13,6 +13,18 @@
 <head>
 	<!--Dynamically render the title. If not set just show "VJTI RegDesk". Value of title is set before including the header.-->
 	<title>VJTI-RegDesk<?php if(isset($title)) echo " | ".$title; ?></title>
+	<?php
+		if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+			// css link for index page
+		}
+		else if (basename($_SERVER['PHP_SELF']) == 'signup.php') {
+			// for signup
+		}
+		// similarly you can add more
+		else {
+			// default one
+		}
+	?>
 </head>
 <body>
 <!--Display navigation bar for all pages except index page-->
