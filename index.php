@@ -29,7 +29,7 @@
 			
 				<img src="images/logo.png" class="img-circle img-responsive" alt="VJTI-RegDesk" width="200" height="200">
 				<p style="font-family:'Domine', serif;font-size:120px;color:#FFFFFF"> VJTI-RegDesk </p>
-				<p style="font-family: 'Droid Sans', sans-serif;font-size:40px;color:rgb(195,195,195)">One  Account . Many  Oppurtunities .</p>
+				<p style="font-family: 'Droid Sans', sans-serif;font-size:50px;color:rgb(195,195,195)">One  Account. Many  Opportunities.</p>
 			
 
 
@@ -65,7 +65,7 @@
 		</div>
 		
 		<div class="col-sm-offset-5 col-sm-7">
-		<button type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In!</button>
+		<button type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
 		</div>
 		<br>
 		<br>
@@ -107,6 +107,8 @@
 <br>
 <br>
 <br>
+<p class="text-center" style="font-family: 'Acme', sans-serif; font-size:50px;color:rgb(0,0,0)">Our Partners</p>
+
 <div class="container-fluid" >
 	<br>
 		<div id="mycarousel" class= "carousel slide"  data-ride="carousel">
@@ -206,5 +208,46 @@ $(document).ready(function(){
     });
 });
 </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid text-center" style="font-family: 'Acme', sans-serif;font-size:50px; color:rgb(0,0,0)">
+<div class="row">
+<div class="col-sm-3">
+<img src="images/events.png" class="img-circle" alt="EVENTS">
+<p> Events</p>
+</div>
+<div class="col-sm-3">
+<img src="images/workshop.png" class="img-circle" alt="WORKSHOPS">
+<p> Workshops</p>
+</div>
+<div class="col-sm-3">
+<img src="images/competitions.png" class="img-circle" alt="COMPETITIONS">
+<p>Competitions</p>
+</div>
+<div class="col-sm-3">
+<img src="images/Lectures.png" class="img-circle" alt="LECTURES">
+<p>Lectures</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid text-center">
+<p  style="font-family: 'Acme', sans-serif;font-size:50px; color:rgb(0,0,0)">Don't miss out!</p>
+<a href="public/signup.php"><button type="button" class="btn btn-success btn-lg">Sign Up!</button></a>
+</div>
+<br>
+<br>
+<br>
+<script>
+  $('.carousel').carousel({
+   interval: 2000
+  });
+ </script> 
 <!---Render footer-->
 <?php require_once(__DIR__ . '/includes/footer.php'); ?>
