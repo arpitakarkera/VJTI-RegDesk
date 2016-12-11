@@ -9,8 +9,16 @@
 ?>
 
 		<footer>
+			
+			<div id="p" class="container-fluid">
+			<p style="color:#FFFFFF">
+	
 			&copy; <?php echo date('Y'); ?>, RegDesk Inc.
-			<a href="developers.php">Meet the Devs!</a>
+			</p>
+			
+			<p class="text-right"><a href="developers.php" >Meet the Devs!</a></p>
+			
+			</div>
 		</footer>
 </body>
 </html>

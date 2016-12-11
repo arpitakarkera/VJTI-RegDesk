@@ -23,7 +23,8 @@
 			echo '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Domine:700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">  
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -38,7 +39,7 @@
   }
  #p.container-fluid
   {
-  	 background-image: url("images/index_background.jpg");
+  	 background-image: url("images/newbgm.png");
     background-repeat: repeat;
     background-position: right top;
     background-attachment: fixed;
