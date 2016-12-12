@@ -1,0 +1,18 @@
+.carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 100%;
+        margin:auto;
+    }
+    #p.container-fluid {
+        background-image: url("../images/newbgm.png");
+        background-repeat: repeat;
+        background-position: right top;
+        background-attachment: fixed;
+    }
+    .transparent {
+        background-color:#FFFFFF;
+        box-shadow:inset 0px 1px 0 rgba(0,0,0,.075);
+    }
+    .left-border-none {
+        box-shadow:inset 0px 1px 0 rgba(0,0,0,.075);
+    }

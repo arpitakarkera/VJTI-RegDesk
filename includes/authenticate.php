@@ -20,6 +20,16 @@
 			// user is not logged in so redirect to index page
 			header('Location: /VJTI-RegDesk/index.php');
 		}
+
+		$managerial_pages = array('addevent.php');
+		if (in_array(basename($_SERVER['PHP_SELF']), $managerial_pages)) {
+			// current page is meant for only managers
+
+			if (!isset($_SESSION['manager_id'])) {
+				// user is not a manager do redirect to dashboard
+				header('Location: /VJTI-RegDesk/public/dashboard.php');
+			}
+		}
 	}
 	else {
 		// current page does not require user to log in
