@@ -27,13 +27,9 @@
 		<div class="col-sm-8">
 			<br>
 			
-				<img src="images/logo.png" class="img-circle img-responsive" alt="VJTI-RegDesk" width="200" height="200">
-				<p style="font-family:'Domine', serif;font-size:120px;color:#FFFFFF"> VJTI-RegDesk </p>
+				<img src="images/logo.png" class="img-circle img-responsive" alt="VJTI RegDesk" width="200" height="200">
+				<p style="font-family:'Domine', serif;font-size:120px;color:#FFFFFF"> VJTI RegDesk </p>
 				<p style="font-family: 'Droid Sans', sans-serif;font-size:50px;color:rgb(195,195,195)">One  Account. Many  Opportunities.</p>
-			
-
-
-
 		</div>
 		<div class="col-sm-4">
 		<br>
@@ -44,48 +40,36 @@
 		<br>
 		<br>
 		
-		
 	<form roll="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-		
-
 		<div class="form-group">
 		<div class="input-group">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-envelope"></span></span>
 		<input type="email" class="form-control left-border-none" id="email" name="user_email" placeholder="e-mail" required value="<?php if(isset($user_email)) echo $user_email; ?>">
 		</div>
-		
-		</div>
-		
 		<br>
-		<div class="form-group">
 		<div class="input-group">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-lock"></span></span>
 		<input type="password" class="form-control" id="pwd" name="user_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required>
 		</div>
 		</div>
-		
-		<div class="col-sm-offset-5 col-sm-7">
+		<br>
+		<div class="col-sm-offset-4 col-sm-7">
 		<button type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
 		</div>
-		<br>
-		<br>
-		<br>
 		<div class="col-sm-offset-4 col-sm-8">
-		<a href="public/forgot.php" style="font-family:20px 'Montserrat', sans-serif; line-height: 1.8;font-size:20px">
-		<b>Forgot  Password?</b>
+		<a href="public/forgot.php" style="font-family:'Montserrat', sans-serif; line-height: 1.8;font-size:15px">
+		Forgot  Password?
 		</a>
 		</div>
 		<br>
 		<br>
 		
 		<div class="col-sm-offset-2 col-sm-10">
-		<p style="font-family:'Montserrat', sans-serif;line-height: 1.8;font-size:25px;color:#FFFFFF">
-			<b>Don't  have  an  account?</b>
-
+		<p style="font-family:'Montserrat', sans-serif;line-height: 1.8;font-size:20px;color:#FFFFFF">
+			Don't  have  an  account?
 		</p>
 		</div>
 		
-		<br>
 		<br>
 		<br>
 		<div class="col-sm-offset-5 col-sm-7">

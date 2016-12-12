@@ -41,5 +41,13 @@
 			}
 		}
 	}
+
+	// render header
+	$title = 'Activate';
+	require_once(__DIR__ . '/../includes/header.php');
+
 	echo $display_msg;
+
+	// render footer
+	require_once(__DIR__ . '/../includes/footer.php');
 ?>

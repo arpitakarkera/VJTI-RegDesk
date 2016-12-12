@@ -7,7 +7,7 @@
 	 *
 	 */
 
-	// authenticate user
+	// authenticate
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
 	$title = 'Dashboard';

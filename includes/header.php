@@ -1,6 +1,6 @@
 <?php
 	/*
-	 * @author:Sunaina Punyani, Arpita Karkera
+	 * @author: Sunaina Punyani, Arpita Karkera
 	 * @date: 4th December, 2016
 	 * 
 	 * Header template file. To be included in every page.
@@ -25,14 +25,22 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<?php
 		if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-			echo '<link rel="stylesheet" type="text/css" href="../css/indexstyle.css">  
-			
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Domine:700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">';
 
 
+
+			echo '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+                    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+                    <link href="https://fonts.googleapis.com/css?family=Domine:700" rel="stylesheet">
+                    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+                    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">  
+                    <!-- jQuery library -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+                    <!-- Latest compiled JavaScript -->
+                    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+                    <!--My css file-->
+                    <link rel = "stylesheet" type = "text/css" href="css/index.css">';
 
 		}
 		else if (basename($_SERVER['PHP_SELF']) == 'signup.php') {

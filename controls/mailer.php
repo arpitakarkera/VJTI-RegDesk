@@ -2,6 +2,8 @@
 
 define('USER', 'regdesk.vjti@gmail.com');
 define('PSWD', 'tingtong6102');
+define('NAME', 'VJTI RegDesk');
+define('ADMIN', 'regdesk.admin@gmail.com');
 
 require (__DIR__ . '/../PHPMailer/PHPMailerAutoload.php');
 
