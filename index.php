@@ -220,7 +220,7 @@ $(document).ready(function(){
 <p> Events</p>
 </div>
 <div class="col-sm-3">
-<img src="images/workshop.png" class="img-circle" alt="WORKSHOPS">
+<img src="images/workshops.png" class="img-circle" alt="WORKSHOPS">
 <p> Workshops</p>
 </div>
 <div class="col-sm-3">
