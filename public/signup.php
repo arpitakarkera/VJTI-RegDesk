@@ -1,6 +1,6 @@
 <?php
 	/*
-	 * @author: Arpita Karkera
+	 * @author: Arpita Karkera,Sunaina Punyani
 	 * @date: 5th December, 2016
 	 * 
 	 * Sign Up page and logic
@@ -102,82 +102,132 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
-<h1>Join VJTI-RegDesk</h1>
-<h3>Easy. Simple. Effective.</h3>
-
-<div>
-<h3>Create your account</h3>
+<div style="padding-left: 89px">
+<h1 style="font-family:cursive;font-weight:bold;">Join VJTI-RegDesk<h1>
+<h3 style="font-family:cursive;font-weight:bold;">Easy. Simple. Effective.</h3>
+<h3 style="font-family:cursive;font-weight:bold;">Create your account</h3>
+</div>
 <p><?php echo $err_msg; ?></p>
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-	<fieldset>
-		<legend>Name</legend>
-		<input type="text" name="first_name" placeholder="First" required value="<?php if(isset($first_name)) echo $first_name; ?>">
-		<input type="text" name="last_name" placeholder="Last" required value="<?php if(isset($last_name)) echo $last_name; ?>">
-	</fieldset>
-
-	<!--
-	<fieldset>
-		<legend>Username</legend>
-		<input type="text" name="username" placeholder="Pick a username" required value="<?php if(isset($username)) echo $username; ?>">
-	</fieldset>
-	-->
-
-	<fieldset>
-		<legend>e-mail</legend>
-		<input type="email" name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
-		<p>This will be used for all further communications with you. If you don't have one, you should. Seriously.</p>
-	</fieldset>
-
-	<fieldset>
-		<legend>Password</legend>
-		<input type="password" name="password1" placeholder="Create a password" required>
-		<input type="password" name="password2" placeholder="Confirm password" required>
-		<p>No rules. Just make sure it's not easy to crack.</p>
-	</fieldset>
-
-	<fieldset>
-		<legend>Contact</legend>
-		<input type="text" name="contact" placeholder="Your mobile number" value="<?php if(isset($contact)) echo $contact; ?>">
-	</fieldset>
-
-	<fieldset>
-		<legend>Gender</legend>
-		<input type="radio" name="gender" value="M" id="Male"><label for="Male">Male</label>
-		<input type="radio" name="gender" value="F" id="Female"><label for="Female">Female</label>
-	</fieldset>
-
-	<fieldset>
-		<legend>ID</legend>
-		<input type="text" name="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
-	</fieldset>
-
-	<fieldset>
-		<legend>Programme and Year</legend>
-		<label for="programme">Programme:</label>
-		<select name="programme">
-		<?php
+<div class="container">
+	<form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+	<!name>
+	<div class="form-group">
+		<label for="usr">Name</label>
+		<br>
+		<div class="row">
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="usr" placeholder="First" name="first_name" required value="<?php if(isset($first_name)) echo $first_name; ?>">
+		</div>
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="usr" placeholder="Last" name="last_name" required value="<?php if(isset($last_name)) echo $last_name; ?>">
+		</div>
+		</div>
+	</div>
+	<br>
+	<!email>
+	<div class="form-group">
+		<label for="email">Email</label>
+		<br>
+		<div class="row">
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="email"  name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
+			
+		</div>
+		</div>
+		<span class="help-block">This will be used for all further communications with you. If you don't have one, you should. Seriously.</span>
+	</div>
+	<br>
+	<!password>
+	<div class="form-group">
+		<label for="pwd">Password</label>
+		<br>
+		<div class="row">
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="pwd" placeholder="Create a password"  required>
+		</div>
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="pwd" placeholder="Confirm password"  required>
+		</div>
+		</div>
+		<span class="help-block">No rules. Just make sure it's not easy to crack.</span>
+	</div>
+	<br>
+	<!contact>
+	<div class="form-group">
+		<label for="cont">Contact</label>
+		<br>
+		<div class="row">
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="cont" name="contact" placeholder="Your mobile number" value="<?php if(isset($contact)) echo $contact; ?>">
+		</div>
+		</div>
+	</div>
+	<br>
+	<!gender>
+	<label >Gender:</label>
+	<br>
+		<label for="Male" class="radio-inline">
+			<input type="radio" name="gender" value="M" id="Male">Male
+		</label>
+		<label  for="Female" class="radio-inline" >
+		
+			<input type="radio" name="gender" value="F" id="Female">Female
+		</label>
+	<br>
+	<br>
+	<!id>
+	<div class="form-group">
+		<label for="id">Id</label>
+		<br>
+		<div class="row">
+		<div class="col-sm-4">
+			<input class="form-control" type="text" id="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
+		</div>
+		</div>
+	</div>
+	<br>
+	<!prog and year>
+	<div class="form-group">
+		<label>Programme and Year</label>
+		<br>
+		<div class="row">
+		<div class="col-sm-4">
+			<label  for="programme">Programme:</label>
+			
+			<select class="form-control" name="programme">
+				<?php
 			$query = "SELECT programme_id, programme_name FROM programmes";
 			$programmes = mysqli_query($dbc, $query);
 			while ($programme = mysqli_fetch_array($programmes)) {
 				echo '<option value="'.$programme['programme_id'].'">'.$programme['programme_name'].'</option>';
 			}
 		?>
-		</select>
-		<label for="year">Year:</label>
-		<select name="year">
-		<?php
+			</select>
+			
+		</div>
+		<div class="col-sm-4">
+			<label for="year">Year:</label>
+		
+			<select class="form-control" name="year">
+				<?php
 			$years = array('First' => 1, 'Second' => 2, 'Third' => 3, 'Fourth' => 4);
 			foreach ($years as $key => $value) {
 				echo '<option value="'.$value.'">'.$key.'</option>';
 			}
 		?>
-		</select>
-	</fieldset>
+			</select>
+		</div>
+	</div>
+	<br>
+	<!branch>
+	<div class="form-group">
+		
+		<div class="row">
 
-	<fieldset>
-		<legend>Branch</legend>
-		<select name="branch">
-		<?php
+		<div class="col-sm-4">
+		<label for="branch">Branch:</label>
+		<select class="form-control" name="branch">
+			<?php
 			$query = "SELECT branch_id, branch_name FROM branches";
 			$branches = mysqli_query($dbc, $query);
 			while($branch = mysqli_fetch_array($branches)) {
@@ -185,13 +235,12 @@
 			}
 		?>
 		</select>
-	</fieldset>
-
-	<br>
-	<input type="submit" name="submit" value="Create account">
-</form>
+		</div>
+	</div>
+    <br>
+	<button class="btn btn-success btn-lg" type="submit">Create an account</button>
+	</form>
 </div>
-
 <!--Render footer-->
 <?php
 	require_once(__DIR__ . '/../includes/footer.php');
