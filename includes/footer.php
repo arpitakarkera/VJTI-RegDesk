@@ -1,6 +1,6 @@
 <?php
 	/*
-	 * @author: Arpita Karkera,Sunaina Punyani
+	 * @author: Arpita Karkera,vSunaina Punyani
 	 * @date: 4th December, 2016
 	 * 
 	 * Footer template file. To be included in every page.
