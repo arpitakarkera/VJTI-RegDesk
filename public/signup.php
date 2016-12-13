@@ -43,15 +43,15 @@
 					// email is unique
 					if ($password1 != $password2) // passwords don't match
 						$err_msg = 'The passwords don\'t match.';
-					if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // email is invalid
+					else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // email is invalid
 						$err_msg = 'The email provided is invalid.';
-					if (!validate_contact($contact)) // contact is invalid
+					else if (!validate_contact($contact)) // contact is invalid
 						$err_msg = 'The contact number provided is invalid.';
 					else {
 						// insert data into database
-						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified, join_date) VALUES ('$email', SHA('$password1'), $id, '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0, NOW())";
+						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified) VALUES ('$email', SHA('$password1'), '$id', '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0)";
         				mysqli_query($dbc, $query);
-
+    					
         				// send activation mail
         				$query = "SELECT user_id FROM users WHERE email = '$email'";
         				$result = mysqli_query($dbc, $query);
@@ -60,15 +60,21 @@
         				require_once(__DIR__ . '/../controls/mailer.php');
         				$activation_link = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
         				$to = $email;
-        				$from = 'regdesk.vjti@gmail.com';
+        				$from = NAME;
         				$from_name = 'VJTI RegDesk';
         				$subject = 'RegDesk Account Activation';
         				$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>".$activation_link."</a><br><br>You can login to your account after activation.";
         				singlemail($to, $from, $from_name, $subject, $body);
 
-        				// redirect to confirmation page
-						header('Location: confirmsignup.php');
-
+        				// display confirmation
+        				// render header
+						$title = 'Sign Up';
+						require_once(__DIR__ . '/../includes/header.php');
+						echo "<h3>Congratulations!</h3>".
+							 "<p>You have successfully signed up!.<br>But your account is not activated yet. We've sent the one time activation link to your email id. Just click on the link to activate your account and enjoy our services.</p>";
+						// render footer
+						require_once(__DIR__ . '/../includes/footer.php');
+						exit();
 					}
 				}
 				else {
@@ -103,14 +109,16 @@
 ?>
 
 <div style="padding-left: 89px">
-<h1 style="font-family:cursive;font-weight:bold;">Join VJTI-RegDesk<h1>
+<h1 style="font-family:cursive;font-weight:bold;">Join VJTI RegDesk<h1>
 <h3 style="font-family:cursive;font-weight:bold;">Easy. Simple. Effective.</h3>
+<br>
 <h3 style="font-family:cursive;font-weight:bold;">Create your account</h3>
 </div>
+<br>
 <p><?php echo $err_msg; ?></p>
 <div class="container">
 	<form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-	<!name>
+	<!--name-->
 	<div class="form-group">
 		<label for="usr">Name</label>
 		<br>
@@ -124,35 +132,34 @@
 		</div>
 	</div>
 	<br>
-	<!email>
+	<!--email-->
 	<div class="form-group">
 		<label for="email">Email</label>
 		<br>
 		<div class="row">
 		<div class="col-sm-4">
-			<input class="form-control" type="text" id="email"  name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
-			
+			<input class="form-control" type="email" id="email"  name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
 		</div>
 		</div>
 		<span class="help-block">This will be used for all further communications with you. If you don't have one, you should. Seriously.</span>
 	</div>
 	<br>
-	<!password>
+	<!--password-->
 	<div class="form-group">
 		<label for="pwd">Password</label>
 		<br>
 		<div class="row">
 		<div class="col-sm-4">
-			<input class="form-control" type="text" id="pwd" placeholder="Create a password"  required>
+			<input class="form-control" type="password" name="password1" id="pwd" placeholder="Create a password"  required>
 		</div>
 		<div class="col-sm-4">
-			<input class="form-control" type="text" id="pwd" placeholder="Confirm password"  required>
+			<input class="form-control" type="password" name="password2" id="pwd" placeholder="Confirm password"  required>
 		</div>
 		</div>
 		<span class="help-block">No rules. Just make sure it's not easy to crack.</span>
 	</div>
 	<br>
-	<!contact>
+	<!--contact-->
 	<div class="form-group">
 		<label for="cont">Contact</label>
 		<br>
@@ -163,32 +170,27 @@
 		</div>
 	</div>
 	<br>
-	<!gender>
-	<label >Gender:</label>
+	<!--gender-->
+	<label >Gender</label>
 	<br>
-		<label for="Male" class="radio-inline">
-			<input type="radio" name="gender" value="M" id="Male">Male
-		</label>
-		<label  for="Female" class="radio-inline" >
-		
-			<input type="radio" name="gender" value="F" id="Female">Female
-		</label>
+		<input type="radio" name="gender" value="M" id="M"><label for="M" class="radio-inline">Male</label>
+		<input type="radio" name="gender" value="F" id="F"><label  for="F" class="radio-inline" >Female</label>
 	<br>
 	<br>
-	<!id>
+	<!--id-->
 	<div class="form-group">
-		<label for="id">Id</label>
+		<label for="id">ID</label>
 		<br>
 		<div class="row">
 		<div class="col-sm-4">
-			<input class="form-control" type="text" id="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
+			<input class="form-control" type="text" name="id" id="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
 		</div>
 		</div>
 	</div>
 	<br>
-	<!prog and year>
+	<!--prog and year-->
 	<div class="form-group">
-		<label>Programme and Year</label>
+		<label>Course Details</label>
 		<br>
 		<div class="row">
 		<div class="col-sm-4">
@@ -219,7 +221,7 @@
 		</div>
 	</div>
 	<br>
-	<!branch>
+	<!--branch-->
 	<div class="form-group">
 		
 		<div class="row">
@@ -238,7 +240,8 @@
 		</div>
 	</div>
     <br>
-	<button class="btn btn-success btn-lg" type="submit">Create an account</button>
+    <br>
+	<input type="submit" name="submit" value="Create an account">
 	</form>
 </div>
 <!--Render footer-->
