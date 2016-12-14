@@ -42,38 +42,37 @@
 		
 	<form roll="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 		<div class="form-group">
-		<div class="input-group">
+		<div class="input-group"  style="padding-right:70px">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-envelope"></span></span>
 		<input type="email" class="form-control left-border-none" id="email" name="user_email" placeholder="e-mail" required value="<?php if(isset($user_email)) echo $user_email; ?>">
 		</div>
 		<br>
-		<div class="input-group">
+
+		<div class="input-group"  style="padding-right:70px">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-lock"></span></span>
 		<input type="password" class="form-control" id="pwd" name="user_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required>
 		</div>
 		</div>
 		<br>
-		<div class="col-sm-offset-4 col-sm-7">
-		<button type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
-		</div>
-		<div class="col-sm-offset-4 col-sm-8">
+		
+		<button id="in" type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
+		<br>
+		<br>
+		<div style="padding-left:105px;">
 		<a href="public/forgot.php" style="font-family:'Montserrat', sans-serif; line-height: 1.8;font-size:15px">
 		Forgot  Password?
 		</a>
 		</div>
 		<br>
-		<br>
-		
-		<div class="col-sm-offset-2 col-sm-10">
+		<div style="padding-left:60px">
 		<p style="font-family:'Montserrat', sans-serif;line-height: 1.8;font-size:20px;color:#FFFFFF">
 			Don't  have  an  account?
 		</p>
 		</div>
 		
 		<br>
-		<br>
-		<div class="col-sm-offset-5 col-sm-7">
-			<a href="public/signup.php"><button type="button"  class="btn btn-success btn-lg">Sign Up!</button></a>
+		<div>
+			<a href="public/signup.php"><button id="up" type="button"  class="btn btn-success btn-lg">Sign Up!</button></a>
 		</div>
 	</form>
 	    </div>

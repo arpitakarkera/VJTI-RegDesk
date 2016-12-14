@@ -1,3 +1,10 @@
+/*
+   * @author:Sunaina Punyani
+   * @date: 4th December, 2016
+   * 
+   *css for index page.
+   *
+   */
 .carousel-inner > .item > img,
     .carousel-inner > .item > a > img {
         width: 100%;
@@ -15,4 +22,14 @@
     }
     .left-border-none {
         box-shadow:inset 0px 1px 0 rgba(0,0,0,.075);
+    }
+    #in.btn-lg {
+    padding: 5px 145px ;
+    font-size: 20px;
+    border-radius: 10px;
+    }
+    #up.btn-lg {
+    padding: 5px 138px ;
+    font-size: 20px;
+    border-radius: 10px;
     }

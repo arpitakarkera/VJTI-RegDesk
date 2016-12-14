@@ -241,7 +241,7 @@
 	</div>
     <br>
     <br>
-	<input type="submit" name="submit" value="Create an account">
+	<button class="btn btn-lg btn-default" type="submit" name="submit" value="Create an account">Create an account</button>
 	</form>
 </div>
 <!--Render footer-->
