@@ -23,7 +23,7 @@
     .left-border-none {
         box-shadow:inset 0px 1px 0 rgba(0,0,0,.075);
     }
-    #in.btn-lg {
+   #in.btn-lg {
     padding: 5px 145px ;
     font-size: 20px;
     border-radius: 10px;

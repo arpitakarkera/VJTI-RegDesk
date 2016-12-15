@@ -56,6 +56,7 @@
 		<br>
 		
 		<button id="in" type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
+		
 		<br>
 		<br>
 		<div style="padding-left:105px;">
@@ -71,9 +72,9 @@
 		</div>
 		
 		<br>
-		<div>
+		
 			<a href="public/signup.php"><button id="up" type="button"  class="btn btn-success btn-lg">Sign Up!</button></a>
-		</div>
+		
 	</form>
 	    </div>
 	</div> 
@@ -95,7 +96,7 @@
 <div class="container-fluid" >
 	<br>
 		<div id="mycarousel" class= "carousel slide"  data-ride="carousel">
-			<!.. Indicators ..>
+			<!--Indicators-->
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1" ></li>
