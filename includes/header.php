@@ -43,7 +43,7 @@
                     <link rel = "stylesheet" type = "text/css" href="css/index.css">';
 
 		}
-		else if (basename($_SERVER['PHP_SELF']) == 'signup.php') {
+		else if (basename($_SERVER['PHP_SELF']) == 'signup.php' || basename($_SERVER['PHP_SELF']) == 'addevent.php') {
 			//for sign-up
 			echo' <link href="https://fonts.googleapis.com/css?family=Mirza:600" rel="stylesheet"> 
 			<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
@@ -68,8 +68,23 @@ font-weight: bold;
 <!--Display navigation bar for all pages except index page-->
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
-		echo '<header>';
-		// some other stuff
-		echo '</header>';
+		echo '<header style="background-image: url(\'../images/newbgm.png\');display:block;">
+		<div class="contanier-fluid" >
+		<div class="row" >
+		<div class="col-sm-1" style="padding-left:50px;padding-top:12px;">
+		
+		<img src="../images/logo.png" class="img-circle img-responsive" alt="VJTI RegDesk" width="52" height="52">
+		
+		</div>
+		
+		<div style="padding-top:20px">
+		<b style="font-size:25px;color:#FFFFFF;font-weight:bold;" class="text-left">VJTI-RegDesk</b>
+		
+		
+		</div>
+		<br>
+		</div> 
+
+		</header>';
 	}
 ?>
