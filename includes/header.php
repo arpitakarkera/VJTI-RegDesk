@@ -68,21 +68,20 @@ font-weight: bold;
 <!--Display navigation bar for all pages except index page-->
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
-		echo '<header style="background-image: url("../images/newbgm.png");display:block;">
-		<div class="contanier-fluid" style="padding-left:20px;padding-top:10px;">
+		echo '<header style="background-image: url(\'../images/newbgm.png\');display:block;">
+		<div class="contanier-fluid" >
 		<div class="row" >
-		<div class="col-sm-2">
+		<div class="col-sm-1" style="padding-left:50px;padding-top:12px;">
 		
-		<img src="../images/logo.png" class="img-circle img-responsive" alt="VJTI RegDesk" width="50" height="50">
-		
-		</div>
-		<div class="col-sm-2">
-		
-		<b style="font-size:25px;color:#FFFFFF">VJTI-RegDesk</b>
+		<img src="../images/logo.png" class="img-circle img-responsive" alt="VJTI RegDesk" width="52" height="52">
 		
 		</div>
+		
+		<div style="padding-top:20px">
+		<b style="font-size:25px;color:#FFFFFF;font-weight:bold;" class="text-left">VJTI-RegDesk</b>
+		
+		
 		</div>
-		<br>
 		<br>
 		</div> 
 

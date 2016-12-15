@@ -59,12 +59,12 @@
 	$title = 'Post Event';
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
-
+<br>
 <div class="container">
 	<form class="form-horizontal" role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 	<div class="form-group">
 
-		<!event name>
+		<!--event name-->
 			<label class="contol-label">Event Name</label>
 			<br>
 			<div class="row">
@@ -73,7 +73,7 @@
 			</div>
 			</div>
 			<br>
-		<!description>
+		<!--description-->
 			<label class="control-label">Description</label>
 			<!-- Adjust the number of rows and columns as required-->
 			<br>
@@ -83,7 +83,7 @@
 			</div>
 			</div>
 		<br>
-		<!schedule>
+		<!--schedule-->
 			<label class="control-label">Schedule</label>
 			<br>
 			<label class="control-label" for="start">From: </label>
@@ -113,7 +113,7 @@
 			</div>
 			</div>
 			<br>
-			<!incharge>
+			<!--incharge-->
 			<label class="control-label">Incharge</label>
 			<span class="help-block">Who should be contacted for any queries?</span>
 			<div class="row">
@@ -137,7 +137,7 @@
 			</div>
 			<br>
 
-			<!group>
+			<!--group-->
 			<label class="control-label">Group</label>
 			<br>
 			<div class="row">
@@ -166,7 +166,7 @@
 			</div>
 			</div>
 			<br>
-		<!details>
+		<!--details-->
 		
 			<label class="control-label">Details</label>
 			<br>
@@ -190,7 +190,7 @@
 			</div>
 			</div>
 			<br>
-			<!note>
+			<!--note-->
 			<label class="control-label">Note</label>
 			<br>
 			<label class="control-label">Any other relevant instruction?</label>
