@@ -24,66 +24,46 @@
 
 <div class="container-fluid" id="p" style="min-height:100%;height:100%;width:100%">
 	<div class="row">
-		<div class="col-sm-8">
-			<br>
-			
-				<img src="images/logo.png" class="img-circle img-responsive" alt="VJTI RegDesk" width="200" height="200">
-				<p style="font-family:'Domine', serif;font-size:120px;color:#FFFFFF"> VJTI RegDesk </p>
-				<p style="font-family: 'Droid Sans', sans-serif;font-size:50px;color:rgb(195,195,195)">One  Account. Many  Opportunities.</p>
+		<div class="col-sm-8" style="padding-left: 20px; padding-bottom: 10%; padding-top: 15%;">
+			<div class="container-fluid" id="z" style="min-height: 100%; height: 100%, width: 100%">
+				<div class="row">
+					<div class="col-sm-2">
+						<img src="images/logo.png" class="img-responsive" alt="VJTI RegDesk" height="200px" width="200px">
+					</div>
+					<div class="col-sm-10">
+						<p style="font-family:'Open Sans', sans-serif; font-weight: 700; font-size: 100px;color: rgb(213,224,224);"> VJTI RegDesk </p>
+					</div>
+				</div>
+			</div>
+			<p style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size:50px;color: rgb(213,224,224)">&nbsp;One  Account. Many  Opportunities.</p>
 		</div>
-		<div class="col-sm-4">
-		<br>
-		<br>
-		<br>
-		<p><?php echo $err_msg; ?></p>
-		<br>
-		<br>
-		<br>
-		
+		<div class="col-sm-4" style="padding-right: 5%; padding-top: 10%; padding-bottom: 10%; text-align: center; vertical-align: center; align-self: center;">	
 	<form roll="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+		<p style="font-size: 15px; color: rgb(230,74,60);">&nbsp;<?php echo $err_msg; ?>&nbsp;</p>	
 		<div class="form-group">
-		<div class="input-group"  style="padding-right:70px">
+		<div class="input-group">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-envelope"></span></span>
 		<input type="email" class="form-control left-border-none" id="email" name="user_email" placeholder="e-mail" required value="<?php if(isset($user_email)) echo $user_email; ?>">
 		</div>
 		<br>
 
-		<div class="input-group"  style="padding-right:70px">
+		<div class="input-group">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-lock"></span></span>
 		<input type="password" class="form-control" id="pwd" name="user_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required>
 		</div>
 		</div>
 		<br>
-		
-		<button id="in" type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
-		
+		<button id="sign" type="submit" class="btn btn-success btn-lg" name="submit" value="Sign In">Sign In</button>
 		<br>
-		<br>
-		<div style="padding-left:105px;">
-		<a href="public/forgot.php" style="font-family:'Montserrat', sans-serif; line-height: 1.8;font-size:15px">
-		Forgot  Password?
-		</a>
+		<div style="text-align: center; padding-top: 10px">
+		<a href="public/forgot.php" style="font-size:15px">Forgot  Password?</a>
 		</div>
 		<br>
-		<div style="padding-left:60px">
-		<p style="font-family:'Montserrat', sans-serif;line-height: 1.8;font-size:20px;color:#FFFFFF">
-			Don't  have  an  account?
-		</p>
-		</div>
-		
-		<br>
-		
-			<a href="public/signup.php"><button id="up" type="button"  class="btn btn-success btn-lg">Sign Up!</button></a>
-		
+		<p style="font-size:20px;color:rgb(213,224,224)">Don't  have  an  account?</p>
+		<a href="public/signup.php"><button id="sign" type="button" class="btn btn-success btn-lg">Sign Up!</button></a>
 	</form>
 	    </div>
-	</div> 
-	<br>
-    <br>
-	<br> 
-	<br>
-	<br>
-	<br>  
+	</div>
 </div>
 
 <br>
@@ -91,7 +71,7 @@
 <br>
 <br>
 <br>
-<p class="text-center" style="font-family: 'Acme', sans-serif; font-size:50px;color:rgb(0,0,0)">Our Partners</p>
+<p class="text-center" style="font-size:50px;">Our Partners</p>
 
 <div class="container-fluid" >
 	<br>
@@ -192,37 +172,28 @@ $(document).ready(function(){
     });
 });
 </script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container-fluid text-center" style="font-family: 'Acme', sans-serif;font-size:50px; color:rgb(0,0,0)">
-<div class="row">
+<div class="container-fluid text-center" style="font-size:30px; color:rgb(0,0,0);">
+<div class="row" style=" padding-top: 200px; padding-bottom: 100px;">
 <div class="col-sm-3">
 <img src="images/events.png" class="img-circle" alt="EVENTS">
-<p> Events</p>
+<p id="category_label">Events</p>
 </div>
 <div class="col-sm-3">
-<img src="images/workshops.png" class="img-circle" alt="WORKSHOPS">
-<p> Workshops</p>
+<img src="images/workshop.png" class="img-circle" alt="WORKSHOPS">
+<p id="category_label">Workshops</p>
 </div>
 <div class="col-sm-3">
 <img src="images/competitions.png" class="img-circle" alt="COMPETITIONS">
-<p>Competitions</p>
+<p id="category_label">Competitions</p>
 </div>
 <div class="col-sm-3">
-<img src="images/Lectures.png" class="img-circle" alt="LECTURES">
-<p>Lectures</p>
+<img src="images/lectures.png" class="img-circle" alt="LECTURES">
+<p id="category_label">Lectures</p>
 </div>
 </div>
 </div>
-<br>
-<br>
-<br>
-<br>
 <div class="container-fluid text-center">
-<p  style="font-family: 'Acme', sans-serif;font-size:50px; color:rgb(0,0,0)">Don't miss out!</p>
+<p  style="font-size:50px; color:rgb(0,0,0)">Don't miss out!</p>
 <a href="public/signup.php"><button type="button" class="btn btn-success btn-lg">Sign Up!</button></a>
 </div>
 <br>
