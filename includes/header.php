@@ -14,49 +14,28 @@
 
 	<!--Dynamically render the title. If not set just show "VJTI RegDesk". Value of title is set before including the header.-->
 	<title>VJTI-RegDesk<?php if(isset($title)) echo " | ".$title; ?></title>
-
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700|PT+Sans:400,700|Raleway:500" rel="stylesheet">
+	<style type="text/css">
+		body {
+			font-family:'PT Sans', sans-serif;
+			padding-bottom: 0px;
+		}
+	</style>
 	<?php
 		if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-
-
-
-			echo '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-                    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-                    <link href="https://fonts.googleapis.com/css?family=Domine:700" rel="stylesheet">
-                    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
-                    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">  
-                    <!-- jQuery library -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-                    <!-- Latest compiled JavaScript -->
-                    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-                    <!--My css file-->
-                    <link rel = "stylesheet" type = "text/css" href="css/index.css">';
-
+			echo '<link rel = "stylesheet" type = "text/css" href="css/index.css">';
 		}
 		else if (basename($_SERVER['PHP_SELF']) == 'signup.php' || basename($_SERVER['PHP_SELF']) == 'addevent.php') {
-			//for sign-up
-			echo' <link href="https://fonts.googleapis.com/css?family=Mirza:600" rel="stylesheet"> 
-			<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-			<style>
-  label {
-font-family:cursive;
-font-weight: bold;
-}
-.firstLabel {
-    margin-right: 50px;
-}
-</style>'; 
-
+			//
+			echo '<link rel = "stylesheet" type = "text/css" href = "../css/form.css">';
 		}
 		// similarly you can add more
 		else {
@@ -68,23 +47,17 @@ font-weight: bold;
 <!--Display navigation bar for all pages except index page-->
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
-		echo '<header style="background-image: url(\'../images/newbgm.png\');display:block;">
+		echo '<header style="background-image: url(\'../images/background.jpg\');display:block;">
 		<div class="contanier-fluid" >
 		<div class="row" >
-		<div class="col-sm-1" style="padding-left:50px;padding-top:12px;">
-		
-		<img src="../images/logo.png" class="img-circle img-responsive" alt="VJTI RegDesk" width="52" height="52">
-		
-		</div>
-		
-		<div style="padding-top:20px">
-		<b style="font-size:25px;color:#FFFFFF;font-weight:bold;" class="text-left">VJTI-RegDesk</b>
-		
-		
-		</div>
+		<a href="../index.php"><div class="col-sm-1" style="padding-left:50px;padding-top:12px;">
+		<img src="../images/logo.png" class="img-responsive" alt="VJTI RegDesk" width="52" height="52">
+		</div></a>
+		<a href="../index.php" style="text-decoration:none"><div style="padding-top:20px">
+		<b style="font-size:25px;color:rgb(213,224,224);font-weight:bold;" class="text-left">VJTI RegDesk</b>
+		</div></a>
 		<br>
-		</div> 
-
+		</div></div>
 		</header>';
 	}
 ?>

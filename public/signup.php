@@ -108,16 +108,14 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
-<div style="padding-left: 89px">
-<h1 style="font-family:cursive;font-weight:bold;">Join VJTI RegDesk<h1>
-<h3 style="font-family:cursive;font-weight:bold;">Easy. Simple. Effective.</h3>
-<br>
-<h3 style="font-family:cursive;font-weight:bold;">Create your account</h3>
+<div style="font-family: 'Raleway', sans-serif; padding-left: 6%; padding-top: 5%; padding-bottom: 3%;">
+<h1 style="font-weight:bold;">Join VJTI RegDesk</h1>
+<h3>Easy.&nbsp;&nbsp;Simple.&nbsp;&nbsp;Effective.</h3>
 </div>
-<br>
-<p><?php echo $err_msg; ?></p>
 <div class="container">
-	<form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+	<h3 style="font-weight:bold;">Create your account</h3>
+	<div class="form-group"><form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"></div>
+	<div class="form-group" style="color: red;"><p>&nbsp;<?php echo $err_msg; ?>&nbsp;</p></div>
 	<!--name-->
 	<div class="form-group">
 		<label for="usr">Name</label>
@@ -191,7 +189,7 @@
 	<!--prog and year-->
 	<div class="form-group">
 		<label>Course Details</label>
-		<br>
+		<br><br>
 		<div class="row">
 		<div class="col-sm-4">
 			<label  for="programme">Programme:</label>
@@ -244,6 +242,8 @@
 	<button class="btn btn-lg btn-default" type="submit" name="submit" value="Create an account">Create an account</button>
 	</form>
 </div>
+</div>
+</form></div>
 <!--Render footer-->
 <?php
 	require_once(__DIR__ . '/../includes/footer.php');
