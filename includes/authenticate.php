@@ -11,7 +11,7 @@
 	// start session
 	session_start();
 
-	$free_pages = array('index.php', 'signup.php', 'confirmsignup.php', 'activate.php');
+	$free_pages = array('index.php', 'signup.php', 'confirmsignup.php', 'activate.php', 'forgot.php', 'reset.php');
 
 	if (!in_array(basename($_SERVER['PHP_SELF']), $free_pages)) {
 		// current page requires that user is logged in
