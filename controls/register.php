@@ -60,7 +60,7 @@
         	$subject = $event_data['event_name'].' Registration Confirmation | '.NAME;
         	$body = "<p>Hello ".$user_data['first_name'].' '.$user_data['last_name']."!</p>".
 			"<p>Congratulations, you have successfully registered for <b>".$event_data['event_name']."</b>.<br>Your registration details are as below:</p>".
-			"<p>Registration ID: ".$reg_data['registration_id']."<br>Event ID: ".$event_id."<br>Event Name: ".$event_data['event_name']."<br>Date: ".$date."<br>Time: ".$time."<br>Venue: ".$event_data['venue']."<br></p>".
+			"<p>Registration ID: ".str(str_pad($event_id, 3, '0', STR_PAD_LEFT)).str(str_pad($reg_data['registration_id'], 5, '0', STR_PAD_LEFT))."<br>Event Name: ".$event_data['event_name']."<br>Date: ".$date."<br>Time: ".$time."<br>Venue: ".$event_data['venue']."<br></p>".
 			'<p>You may check further details about the event at <a href="'.$event_url.'">'.$event_data['event_name'].'</a></p>'.
 			"<p>For any queries please feel free to contact event incharge(s):<br>".$incharge."</p>".
 			"<p>Thanks for registering!</p>";
