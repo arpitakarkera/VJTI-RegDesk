@@ -109,11 +109,11 @@
 ?>
 
 <div style="font-family: 'Raleway', sans-serif; padding-left: 6%; padding-top: 5%; padding-bottom: 3%;">
-<h1 style="font-weight:bold;">Join VJTI RegDesk</h1>
-<h3>Easy.&nbsp;&nbsp;Simple.&nbsp;&nbsp;Effective.</h3>
+<h1 style="font-weight:bold;color:rgb(12,73,109);">Join VJTI RegDesk</h1>
+<h3 style="color:rgb(12,73,109);">Easy.&nbsp;&nbsp;Simple.&nbsp;&nbsp;Effective.</h3>
 </div>
 <div class="container">
-	<h3 style="font-weight:bold;">Create your account</h3>
+	<h3 style="font-weight:bold;color:rgb(1,56,101);">Create your account</h3>
 	<div class="form-group"><form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"></div>
 	<div class="form-group" style="color: red;"><p>&nbsp;<?php echo $err_msg; ?>&nbsp;</p></div>
 	<!--name-->
@@ -169,10 +169,15 @@
 	</div>
 	<br>
 	<!--gender-->
-	<label >Gender</label>
+	<label >Gender:</label>
 	<br>
+		<div class="row">
+		<div class="col-sm-4">
 		<input type="radio" name="gender" value="M" id="M"><label for="M" class="radio-inline">Male</label>
+		</div>
+		<div class="col-sm-4">
 		<input type="radio" name="gender" value="F" id="F"><label  for="F" class="radio-inline" >Female</label>
+		</div>
 	<br>
 	<br>
 	<!--id-->
@@ -239,7 +244,7 @@
 	</div>
     <br>
     <br>
-	<button class="btn btn-lg btn-default" type="submit" name="submit" value="Create an account">Create an account</button>
+	<button class="btn btn-lg btn-success" type="submit" name="submit" value="Create an account">Create an account</button>
 	</form>
 </div>
 </div>
