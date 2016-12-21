@@ -1,0 +1,243 @@
+/*
+   * @author:Sunaina Punyani
+   * @date: 4th December, 2016
+   * 
+   *  css for dashboard.
+   *
+   */
+
+#p.container-fluid{
+	
+	background-image:url('../images/dash_background.png');
+	background-size:100%;
+	padding-top:1.5%;
+	padding-bottom:4%;
+}
+#a.col-sm-4{
+	
+	text-align:left;
+	padding-top:3%;
+	padding-left:3%;
+}
+.button{
+    background-color:rgb(24,44,75);
+    border-style:solid;
+    border-width:medium;
+    border-color:rgb(24,44,75);
+    border-radius:10px;
+    color:#FFFFFF;
+    padding: 8px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#q.button
+{
+  padding:8px 44px;
+}
+.button:hover{
+
+  background-color:rgb(14,40,41);
+  color:white;
+  border-style:solid;
+  border-width:medium;
+  border-color:rgb(14,40,41);
+  border-radius:10px;
+}
+#tile.button
+{
+  background-color:rgb(0,166,0);
+    border-style:solid;
+    border-width:medium;
+    border-color:rgb(0,166,0);
+    border-radius:10px;
+    color:#FFFFFF;
+    padding: 8px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
+#tile.button:hover{
+
+  background-color:rgb(0,128,0);
+  color:white;
+  border-style:solid;
+  border-width:medium;
+  border-color:rgb(0,128,0);
+  border-radius:10px;
+}
+#tileb.button
+{
+  background-color:rgb(0,166,0);
+    border-style:solid;
+    border-width:medium;
+    border-color:rgb(0,166,0);
+    border-radius:10px;
+    color:#FFFFFF;
+    padding: 8px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#tileb.button:hover{
+
+  background-color:rgb(0,128,0);
+  color:white;
+  border-style:solid;
+  border-width:medium;
+  border-color:rgb(0,128,0);
+  border-radius:10px;
+}
+#tileb.button
+{
+  padding:8px 46px;
+}
+ul
+{
+  list-style-type:none;
+  overflow:hidden;
+  background-color:rgb(172,230,191);
+  margin:0;
+  padding-left:11%;
+
+}
+li
+{
+  float:left;
+}
+li a
+{
+  display:block;
+  color:rgb(0,0,0);
+  text-align:center;
+  padding:14px 16px;
+  font-family: 'Raleway', sans-serif;
+  font-size:20px;
+}
+ 
+.transparent 
+{
+  background-color:#FFFFFF;
+  box-shadow:inset 0px 1px 0 rgba(0,0,0,.075);
+}
+.inline-block
+{ display: inline-block;
+padding-right: 1.5%;
+padding-left: 1.5%;
+padding-bottom:2%;
+padding-top:2%;
+ }
+/*.raisedbox { 
+  
+    border: 1px solid #77aaff;
+  box-shadow:  -1px 1px #77aaff,
+     -2px 2px #77aaff,
+     -3px 3px #77aaff,
+     -4px 4px #77aaff,
+     -5px 5px #77aaff;
+}*/
+#a.cube { 
+   background-color: rgba(71, 78, 93, 1.0);
+  margin: 20px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  border:1px solid rgb(71,78,93);
+  border-radius:10px;
+  box-shadow:  -1px -1px rgb(0, 0, 0),
+     -2px -2px rgb(63, 70, 85),
+     -3px -3px rgb(59, 66, 81),
+     -4px -4px rgb(55, 62, 77),
+     -5px -5px rgb(51, 58, 73),
+     -6px -6px rgb(47, 54, 69),
+     -7px -7px rgb(43, 50, 65),
+     -8px -8px rgb(39, 46, 61),
+     -9px -9px rgb(35, 42, 57),
+     -10px -10px rgb(0, 0, 0);
+    
+}
+#b.cube { 
+   background-color: rgba(26, 188, 156, 1.0);
+  margin: 20px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  border:1px solid rgb(26,188,156);
+  border-radius:10px;
+  box-shadow:  -1px -1px rgb(0, 0, 0),
+     -2px -2px rgb(18, 180, 148),
+     -3px -3px rgb(14, 176, 144),
+     -4px -4px rgb(10, 172, 140),
+     -5px -5px rgb(6, 168, 136),
+     -6px -6px rgb(2, 164, 132),
+     -7px -7px rgb(0, 160, 128),
+     -8px -8px rgb(0, 156, 124),
+     -9px -9px rgb(0, 152, 120),
+     -10px -10px rgb(0, 0, 0);
+    
+}
+#c.cube { 
+   background-color: rgba(71, 78, 93, 1.0);
+  margin: 20px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  /*border:1px solid rgb(71,78,93);*/
+  box-shadow:  0px 1px 1px 0px rgb(67, 74, 89),
+     0px 2px 1px 1px rgb(63, 70, 85),
+     0px 3px 1px 1px rgb(59, 66, 81),
+     0px 4px 1px 2px rgb(55, 62, 77),
+     0px 5px 1px 2px rgb(51, 58, 73),
+     0px 6px 1px 3px rgb(47, 54, 69),
+     0px 7px 1px 3px rgb(43, 50, 65),
+     0px 8px 1px 4px rgb(39, 46, 61),
+     0px 9px 1px 4px rgb(35, 42, 57),
+     0px 10px 1px 5px rgb(31, 38, 53);
+    
+}
+#D.cube { 
+   background-color: rgba(71, 78, 93, 1.0);
+  margin: 20px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius:10px;
+  box-shadow:  -1px -1px rgb(67, 74, 89),
+     -2px -2px rgb(63, 70, 85),
+     -3px -3px rgb(59, 66, 81),
+     -4px -4px rgb(55, 62, 77),
+     -5px -5px rgb(51, 58, 73),
+     -6px -6px rgb(47, 54, 69),
+     -7px -7px rgb(43, 50, 65),
+     -8px -8px rgb(39, 46, 61),
+     -9px -9px rgb(35, 42, 57),
+     -10px -10px rgb(31, 38, 53);
+    
+}
+#e.cube { 
+   background-color: rgba(71, 78, 93, 1.0);
+  margin: 20px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  
+  box-shadow:  -1px -1px rgb(67, 74, 89),
+     -2px -2px rgb(63, 70, 85),
+     -3px -3px rgb(59, 66, 81),
+     -4px -4px rgb(55, 62, 77),
+     -5px -5px rgb(51, 58, 73),
+     -6px -6px rgb(47, 54, 69),
+     -7px -7px rgb(43, 50, 65),
+     -8px -8px rgb(39, 46, 61),
+     -9px -9px rgb(35, 42, 57),
+     -10px -10px rgb(31, 38, 53);
+    
+}
+#h.container
+{
+  padding-top: 2%;
+  padding-right: 6%;
+  padding-left: 6%;
+  padding-bottom: 2%;
+}

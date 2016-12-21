@@ -43,7 +43,7 @@
 		<div class="form-group">
 		<div class="input-group">
 		<span class="input-group-addon transparent"><span class="glyphicon glyphicon-envelope"></span></span>
-		<input type="email" class="form-control left-border-none" id="email" name="user_email" placeholder="e-mail" required value="<?php if(isset($user_email)) echo $user_email; ?>">
+		<input type="email" class="form-control " id="email" name="user_email" placeholder="e-mail" required value="<?php if(isset($user_email)) echo $user_email; ?>">
 		</div>
 		<br>
 
