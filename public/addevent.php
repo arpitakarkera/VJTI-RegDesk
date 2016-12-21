@@ -154,7 +154,8 @@
 			</select>
 			</div>
 			<div class="col-sm-4">
-			<label class=control-label" for="committee">Committee</label>
+			<label class="control-label" for="committee">Committee:</label>
+
 			<select class="form-control" name="committee">
 				<?php
 					$query = "SELECT committee_id, committee_name FROM committees";
@@ -200,7 +201,7 @@
 			</div>
 			</div>
 			<br>
-		<button class="btn btn-lg btn-default" type="submit" name="submit">Post Event</button>
+		<button class="btn btn-lg btn-success" type="submit" name="submit">Post Event</button>
 	</form>
 </div>
 

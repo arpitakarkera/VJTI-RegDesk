@@ -33,9 +33,9 @@
 		if (basename($_SERVER['PHP_SELF']) == 'index.php') {
 			echo '<link rel = "stylesheet" type = "text/css" href="css/index.css">';
 		}
-		else if (basename($_SERVER['PHP_SELF']) == 'signup.php' || basename($_SERVER['PHP_SELF']) == 'addevent.php') {
-			//
-			echo '<link rel = "stylesheet" type = "text/css" href = "../css/form.css">';
+		else if (basename($_SERVER['PHP_SELF']) == 'dashboard.php') {
+			
+			echo '<link rel = "stylesheet" type = "text/css" href = "../css/dashboard.css">';
 		}
 		// similarly you can add more
 		else {
@@ -47,17 +47,18 @@
 <!--Display navigation bar for all pages except index page-->
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
-		echo '<header style="background-image: url(\'../images/background.jpg\');display:block;">
-		<div class="contanier-fluid" >
-		<div class="row" >
-		<a href="../index.php"><div class="col-sm-1" style="padding-left:50px;padding-top:12px;">
-		<img src="../images/logo.png" class="img-responsive" alt="VJTI RegDesk" width="52" height="52">
-		</div></a>
-		<a href="../index.php" style="text-decoration:none"><div style="padding-top:20px">
-		<b style="font-size:25px;color:rgb(213,224,224);font-weight:bold;" class="text-left">VJTI RegDesk</b>
-		</div></a>
-		<br>
-		</div></div>
+		echo '<header style="background-image: url(\'../images/background.jpg\');">
+		
+		<div class="row" style="padding-top:1.2%;padding-bottom:1.2%;">
+		<div class="span4" style="padding-left:5%;">
+		<a href="../index.php">
+		<img style="float:left;padding-left:0%;padding-top:0%;" src="../images/logo.png" class="img-responsive" alt="VJTI RegDesk" width="40" height="40">
+		</a>
+		
+		<div style="font-size:25px;color:rgb(213,224,224);font-weight:bold;padding-top:0.6%">&nbsp;&nbsp;<a href="../index.php" style="text-decoration:none;color:rgb(213,224,224);">VJTI RegDesk</a></div>
+		
+		</div>
+		</div>
 		</header>';
 	}
 ?>
