@@ -71,14 +71,14 @@
 </div>
 <div class="container-fluid text-center" style="padding-top: 2%;font-size: 30px;">Upcoming</div>
 <div class="container" id="h">
-<div id="a" class="cube">
+<div id="w" class="cube">
 <div class="row">
 <div class="col-sm-2">
 <img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
 </div>
 <div class="col-sm-7">
-<div style="text-align: left;padding-top: 1%;padding-left: 2%;color:#FFFFFF;">
-<p style="font-size:25px;font-family: 'Raleway', sans-serif;color:#FFFFFF;">Event Name</p>
+<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<p style="font-size:40px;font-family: 'Raleway', sans-serif;"> XYZ &nbsp;Event &nbsp;Name</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
@@ -89,31 +89,135 @@
 <button id="tileb" class="button">Register</button>
 <br>
 <br>
-<button id="tile" class="button">Add to bucket</button>
+<button id="tile" class="button">More</button>
 </div>
 </div>
 </div>
 </div>
 <br>
 <div id="a" class="cube">
-<p style="color:#FFFFFF;"> tile is same as above:tile with top and left elevated and black outline given to elevated part AND  RADIUS</p>
+<p> this and the tiles this r alike and have lighter box shadows than the 1st 1 change the ids and set whichever u like</p>
 </div>
 <br>
-<div class="cube" id="b">
-<p style="color:#FFFFFF;">tile is same as above just a color alternative</p>
+<div class="cube" id="a">
+<div class="row">
+<div class="col-sm-2">
+<img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
 </div>
-<div class="cube" id="c">
-<p style="color:#FFFFFF;">TILE WITH ONLY TOP ELEVATED AND NO BLACK OUTLINE GIVEN  AND 0 RADIUS</p>
+<div class="col-sm-7">
+<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<p style="font-size:40px;font-family: 'Raleway', sans-serif;"> XYZ &nbsp;Event &nbsp;Name</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+</div>
+</div>
+<div class="col-sm-3">
+<div style="padding-top:12%;" class="text-center">
+<button id="tileb" class="button">Register</button>
+<br>
+<br>
+<button id="tile" class="button">More</button>
+</div>
+</div>
+</div>
 </div>
 <br>
-<div class="cube" id="D">
-<p style="color:#FFFFFF;">TILE WITH  TOP AND LEFT ELEVATED AND NO BLACK OUTLINE GIVEN AND RADIUS</p>
+<div class="cube" id="a">
+<div class="row">
+<div class="col-sm-2">
+<img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
+</div>
+<div class="col-sm-7">
+<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<p style="font-size:40px;font-family: 'Raleway', sans-serif;"> XYZ &nbsp;Event &nbsp;Name</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+</div>
+</div>
+<div class="col-sm-3">
+<div style="padding-top:12%;" class="text-center">
+<button id="tileb" class="button">Register</button>
+<br>
+<br>
+<button id="tile" class="button">More</button>
+</div>
+</div>
+</div>
 </div>
 <br>
-<div class="cube" id="e">
-<p style="color:#FFFFFF;">TILE WITH  TOP AND LEFT ELEVATED AND NO BLACK OUTLINE GIVEN AND 0 RADIUS</p>
+<div class="cube" id="a">
+<div class="row">
+<div class="col-sm-2">
+<img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
 </div>
-
+<div class="col-sm-7">
+<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<p style="font-size:40px;font-family: 'Raleway', sans-serif;"> XYZ &nbsp;Event &nbsp;Name</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+</div>
+</div>
+<div class="col-sm-3">
+<div style="padding-top:12%;" class="text-center">
+<button id="tileb" class="button">Register</button>
+<br>
+<br> 
+<button id="tile" class="button">More</button>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="cube" id="a">
+<div class="row">
+<div class="col-sm-2">
+<img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
+</div>
+<div class="col-sm-7">
+<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<p style="font-size:40px;font-family: 'Raleway', sans-serif;"> XYZ &nbsp;Event &nbsp;Name</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+</div>
+</div>
+<div class="col-sm-3">
+<div style="padding-top:12%;" class="text-center">
+<button id="tileb" class="button">Register</button>
+<br>
+<br>
+<button id="tile" class="button">More</button>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="cube" id="a">
+<div class="row">
+<div class="col-sm-2">
+<img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
+</div>
+<div class="col-sm-7">
+<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<p style="font-size:40px;font-family: 'Raleway', sans-serif;"> XYZ &nbsp;Event &nbsp;Name</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
+<p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+</div>
+</div>
+<div class="col-sm-3">
+<div style="padding-top:12%;" class="text-center">
+<button id="tileb" class="button">Register</button>
+<br>
+<br>
+<button id="tile" class="button">More</button>
+</div>
+</div>
+</div>
+</div>
 </div>
 <?php
 	require_once(__DIR__ . '/../includes/footer.php');
