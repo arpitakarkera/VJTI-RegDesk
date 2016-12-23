@@ -10,10 +10,8 @@
 	// authenticate
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
-	// get the database constants
-	require_once(__DIR__ . '/../includes/dbconfig.php');
 	// connect to database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Error connecting to database.');
+	require_once(__DIR__ . '/../includes/dbconfig.php');
 
 	$display_msg = "<h1>Invalid Activation!</h1><p>Sorry, it seems you have an invalid activation link. Check the link sent to you or try again.<br>If the problem persists, mail us at regdesk.vjti@gmail.com.</p>";
 

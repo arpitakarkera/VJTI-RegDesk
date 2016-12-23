@@ -26,10 +26,8 @@
     	}
     }
 
-	// get database constants
-	require_once(__DIR__ . '/../includes/dbconfig.php');
 	// connect to database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	require_once(__DIR__ . '/../includes/dbconfig.php');
 
 	// grab the user id and details of users who have applied for manager
 	$query = "SELECT users.user_id, users.first_name, users.last_name, users.email

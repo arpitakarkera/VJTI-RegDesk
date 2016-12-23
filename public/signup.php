@@ -10,11 +10,8 @@
 	// authenticate
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
-	// get the database constants
+	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
-
-	// connect to the database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	$err_msg = '';
 
