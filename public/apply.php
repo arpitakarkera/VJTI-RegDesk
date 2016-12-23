@@ -1,7 +1,7 @@
 <?php
 	/*
 	 *
-	 * @author Arpita Karkera
+	 * @author Arpita Karkera,Sunaina Punyani
 	 * @date 10 December, 2016
 	 *
 	 * Send a request to admin to make the user a manager
@@ -9,7 +9,7 @@
 	 */
 
 	// authenticate
-	require_once(__DIR__ . '/../includes/authenticate.php');
+	//require_once(__DIR__ . '/../includes/authenticate.php');
 
 	// get database constants
 	require_once(__DIR__ . '/../includes/dbconfig.php');
@@ -53,12 +53,15 @@
         	$query = "INSERT INTO requests (user_id) VALUES (user_id)";
         	mysqli_query($dbc, $query);
 
-        	echo "<p>Your request has been recorded. We'll get back to you soon.</p>";
+        	echo "<div class='container-fluid'>Your request has been recorded. We'll get back to you soon.</div>";
         }
         else
-        	echo "<p>Sorry. The request could not be sent.</p>";
+        	echo "<div class='container-fluid'>Sorry. The request could not be sent.</div>";
 	}
-
+?>
+<div class="footer">
+<?php
 	// render footer
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
+</div>

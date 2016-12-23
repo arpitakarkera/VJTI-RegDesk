@@ -1,6 +1,6 @@
 <?php
 	/*
-	 * @author: Arpita Karkera
+	 * @author: Arpita Karkera,Sunaina Punyani
 	 * @date: 8th December, 2016
 	 * 
 	 * Verifies user. This link is sent to user for activation.
@@ -8,14 +8,14 @@
 	 */
 
 	// authenticate
-	require_once(__DIR__ . '/../includes/authenticate.php');
+//	require_once(__DIR__ . '/../includes/authenticate.php');
 
 	// get the database constants
 	require_once(__DIR__ . '/../includes/dbconfig.php');
 	// connect to database
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Error connecting to database.');
 
-	$display_msg = "<h1>Invalid Activation!</h1><p>Sorry, it seems you have an invalid activation link. Check the link sent to you or try again.<br>If the problem persists, mail us at regdesk.vjti@gmail.com.</p>";
+	$display_msg = "<div class='container-fluid'><h1>Invalid Activation!</h1><p>Sorry, it seems you have an invalid activation link. Check the link sent to you or try again.<br>If the problem persists, mail us at regdesk.vjti@gmail.com.</p></div>";
 
 	if (!empty($_GET['id'])) {
 		$id = mysqli_real_escape_string($dbc, trim($_GET['id']));
@@ -37,7 +37,7 @@
 				$_SESSION['name'] = $row['first_name'];
 				$query = "UPDATE users SET verified = 1 WHERE user_id = $id LIMIT 1";
 				mysqli_query($dbc, $query);
-				$display_msg = '<h1>Congatulations!</h1><p><b>Your account is activated.</b><br>Go explore! Head to your <a href="dashboard.php">Dashboard</a></p>';
+				$display_msg = '<div class="container-fluid"><h1>Congatulations!</h1><p><b>Your account is activated.</b><br>Go explore! Head to your <a href="dashboard.php">Dashboard</a></p></div>';
 			}
 		}
 	}
@@ -47,7 +47,13 @@
 	require_once(__DIR__ . '/../includes/header.php');
 
 	echo $display_msg;
-
-	// render footer
-	require_once(__DIR__ . '/../includes/footer.php');
 ?>
+
+	
+	
+<div class="footer">
+<?php	
+	require_once(__DIR__ . '/../includes/footer.php');
+	
+?>
+</div>
