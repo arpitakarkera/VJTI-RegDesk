@@ -48,20 +48,22 @@
 <!--Display navigation bar for all pages except index page-->
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
-		echo '<header style="background-image: url(\'../images/background.jpg\');">
+?>
+		<header style="background-image: url('../images/background.jpg');">
 		
 		<div class="row" style="padding-top:1.2%;padding-bottom:1.2%;">
 		<div class="span4" style="padding-left:5%;">
 		<a href="../index.php">
 		<img style="float:left;padding-left:0%;padding-top:0%;" src="../images/logo.png" class="img-responsive" alt="VJTI RegDesk" width="40" height="40">
 		</a>
-		<div style="padding-right:4%;">
-		<a href="#"><img style="float:right;" src="../images/logout4.png" class="img-responsive" width="30" height="30"></a>
+		<div style="padding-right:4%; vertical-align: middle;">
+		<a href="../controls/logout.php"><img style="float:right; vertical-align: middle;" src="../images/logout.png" class="img-responsive" width="30" height="30"></a>
 		</div>
 		<div style="font-size:25px;color:rgb(213,224,224);font-weight:bold;padding-top:0.6%">&nbsp;&nbsp;<a href="../index.php" style="text-decoration:none;color:rgb(213,224,224);">VJTI RegDesk</a></div>
 		
 		</div>
 		</div>
-		</header>';
+		</header>
+<?php
 	}
 ?>

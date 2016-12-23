@@ -12,10 +12,8 @@
 	// authenticate - user must be logged in and a manager to access
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
-	// grab databse constants
+	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
-	// connect to the database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	// get event details
 	if (isset($_GET['event'])) {

@@ -11,11 +11,8 @@
 	// authenticate
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
-	// get database constants
-	require_once(__DIR__ . '/../includes/dbconfig.php');
-
 	// connect to database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	require_once(__DIR__ . '/../includes/dbconfig.php');
 
 	if (!isset($_SESSION['manager_id'])) {
 		// user is not a manager so mail the admin to grant managerial status

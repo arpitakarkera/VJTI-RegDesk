@@ -10,10 +10,8 @@
 	 *
 	 */
 
-	// grab databse constants
+	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
-	// connect to the database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if (isset($email))
 		$title = 'Change Password';

@@ -13,10 +13,8 @@
 	// authenticate
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
-	// grab databse constants
+	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
-	// connect to the database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if (isset($_GET['event'])) {
 		$event_id = mysqli_real_escape_string($dbc, trim($_GET['event']));
@@ -46,11 +44,7 @@
 			$event_url = dirname(dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'])).'/public/event.php?event='.$event_id;
 			$date = empty($event_data['end_date']) ? (date('d M, Y', strtotime($event_data['start_date']))) : (date('d M, Y', strtotime($event_data['start_date'])).' - '.date('d M, Y', strtotime($event_data['end_date'])));
 			$time = empty($event_data['end_time']) ? (date('H:i A', strtotime($event_data['start_time']))) : (date('H:i A', strtotime($event_data['start_time'])).' - '.date('H:i A', strtotime($event_data['end_time'])));
-			$incharges = explode(',',$event_data['incharge']);
-			if (!empty($incharges[2]))
-				$incharge = $incharges[0].' - '.$incharges[1].'<br>'.$incharges[2].' - '.$incharges[3];
-			else
-				$incharge = $incharges[0].' - '.$incharges[1];
+			$incharge = empty($event_data['incharge2_name']) ? ($event_data['incharge1_name'].' - '.$event_data['incharge1_contact']) : ($event_data['incharge1_name'].' - '.$event_data['incharge1_contact'].'<br>'.$event_data['incharge2_name'].' - '.$event_data['incharge2_contact']);
 
 			// send confirmation mail
 			require_once(__DIR__ . '/mailer.php');
@@ -60,7 +54,7 @@
         	$subject = $event_data['event_name'].' Registration Confirmation | '.NAME;
         	$body = "<p>Hello ".$user_data['first_name'].' '.$user_data['last_name']."!</p>".
 			"<p>Congratulations, you have successfully registered for <b>".$event_data['event_name']."</b>.<br>Your registration details are as below:</p>".
-			"<p>Registration ID: ".str(str_pad($event_id, 3, '0', STR_PAD_LEFT)).str(str_pad($reg_data['registration_id'], 5, '0', STR_PAD_LEFT))."<br>Event Name: ".$event_data['event_name']."<br>Date: ".$date."<br>Time: ".$time."<br>Venue: ".$event_data['venue']."<br></p>".
+			"<p>Registration ID: ".(str_pad($event_id, 3, '0', STR_PAD_LEFT)).(str_pad($reg_data['registration_id'], 5, '0', STR_PAD_LEFT))."<br>Event Name: ".$event_data['event_name']."<br>Date: ".$date."<br>Time: ".$time."<br>Venue: ".$event_data['venue']."<br></p>".
 			'<p>You may check further details about the event at <a href="'.$event_url.'">'.$event_data['event_name'].'</a></p>'.
 			"<p>For any queries please feel free to contact event incharge(s):<br>".$incharge."</p>".
 			"<p>Thanks for registering!</p>";
