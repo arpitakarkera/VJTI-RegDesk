@@ -81,21 +81,21 @@
 	if (isset($_GET['cat'])) {
 		// get events that fall under specified category
 		$category = mysqli_real_escape_string($dbc, trim($_GET['cat']));
-		$query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM events WHERE category = $category ORDER BY start_date";
+		$query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM events WHERE category = $category AND event_id NOT IN (SELECT event_id FROM registrations WHERE user_id = ".$_SESSION['user_id'].") ORDER BY start_date";
 	}
 	else if (isset($_GET['com'])) {
 		// get events that fall under specified committee
 		$committee = mysqli_real_escape_string($dbc, trim($_GET['com']));
-		$query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM events WHERE committee = $committee ORDER BY start_date";
+		$query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM events WHERE committee = $committee AND event_id NOT IN (SELECT event_id FROM registrations WHERE user_id = ".$_SESSION['user_id'].") ORDER BY start_date";
 	}
 	else if (isset($_GET['q']) && !empty($_GET['q'])) {
 		// search for event with specified keywords
 		$keywords = mysqli_real_escape_string($dbc, trim($_GET['q']));
-		$query = "SELECT event_id, event_name, start_date, start_time, end_date, end_time, venue FROM events WHERE MATCH (event_name, description) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE);";
+		$query = "SELECT event_id, event_name, start_date, start_time, end_date, end_time, venue FROM events WHERE MATCH (event_name, description) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE) AND event_id NOT IN (SELECT event_id FROM registrations WHERE user_id = ".$_SESSION['user_id'].")";
 	}
 	else {
 		// get all upcoming events
-		$query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM events ORDER BY start_date";
+		$query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM events WHERE event_id NOT IN (SELECT event_id FROM registrations WHERE user_id = ".$_SESSION['user_id'].") ORDER BY start_date";
 	}
 ?>
 

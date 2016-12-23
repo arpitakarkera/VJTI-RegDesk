@@ -32,7 +32,8 @@
 			if ($key == $db_key) {
 				// account verified
 				$_SESSION['user_id'] = $id;
-				$_SESSION['name'] = $row['first_name'];
+				$_SESSION['first_name'] = $row['first_name'];
+				$_SESSION['last_name'] = $row['last_name'];
 				$query = "UPDATE users SET verified = 1 WHERE user_id = $id LIMIT 1";
 				mysqli_query($dbc, $query);
 				$display_msg = '<h1>Congatulations!</h1><p><b>Your account is activated.</b><br>Go explore! Head to your <a href="dashboard.php">Dashboard</a></p>';

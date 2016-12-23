@@ -13,7 +13,7 @@
 <head>
 
 	<!--Dynamically render the title. If not set just show "VJTI RegDesk". Value of title is set before including the header.-->
-	<title>VJTI-RegDesk<?php if(isset($title)) echo " | ".$title; ?></title>
+	<title><?php if(isset($title)) echo $title." | "; ?>VJTI-RegDesk</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -57,7 +57,9 @@
 		<img style="float:left;padding-left:0%;padding-top:0%;" src="../images/logo.png" class="img-responsive" alt="VJTI RegDesk" width="40" height="40">
 		</a>
 		<div style="padding-right:4%; vertical-align: middle;">
-		<a href="../controls/logout.php"><img style="float:right; vertical-align: middle;" src="../images/logout.png" class="img-responsive" width="30" height="30"></a>
+		<?php if (isset($_SESSION['user_id'])) { ?>
+		<a href="../controls/logout.php"><img style="float:right; vertical-align: middle;" src="../images/logout.png" class="img-responsive" title="Logout" alt="Logout" width="30" height="30"></a>
+		<?php } ?>
 		</div>
 		<div style="font-size:25px;color:rgb(213,224,224);font-weight:bold;padding-top:0.6%">&nbsp;&nbsp;<a href="../index.php" style="text-decoration:none;color:rgb(213,224,224);">VJTI RegDesk</a></div>
 		
