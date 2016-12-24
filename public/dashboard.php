@@ -1,6 +1,6 @@
 <?php
 	/*
-	 * @author: Sunaina Punyani,Arpita Karkera
+	 * @author: Sunaina Punyani, Arpita Karkera
 	 * @date: 6th December, 2016
 	 * 
 	 * Dashboard
