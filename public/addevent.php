@@ -1,7 +1,7 @@
 <?php
 	/*
 	 *
-	 * @author Sunaina Punyani,Arpita Karkera
+	 * @author Sunaina Punyani, Arpita Karkera
 	 * @date 8 December, 2016
 	 *
 	 * Form to add an event

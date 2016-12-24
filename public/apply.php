@@ -32,7 +32,7 @@
 
 		require_once(__DIR__ . '/../controls/mailer.php');
 
-		$confirm_link = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/confirm.php?";
+		$confirm_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']).'/confirm.php';
 
 		$to = $email;
         $from = USER;
