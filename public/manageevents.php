@@ -13,7 +13,7 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 <div  class="container-fluid" style="border-bottom: 1px solid black;" >
-<div style="text-align: left;padding-left:10%;padding-top:3%;padding-bottom: 3%;">
+<div style="text-align: left;padding-left:10%;padding-top:4%;padding-bottom: 3%;">
 <p style="font-size:30px;">Post &nbsp;a&nbsp; new&nbsp; Event&nbsp;</p>
 <br>
 <button class="btn btn-success btn-lg">Add Event</button>
@@ -34,14 +34,16 @@
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
 </div>
 </div>
-<div class="col-sm-5">
-<div style="padding-top:16%;padding-right:9%;padding-left:20%;">
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/download.jpg"></a>
+<div class="col-sm-1">
+</div>
+<div class="col-sm-4">
+<div style="padding-top:22%;padding-bottom:4%;padding-right:9%;padding-left:9%;">
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/download_icon.png"></a>
 &nbsp;&nbsp;&nbsp;
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/edit.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/edit_icon.png"></a>
 &nbsp;&nbsp;&nbsp;
 
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/email.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/mail_icon.png"></a>
 </div>
 </div>
 </div>
@@ -57,14 +59,16 @@
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
 </div>
 </div>
-<div class="col-sm-5">
-<div style="padding-top:16%;padding-right:9%;padding-left:20%;">
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/download.jpg"></a>
+<div class="col-sm-1">
+</div>
+<div class="col-sm-4">
+<div style="padding-top:22%;padding-bottom:4%;padding-right:9%;padding-left:9%;">
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/download_icon.png"></a>
 &nbsp;&nbsp;&nbsp;
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/edit.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/edit_icon.png"></a>
 &nbsp;&nbsp;&nbsp;
 
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/email.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/mail_icon.png"></a>
 </div>
 </div>
 </div>
@@ -80,14 +84,16 @@
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
 </div>
 </div>
-<div class="col-sm-5">
-<div style="padding-top:16%;padding-right:9%;padding-left:20%;">
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/download.jpg"></a>
+<div class="col-sm-1">
+</div>
+<div class="col-sm-4">
+<div style="padding-top:22%;padding-bottom:4%;padding-right:9%;padding-left:9%;">
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/download_icon.png"></a>
 &nbsp;&nbsp;&nbsp;
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/edit.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/edit_icon.png"></a>
 &nbsp;&nbsp;&nbsp;
 
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/email.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/mail_icon.png"></a>
 </div>
 </div>
 </div>
@@ -107,13 +113,16 @@
 <p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+
 </div>
 </div>
-<div class="col-sm-5">
-<div style="padding-top:16%;padding-right:9%;padding-left:42%;">
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/download.jpg"></a>
+<div class="col-sm-1">
+</div>
+<div class="col-sm-4">
+<div style="padding-top:22%;padding-right:10%;padding-left:35%;">
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/download_icon.png"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/email.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/mail_icon.png"></a>
 </div>
 </div>
 </div>
@@ -127,13 +136,16 @@
 <p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+
 </div>
 </div>
-<div class="col-sm-5">
-<div style="padding-top:16%;padding-right:9%;padding-left:42%;">
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/download.jpg"></a>
+<div class="col-sm-1">
+</div>
+<div class="col-sm-4">
+<div style="padding-top:22%;padding-right:10%;padding-left:35%;">
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/download_icon.png"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/email.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/mail_icon.png"></a>
 </div>
 </div>
 </div>
@@ -147,13 +159,16 @@
 <p style="font-size:20px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Date</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Time</p>
 <p style="font-size:20px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Venue</p>
+
 </div>
 </div>
-<div class="col-sm-5">
-<div style="padding-top:16%;padding-right:9%;padding-left:42%;">
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/download.jpg"></a>
+<div class="col-sm-1">
+</div>
+<div class="col-sm-4">
+<div style="padding-top:22%;padding-right:10%;padding-left:35%;">
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/download_icon.png"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="#"><img class="img img-responsive inline-block" width="70" height="70" src="../images/email.png"></a>
+<a href="#"><img class="img img-responsive inline-block" width="60" height="60" src="../images/mail_icon.png"></a>
 </div>
 </div>
 </div>
