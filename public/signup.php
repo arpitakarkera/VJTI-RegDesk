@@ -1,6 +1,6 @@
 <?php
 	/*
-	 * @author: Arpita Karkera,Sunaina Punyani
+	 * @author: Arpita Karkera, Sunaina Punyani
 	 * @date: 5th December, 2016
 	 * 
 	 * Sign Up page and logic
@@ -10,11 +10,8 @@
 	// authenticate
 	require_once(__DIR__ . '/../includes/authenticate.php');
 
-	// get the database constants
+	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
-
-	// connect to the database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	$err_msg = '';
 
@@ -47,6 +44,8 @@
 						$err_msg = 'The email provided is invalid.';
 					else if (!validate_contact($contact)) // contact is invalid
 						$err_msg = 'The contact number provided is invalid.';
+					else if (!validate_id($id))
+						$err_msg = 'The ID provided is invalid.';
 					else {
 						// insert data into database
 						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified) VALUES ('$email', SHA('$password1'), '$id', '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0)";
@@ -58,7 +57,7 @@
         				$row = mysqli_fetch_array($result);
         				$user_id = $row['user_id'];
         				require_once(__DIR__ . '/../controls/mailer.php');
-        				$activation_link = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
+        				$activation_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
         				$to = $email;
         				$from = NAME;
         				$from_name = 'VJTI RegDesk';
@@ -70,8 +69,7 @@
         				// render header
 						$title = 'Sign Up';
 						require_once(__DIR__ . '/../includes/header.php');
-						echo "<h3>Congratulations!</h3>".
-							 "<p>You have successfully signed up!.<br>But your account is not activated yet. We've sent the one time activation link to your email id. Just click on the link to activate your account and enjoy our services.</p>";
+						header('Location: confirmsignup.php');
 						// render footer
 						require_once(__DIR__ . '/../includes/footer.php');
 						exit();
@@ -96,6 +94,14 @@
 	// function that validates mobile number. number should begin with 7, 8 or 9 and have 10 digits.
 	function validate_contact($contact) {
 		if (preg_match('/^[789]\d{9}$/', $contact))
+			return true;
+
+		return false;
+	}
+
+	// function that validates id number. number should have 9 digits.
+	function validate_id($id) {
+		if (preg_match('/^\d{10}$/', $id))
 			return true;
 
 		return false;
