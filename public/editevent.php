@@ -1,10 +1,10 @@
 <?php
 	/*
 	 *
-	 * @author Sunaina Punyani, Arpita Karkera
-	 * @date 8 December, 2016
+	 * @author Arpita Karkera
+	 * @date 26 December, 2016
 	 *
-	 * Form to add an event
+	 * For editing event details. A mail is sent to all users notifying about the change
 	 *
 	 */
 
@@ -16,7 +16,51 @@
 
 	$err_msg = '';
 
-	if (isset($_GET['event'])) {
+	if (isset($_POST['submit'])) {
+		// grab the data
+		$event_name = mysqli_real_escape_string($dbc, trim($_POST['event_name']));
+		$description = mysqli_real_escape_string($dbc, trim($_POST['description']));
+		$start_date = mysqli_real_escape_string($dbc, trim($_POST['start_date']));
+		$start_time = mysqli_real_escape_string($dbc, trim($_POST['start_time']));
+		$end_date = mysqli_real_escape_string($dbc, trim($_POST['end_date']));
+		$end_time = mysqli_real_escape_string($dbc, trim($_POST['end_time']));
+		$venue = mysqli_real_escape_string($dbc, trim($_POST['venue']));
+		$incharge1 = mysqli_real_escape_string($dbc, trim($_POST['incharge1']));
+		$contact1 = mysqli_real_escape_string($dbc, trim($_POST['contact1']));
+		$incharge2 = mysqli_real_escape_string($dbc, trim($_POST['incharge2']));
+		$contact2 = mysqli_real_escape_string($dbc, trim($_POST['contact2']));
+		$category = mysqli_real_escape_string($dbc, trim($_POST['category']));
+		$committee = mysqli_real_escape_string($dbc, trim($_POST['committee']));
+		$cost = mysqli_real_escape_string($dbc, trim($_POST['cost']));
+		$refreshment = mysqli_real_escape_string($dbc, trim($_POST['refreshment']));
+		$note = mysqli_real_escape_string($dbc, trim($_POST['note']));
+
+		if (!empty($event_name) && !empty($description) && !empty($start_date) && !empty($start_time) && !empty($venue) && !empty($incharge1) && !empty($contact1) && !empty($committee) && !empty($category)) {
+			$cost = empty($cost) ? 0 : $cost;
+			$note = empty($note) ? NULL : $note;
+
+			$manager_id = $_SESSION['manager_id'];
+			$query = "INSERT INTO events (event_name, description, start_date, start_time, ";
+			if (!empty($end_date))
+				$query .= "end_date, end_time, ";
+			$query .= "venue, category, committee, incharge1_name, incharge1_contact, ";
+			if (!empty($incharge2))
+				$query .= "incharge2_name, incharge2_contact, ";
+			$query .= "cost, refreshment, note, manager) VALUES ('$event_name', '$description', '$start_date', '$start_time', ";
+			if (!empty($end_date))
+				$query .= "'$end_date', '$end_time', ";
+			$query .= "'$venue', $category, $committee, '$incharge1', '$contact1', ";
+			if (!empty($incharge2))
+				$query .= "'$incharge2', '$contact2', ";
+			$query .= "$cost, $refreshment, '$note', $manager_id) WHERE event_id = $event_id";
+			mysqli_query($dbc, $query);
+			header('Location: manageevents.php');
+		}
+		else
+			$err_msg = "Please provide the mandatory details.";
+	}
+
+	if (isset($_GET['event']) && isset($_SESSION['manager_id'])) {
 		$event_id = mysqli_real_escape_string($dbc, trim($_GET['event']));
 		$query = "SELECT * FROM events WHERE event_id = $event_id";
 		$result = mysqli_query($dbc, $query);
@@ -30,12 +74,13 @@
 				$end_date = $event['end_date'];
 				$start_time = $event['start_time'];
 				$end_time = $event['end_time'];
+				$venue = $event['venue'];
 				$incharge1 = $event['incharge1_name'];
 				$contact1 = $event['incharge1_contact'];
 				$incharge2 = $event['incharge2_name'];
 				$contact2 = $event['incharge2_contact'];
-				$category = $event['category'];
-				$committee = $event['committee'];
+				$cat = $event['category'];
+				$com = $event['committee'];
 				$note = $event['note'];
 			}
 			else
@@ -44,57 +89,11 @@
 		else
 			header('Location: manageevents.php');
 	}
-
-	if (isset($_SESSION['manager_id'])) {
-		// user is a manager
-
-		if (isset($_POST['submit'])) {
-			// grab the data
-			$event_name = mysqli_real_escape_string($dbc, trim($_POST['event_name']));
-			$description = mysqli_real_escape_string($dbc, trim($_POST['description']));
-			$start_date = mysqli_real_escape_string($dbc, trim($_POST['start_date']));
-			$start_time = mysqli_real_escape_string($dbc, trim($_POST['start_time']));
-			$end_date = mysqli_real_escape_string($dbc, trim($_POST['end_date']));
-			$end_time = mysqli_real_escape_string($dbc, trim($_POST['end_time']));
-			$venue = mysqli_real_escape_string($dbc, trim($_POST['venue']));
-			$incharge1 = mysqli_real_escape_string($dbc, trim($_POST['incharge1']));
-			$contact1 = mysqli_real_escape_string($dbc, trim($_POST['contact1']));
-			$incharge2 = mysqli_real_escape_string($dbc, trim($_POST['incharge2']));
-			$contact2 = mysqli_real_escape_string($dbc, trim($_POST['contact2']));
-			$category = mysqli_real_escape_string($dbc, trim($_POST['category']));
-			$committee = mysqli_real_escape_string($dbc, trim($_POST['committee']));
-			$cost = mysqli_real_escape_string($dbc, trim($_POST['cost']));
-			$refreshment = mysqli_real_escape_string($dbc, trim($_POST['refreshment']));
-			$note = mysqli_real_escape_string($dbc, trim($_POST['note']));
-
-			if (!empty($event_name) && !empty($description) && !empty($start_date) && !empty($start_time) && !empty($venue) && !empty($incharge1) && !empty($contact1) && !empty($committee) && !empty($category)) {
-				$cost = empty($cost) ? 0 : $cost;
-				$note = empty($note) ? NULL : $note;
-
-				$manager_id = $_SESSION['manager_id'];
-				$query = "INSERT INTO events (event_name, description, start_date, start_time, ";
-				if (!empty($end_date))
-					$query .= "end_date, end_time, ";
-				$query .= "venue, category, committee, incharge1_name, incharge1_contact, ";
-				if (!empty($incharge2))
-					$query .= "incharge2_name, incharge2_contact, ";
-				$query .= "cost, refreshment, note, manager) VALUES ('$event_name', '$description', '$start_date', '$start_time', ";
-				if (!empty($end_date))
-					$query .= "'$end_date', '$end_time', ";
-				$query .= "'$venue', $category, $committee, '$incharge1', '$contact1', ";
-				if (!empty($incharge2))
-					$query .= "'$incharge2', '$contact2', ";
-				$query .= "$cost, $refreshment, '$note', $manager_id)";
-				mysqli_query($dbc, $query);
-				header('Location: manage.php');
-			}
-			else
-				$err_msg = "Please provide the mandatory details.";
-		}
-	}
+	else
+		header('Location: manage.php');
 
 	// render header
-	$title = 'Post Event';
+	$title = 'Edit Event';
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 <br>
@@ -127,20 +126,20 @@
 			<label class="control-label" for="start">From: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<input class="form-control" type="date" name="start_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
+			<input class="form-control" type="date" name="start_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($start_date)) echo htmlspecialchars($start_date); ?>" id="start" required>
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="start_time" value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
+			<input class="form-control" type="time" name="start_time" value="<?php if(isset($start_time)) echo htmlspecialchars($start_time); ?>" id="start" required>
 			</div>
 			</div>
 			<br>
 			<label class="control-label" for="end">To: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<input class="form-control" type="date" name="end_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
+			<input class="form-control" type="date" name="end_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($end_date)) echo htmlspecialchars($end_date); ?>" id="end">
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="end_time" value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
+			<input class="form-control" type="time" name="end_time" value="<?php if(isset($end_time)) echo htmlspecialchars($end_time); ?>" id="end">
 			</div>
 			</div>
 			<br>
@@ -187,7 +186,10 @@
 					$query = "SELECT category_id, category_name FROM categories";
 					$categories = mysqli_query($dbc, $query);
 					while ($category = mysqli_fetch_array($categories)) {
-						echo '<option value="'.$category['category_id'].'">'.$category['category_name'].'</option>';
+						if ($category['category_id'] == $cat)
+							echo '<option value="'.$category['category_id'].'" selected>'.$category['category_name'].'</option>';
+						else
+							echo '<option value="'.$category['category_id'].'">'.$category['category_name'].'</option>';
 					}
 				?>
 			</select>
@@ -199,8 +201,12 @@
 				<?php
 					$query = "SELECT committee_id, committee_name FROM committees";
 					$committees = mysqli_query($dbc, $query);
-					while ($committee = mysqli_fetch_array($committees))
-						echo '<option value="'.$committee['committee_id'].'">'.$committee['committee_name'].'</option>';
+					while ($committee = mysqli_fetch_array($committees)) {
+						if ($committee['committee_id'] == $com)
+							echo '<option value="'.$committee['committee_id'].'" selected>'.$committee['committee_name'].'</option>';
+						else
+							echo '<option value="'.$committee['committee_id'].'">'.$committee['committee_name'].'</option>';
+					}
 				?>
 			</select>
 			</div>
@@ -240,7 +246,9 @@
 			</div>
 			</div>
 			<br>
-		<button class="btn btn-lg btn-success" type="submit" name="submit">Post Event</button>
+		<button class="btn btn-lg btn-success" type="submit" name="submit">Save Changes</button>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>		
+		<a href="manageevents.php"><button class="btn btn-lg btn-success" name="discard">Discard Changes</button></a>
 	</form>
 </div>
 

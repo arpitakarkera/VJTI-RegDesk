@@ -21,7 +21,7 @@
 			header('Location: /VJTI-RegDesk/index.php');
 		}
 
-		$managerial_pages = array('addevent.php', 'download.php');
+		$managerial_pages = array('addevent.php', 'download.php', 'manage.php');
 		if (in_array(basename($_SERVER['PHP_SELF']), $managerial_pages)) {
 			// current page is meant for only managers
 
