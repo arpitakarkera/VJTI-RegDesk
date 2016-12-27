@@ -38,9 +38,14 @@
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/dashboard.css">';
 		}
+		else if (basename($_SERVER['PHP_SELF']) == 'manageevents.php') {
+			
+			echo '<link rel = "stylesheet" type = "text/css" href = "../css/manageevents.css">';
+		}
 		// similarly you can add more
 		else {
 			// default one
+			echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';
 		}
 	?>
 </head>
