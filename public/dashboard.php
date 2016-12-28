@@ -30,7 +30,11 @@
 <a href="myevents.php"><button class="button" id="q">My Events</button></a>
 <br>
 <br>
+<?php if(isset($_SESSION['manager_id'])) {?>
 <a href="manage.php"><button class="button">Manage Events</button></a>
+<?php } else { ?>
+<a href="apply.php"><button class="button">Apply for Manager</button></a>
+<?php } ?>
 </div>
 <div class="col-sm-2">
 </div>  

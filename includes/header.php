@@ -38,7 +38,7 @@
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/dashboard.css">';
 		}
-		else if (basename($_SERVER['PHP_SELF']) == 'manageevents.php') {
+		else if (basename($_SERVER['PHP_SELF']) == 'manage.php' || basename($_SERVER['PHP_SELF']) == 'myevents.php') {
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/manageevents.css">';
 		}
