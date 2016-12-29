@@ -51,7 +51,7 @@
         		$from_name = NAME;
         		$subject = "Manager Request Confirmed";
         		$body = "<p>Hello ".$row['first_name'].' '.$row['last_name']."!</p>".
-        				"<p>Your request for manager status has been confirmed. You are now eligible to post new events from the \'Post Event\' tab.</p>";
+        				"<p>Your request for manager status has been confirmed. You are now eligible to post new events from the 'Post Event' tab.</p>";
         		singlemail($to, $from, $from_name, $subject, $body);
 			}
 			// remove user from responses

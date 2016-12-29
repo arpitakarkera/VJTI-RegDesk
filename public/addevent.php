@@ -74,18 +74,22 @@
 				$manager_id = $_SESSION['manager_id'];
 				$query = "INSERT INTO events (event_name, description, start_date, start_time, ";
 				if (!empty($end_date))
-					$query .= "end_date, end_time, ";
+					$query .= "end_date, ";
+				if (!empty($end_time))
+					$query .= "end_time, ";
 				$query .= "venue, category, committee, incharge1_name, incharge1_contact, ";
 				if (!empty($incharge2))
 					$query .= "incharge2_name, incharge2_contact, ";
 				$query .= "cost, refreshment, note, manager) VALUES ('$event_name', '$description', '$start_date', '$start_time', ";
 				if (!empty($end_date))
-					$query .= "'$end_date', '$end_time', ";
+					$query .= "'$end_date', ";
+				if (!empty($end_time))
+					$query .= "'$end_time', ";
 				$query .= "'$venue', $category, $committee, '$incharge1', '$contact1', ";
 				if (!empty($incharge2))
 					$query .= "'$incharge2', '$contact2', ";
 				$query .= "$cost, $refreshment, '$note', $manager_id)";
-				mysqli_query($dbc, $query);
+				mysqli_query($dbc, $query) or die(mysqli_error($dbc));
 				header('Location: manage.php');
 			}
 			else
@@ -127,20 +131,20 @@
 			<label class="control-label" for="start">From: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<input class="form-control" type="date" name="start_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
+			<input class="form-control" type="date" name="start_date" min="<?php echo date('Y-m-d'); ?>" placeholder="dd-mm-yyy" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="start_time" value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
+			<input class="form-control" type="time" name="start_time" placeholder="hh:mm AM/PM"value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
 			</div>
 			</div>
 			<br>
 			<label class="control-label" for="end">To: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<input class="form-control" type="date" name="end_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
+			<input class="form-control" type="date" name="end_date" min="<?php echo date('Y-m-d'); ?>" placeholder="dd-mm-yyy" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="end_time" value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
+			<input class="form-control" type="time" name="end_time" placeholder="hh:mm AM/PM"value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
 			</div>
 			</div>
 			<br>

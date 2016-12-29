@@ -24,6 +24,7 @@
 				// look up email and password in the database
 				$query = "SELECT user_id, first_name, last_name, verified from users WHERE email = '$user_email' AND password = SHA('$user_password')";
 				$result = mysqli_query($dbc,$query);
+				//echo "'$user_email'\n'$user_password'\n$query";
 
 				if (mysqli_num_rows($result) == 1) {
 					$row = mysqli_fetch_array($result);
