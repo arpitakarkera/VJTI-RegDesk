@@ -6,6 +6,11 @@
 	 * Header template file. To be included in every page.
 	 *
 	 */
+
+	if( ! ini_get('date.timezone') )
+	{
+	    date_default_timezone_set('Asia/Kolkata');
+	}
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +43,13 @@
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/dashboard.css">';
 		}
-		else if (basename($_SERVER['PHP_SELF']) == 'manageevents.php') {
+		else if (basename($_SERVER['PHP_SELF']) == 'manage.php' || basename($_SERVER['PHP_SELF']) == 'myevents.php') {
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/manageevents.css">';
 		}
-		// similarly you can add more
+		else if (basename($_SERVER['PHP_SELF']) == 'event.php' || basename($_SERVER['PHP_SELF'])) {
+			echo '<link rel="stylesheet" type="text/css" href="../css/event.css">';
+		}
 		else {
 			// default one
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';

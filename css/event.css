@@ -1,0 +1,8 @@
+.schedule {
+	border-style: solid;
+	border-color: rgb(205,234,254);
+	border-radius: 5px;
+
+	padding: 2%;
+	max-width: 300px;
+}

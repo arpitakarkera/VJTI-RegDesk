@@ -59,20 +59,14 @@
         				require_once(__DIR__ . '/../controls/mailer.php');
         				$activation_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
         				$to = $email;
-        				$from = NAME;
-        				$from_name = 'VJTI RegDesk';
+        				$from = USER;
+        				$from_name = NAME;
         				$subject = 'RegDesk Account Activation';
         				$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>".$activation_link."</a><br><br>You can login to your account after activation.";
         				singlemail($to, $from, $from_name, $subject, $body);
 
         				// display confirmation
-        				// render header
-						$title = 'Sign Up';
-						require_once(__DIR__ . '/../includes/header.php');
 						header('Location: confirmsignup.php');
-						// render footer
-						require_once(__DIR__ . '/../includes/footer.php');
-						exit();
 					}
 				}
 				else {
@@ -101,7 +95,7 @@
 
 	// function that validates id number. number should have 9 digits.
 	function validate_id($id) {
-		if (preg_match('/^\d{10}$/', $id))
+		if (preg_match('/^\d{9}$/', $id))
 			return true;
 
 		return false;

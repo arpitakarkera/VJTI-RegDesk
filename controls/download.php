@@ -18,8 +18,8 @@
 	// get event details
 	if (isset($_GET['event'])) {
 		$event_id = mysqli_real_escape_string($dbc, trim($_GET['event']));
-		$query = "SELECT events.event_name, events.manager, users.first_name, users.last_name FROM events INNER JOIN managers ON events.manager = managers.manager_id INNER JOIN users ON managers.user_id = users.user_id";
-		$result = mysqli_query($dbc, $query);
+		$query = "SELECT events.event_name, events.manager, users.first_name, users.last_name FROM events INNER JOIN managers ON events.manager = managers.manager_id INNER JOIN users ON managers.user_id = users.user_id WHERE events.event_id = $event_id";
+		$result = mysqli_query($dbc, $query) or die(mysqli_error());
 		if (mysqli_num_rows($result) == 1) {
 			$event_row = mysqli_fetch_array($result);
 			// proceed only if the manager who is logged in posted the event
@@ -41,13 +41,13 @@
 						//echo str_pad($event_id, 3, '0', STR_PAD_LEFT).str_pad($reg_row['registration_id'], 5, '0', STR_PAD_LEFT);
 						fputcsv($out, array(str_pad($event_id, 3, '0', STR_PAD_LEFT).str_pad($reg_row['registration_id'], 5, '0', STR_PAD_LEFT), $reg_row['first_name'].' '.$reg_row['last_name'], $reg_row['email'], $reg_row['id'], $reg_row['contact'], $reg_row['programme_name'], $reg_row['year'], $reg_row['branch_name']));
 					}
-					header('Content-Type: application/csv');
-					// tell the browser we want to save it instead of displaying it
-    				header('Content-Disposition: attachment; filename="'.str_replace(' ','',strtolower($event_row['event_name'])).str_pad($event_id, 3, '0', STR_PAD_LEFT).'.csv";');
-    				// make php send the generated csv lines to the browser
-    				fpassthru($out);
-					fclose($out);
 				}
+				header('Content-Type: application/csv');
+				// tell the browser we want to save it instead of displaying it
+    			header('Content-Disposition: attachment; filename="'.str_replace(' ','',strtolower($event_row['event_name'])).str_pad($event_id, 3, '0', STR_PAD_LEFT).'.csv";');
+    			// make php send the generated csv lines to the browser
+    			fpassthru($out);
+				fclose($out);
 			}
 		}
 	}
