@@ -9,7 +9,7 @@
 	 */
 
 	// authenticate
-	//require_once(__DIR__ . '/../includes/authenticate.php');
+	require_once(__DIR__ . '/../includes/authenticate.php');
 
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
@@ -19,7 +19,7 @@
 
 		// query database to get user's name and email
 		$user_id = $_SESSION['user_id'];
-		$first_name = $_SESSION['name'];
+		$first_name = $_SESSION['first_name'];
 		$query = "SELECT last_name, email FROM users WHERE user_id = $user_id";
 		$result = mysqli_query($dbc, $query);
 		if (mysqli_num_rows($result) == 1) {

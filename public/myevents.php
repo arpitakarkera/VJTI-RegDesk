@@ -19,7 +19,7 @@
 	$up_result = mysqli_query($dbc, $up_query);
 
 	// get all past events that the manager has posted
-	$past_query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM archived_events WHERE manager = ".$_SESSION['manager_id']." ORDER BY start_date DESC";
+	$past_query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM archived_events WHERE manager = ".$_SESSION['user_id']." ORDER BY start_date DESC";
 	$past_result = mysqli_query($dbc, $past_query);
 
 	// render header

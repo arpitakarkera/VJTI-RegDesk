@@ -8,6 +8,11 @@
 	 */
 
 	include_once(__DIR__ . '/../controls/mailer.php');
+
+	if( ! ini_get('date.timezone') )
+	{
+	    date_default_timezone_set('GMT');
+	}
 ?>
 
 		<footer style="padding: 0px;">

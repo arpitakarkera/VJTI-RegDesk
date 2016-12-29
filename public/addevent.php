@@ -127,20 +127,20 @@
 			<label class="control-label" for="start">From: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<input class="form-control" type="date" name="start_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
+			<input class="form-control" type="date" name="start_date" min="<?php echo date('Y-m-d'); ?>" placeholder="dd-mm-yyy" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="start_time" value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
+			<input class="form-control" type="time" name="start_time" placeholder="hh:mm AM/PM"value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
 			</div>
 			</div>
 			<br>
 			<label class="control-label" for="end">To: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<input class="form-control" type="date" name="end_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
+			<input class="form-control" type="date" name="end_date" min="<?php echo date('Y-m-d'); ?>" placeholder="dd-mm-yyy" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="end_time" value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
+			<input class="form-control" type="time" name="end_time" placeholder="hh:mm AM/PM"value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
 			</div>
 			</div>
 			<br>
