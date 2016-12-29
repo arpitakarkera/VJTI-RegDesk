@@ -47,8 +47,10 @@
 
 		// display the msg
 		require_once(__DIR__ . '/../includes/header.php');
-		echo '<div>'.$msg.'</div>';
+		echo '<div class="container-fluid">'.$msg.'</div>';
+		echo '<div class="footer">';
 		require_once(__DIR__ . '/../includes/footer.php');
+		echo '</div>';
 		exit();
 	}
 
@@ -56,7 +58,7 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
-<div>
+<div class="container-fluid">
 	<h2>Recover your account</h2>
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 		<p>Enter your email below and we will send you a link to reset your password</p>
@@ -66,7 +68,9 @@
 	</form>
 </div>
 
+<div class="footer">
 <?php
 	// render footer
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
+</div>

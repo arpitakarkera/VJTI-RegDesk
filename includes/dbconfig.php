@@ -13,5 +13,5 @@
 	define('DB_NAME', 'vjti_regdesk');
 
 	// connect to the database
-	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die(mysqli_errr());
+	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die(mysqli_error());
 ?>
