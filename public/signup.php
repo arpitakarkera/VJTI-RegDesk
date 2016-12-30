@@ -108,9 +108,10 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
-<div style="font-family: 'Raleway', sans-serif; padding-left: 6%; padding-top: 5%; padding-bottom: 3%;">
+<div style="font-family: 'Raleway', sans-serif; padding-left: 6%; padding-top: 5%; padding-bottom: 3%; padding-right: 6%;">
 <h1 style="font-weight:bold;color:rgb(12,73,109);">Join VJTI RegDesk</h1>
 <h3 style="color:rgb(12,73,109);">Easy.&nbsp;&nbsp;Simple.&nbsp;&nbsp;Effective.</h3>
+<hr style="height: 2px;">
 </div>
 <div class="container">
 	<h3 style="font-weight:bold;color:rgb(1,56,101);">Create your account</h3>
@@ -248,7 +249,7 @@
 	</form>
 </div>
 </div>
-</form></div>
+</form></div></form></div></div>
 <!--Render footer-->
 <?php
 	require_once(__DIR__ . '/../includes/footer.php');

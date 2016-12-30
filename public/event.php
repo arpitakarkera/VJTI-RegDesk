@@ -44,7 +44,8 @@
 
   <div class="container">
     <div>
-      <p>EV<?php echo htmlspecialchars(str_pad($event_id, 3, '0', STR_PAD_LEFT)); ?><span style="float: right; vertical-align: middle; background-color: rgb(205,234,254); border-radius: 5px; padding: 0.5%;"><span class="glyphicon glyphicon-tag"></span><?php echo htmlspecialchars($event['category_name']); ?></span></p>
+      <p style="color: gray;">EV<?php echo htmlspecialchars(str_pad($event_id, 3, '0', STR_PAD_LEFT)); ?></p>
+      <p style="max-width: 100px; vertical-align: middle; background-color: rgb(205,234,254); border-radius: 5px; padding: 0.5%; text-align: center;"><span class="glyphicon glyphicon-tag"></span><?php echo htmlspecialchars($event['category_name']); ?></p>
       <?php
         if ($registered) {
       ?>
@@ -56,7 +57,7 @@
       <?php
         }
       ?>
-      <h2><?php echo htmlspecialchars($event[event_name]); ?></h2>
+      <h2 style="font-family: 'Raleway', sans-serif;"><?php echo htmlspecialchars($event[event_name]); ?></h2>
       <p>by <?php echo htmlspecialchars($event['committee_name']); ?></p>
     </div>
     <div>
