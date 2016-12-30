@@ -47,12 +47,14 @@
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/manageevents.css">';
 		}
-		else if (basename($_SERVER['PHP_SELF']) == 'event.php' || basename($_SERVER['PHP_SELF'])) {
+		else if (basename($_SERVER['PHP_SELF']) == 'event.php') {
 			echo '<link rel="stylesheet" type="text/css" href="../css/event.css">';
 		}
 		else {
-			// default one
-			echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';
+			if (!in_array(basename($_SERVER['PHP_SELF']), ['signup.php', 'addevent.php'])) {
+				// default one
+				echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';
+			}
 		}
 	?>
 </head>
@@ -61,7 +63,7 @@
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
 ?>
-		<header style="background-image: url('../images/background.jpg');">
+		<header style="background-image: url('../images/background.jpg'); border-bottom: 5px solid rgb(213,224,224);">
 		
 		<div class="row" style="padding-top:1.2%;padding-bottom:1.2%;">
 		<div class="span4" style="padding-left:5%;">

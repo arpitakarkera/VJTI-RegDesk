@@ -193,7 +193,7 @@ $(document).ready(function(){
 </div>
 </div>
 <div class="container-fluid text-center">
-<p  style="font-size:50px; color:rgb(0,0,0)">Don't miss out!</p>
+<p  style="font-size:30px; color:rgb(0,0,0)">Don't miss out!</p>
 <a href="public/signup.php"><button type="button" class="btn btn-success btn-lg">Sign Up!</button></a>
 </div>
 <br>

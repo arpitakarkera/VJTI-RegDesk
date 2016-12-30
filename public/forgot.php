@@ -68,9 +68,8 @@
 	</form>
 </div>
 
-<div class="footer">
+
 <?php
 	// render footer
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
-</div>
