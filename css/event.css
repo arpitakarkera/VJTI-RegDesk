@@ -1,3 +1,7 @@
+.container {
+	padding: 10%;
+	padding-top: 5%;
+}
 .schedule {
 	border-style: solid;
 	border-color: rgb(205,234,254);
