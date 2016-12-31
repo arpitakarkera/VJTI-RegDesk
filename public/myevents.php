@@ -1,7 +1,7 @@
 <?php
 	/*
 	 *
-	 * @author Arpita Karkera
+	 * @author Arpita Karkera,Sunaina Punyani
 	 * @date 26 December, 2016
 	 *
 	 * This page lets user see the events he/she has registered for.
@@ -26,7 +26,7 @@
 	$title = 'My Events';
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
-<h2 style="padding-left: 11%;">All your registered events appear here.</h2>
+<h3 style="padding-left: 11%;">All your registered events appear here.</h2>
 <div class="container-fluid" style="border-bottom: 1px solid black;">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Upcoming Events</p>

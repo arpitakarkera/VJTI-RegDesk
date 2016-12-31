@@ -15,7 +15,7 @@
 	}
 ?>
 
-		<footer class="footer" style="background-image:url('<?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'images/background.jpg'; else echo '../images/background.jpg'; ?>'); background-repeat: repeat; background-position: left bottom; background-attachment: fixed;width:100% padding: 0px; border-top: 5px solid rgb(213,224,224);">
+		<footer class="footer" style="background-image:url('<?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'images/background.jpg'; else echo '../images/background.jpg'; ?>'); background-repeat: repeat; background-position: left bottom; background-attachment: fixed;width:100% padding: 0px; border-top: 3px solid rgb(213,224,224);">
 			<div class="container-fluid" style="padding: 0px;">
 			<div class="row" style="">
 			<div class="col-sm-4 text-left">

@@ -1,7 +1,7 @@
 <?php
     /*
      *
-     * @author Apeksha Gothawal, Arpita Karkera
+     * @author Apeksha Gothawal, Arpita Karkera,Sunaina Punyani
      * @date 19 December, 2016
      *
      * Event page. Shows details of particular event.
@@ -23,9 +23,9 @@
         $result = mysqli_query($dbc, $query);
         if (mysqli_num_rows($result) == 1) {
             $event = mysqli_fetch_array($result);
-            $query = "SELECT count(*) FROM registrations WHERE user_id = ".$_SESSION['user_id']." AND event_id = ".$_SESSION['event_id'];
+            $query = "SELECT registration_id FROM registrations WHERE user_id = ".$_SESSION['user_id']." AND event_id = ".$event_id;
             $result = mysqli_query($dbc, $query);
-            if ($result == 1)
+            if (mysqli_num_rows($result) == 1)
               $registered = true;
             else
               $registered = false;
@@ -42,28 +42,79 @@
     require_once(__DIR__ .'/../includes/header.php');
 ?>
 
-  <div class="container">
-    <div>
+  <div class="container" style="padding-bottom:0%;">
+  <div class="row">
+    <div class="col-sm-6">
       <p style="color: gray;">EV<?php echo htmlspecialchars(str_pad($event_id, 3, '0', STR_PAD_LEFT)); ?></p>
-      <p style="max-width: 100px; vertical-align: middle; background-color: rgb(205,234,254); border-radius: 5px; padding: 0.5%; text-align: center;"><span class="glyphicon glyphicon-tag"></span><?php echo htmlspecialchars($event['category_name']); ?></p>
+      <p style="max-width: 100px; vertical-align: middle; background-color: rgb(205,234,254); border-radius: 5px; padding: 0.5%; text-align: center;"><span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;<?php echo htmlspecialchars($event['category_name']); ?></p>
+      <h2 style="font-family: 'Raleway', sans-serif;"><?php echo htmlspecialchars($event['event_name']); ?></h2>
+      <p>by <?php echo htmlspecialchars($event['committee_name']); ?></p>
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-2" style="padding-top:8%;">
       <?php
         if ($registered) {
       ?>
-          <button type="button" class="btn btn-primary" style="float: right;">Registered</button>
+          <button type="button" class="btn btn-primary">Registered</button>
       <?php
         } else {
       ?>
-          <a href="../controls/register.php"><button type="button" class="btn btn-primary" style="float: right;">Register</button></a>
+          <a href="../controls/register.php"><button type="button" class="btn btn-primary">Register</button></a>
       <?php
         }
       ?>
-      <h2 style="font-family: 'Raleway', sans-serif;"><?php echo htmlspecialchars($event[event_name]); ?></h2>
-      <p>by <?php echo htmlspecialchars($event['committee_name']); ?></p>
+      </div>
+    </div>  
     </div>
-    <div>
-        <img src="<?php echo '../images/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>">
+<br>
+    <div class="container" style="padding-top:1%;padding-bottom:0%;">
+        <img src="<?php echo '../images/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" width="100%" max-height="300px">
     </div>
-    <div class="description">
+    <br>
+    <div class="container" style="padding-top:2%;">
+    <div class="row">
+    
+    <div class="col-sm-4">
+    <div class="schedule">
+          <p style="font-size:15px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;
+          <?php 
+            if (empty($event['end_date'])) 
+                echo htmlspecialchars(date('d M, Y', strtotime($event['start_date']))); 
+            else 
+                echo htmlspecialchars(date('d M, Y', strtotime($event['start_date']))).' - '.htmlspecialchars(date('d M, Y', strtotime($event['end_date']))); 
+          ?></p>
+          <p style="font-size:15px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;
+          <?php
+            if (empty($event['end_time']))
+                echo htmlspecialchars(date('H:i A', strtotime($event['start_time'])));
+            else
+                echo htmlspecialchars(date('H:i A', strtotime($event['start_time']))).' - '.htmlspecialchars(date('H:i A', strtotime($event['end_time'])));;
+          ?></p>
+          <p style="font-size:15px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;
+          <?php
+            echo htmlspecialchars($event['venue']);
+          ?></p>
+          
+      
+    </div>
+    <br>
+    <?php
+        if ($registered) {
+      ?>
+          <button type="button" class="btn btn-primary" style="max-width: 300px;">Registered</button>
+      <?php
+        } else {
+      ?>
+          <a href="../controls/register.php"><button type="button" class="btn btn-primary" style="max-width: 300px;">Register</button></a>
+      <?php
+        }
+      ?>
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-6" >
+       <div style="float:right;"> 
         <p><?php echo htmlspecialchars($event['description']); ?></p>
         <p>Regitration Fee: 
         <?php
@@ -92,41 +143,12 @@
         </p>
         <p><span>Note</span><br><?php echo htmlspecialchars($event['note']); ?></p>
     </div>
-    <div>
-    <div class="schedule">
-          <p style="font-size:15px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;
-          <?php 
-            if (empty($event['end_date'])) 
-                echo htmlspecialchars(date('d M, Y', strtotime($event['start_date']))); 
-            else 
-                echo htmlspecialchars(date('d M, Y', strtotime($event['start_date']))).' - '.htmlspecialchars(date('d M, Y', strtotime($event['end_date']))); 
-          ?></p>
-          <p style="font-size:15px;"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;
-          <?php
-            if (empty($event['end_time']))
-                echo htmlspecialchars(date('H:i A', strtotime($event['start_time'])));
-            else
-                echo htmlspecialchars(date('H:i A', strtotime($event['start_time']))).' - '.htmlspecialchars(date('H:i A', strtotime($event['end_time'])));;
-          ?></p>
-          <p style="font-size:15px;"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;
-          <?php
-            echo htmlspecialchars($event['venue']);
-          ?></p>
     </div>
-    <br>
-      <?php
-        if ($registered) {
-      ?>
-          <button type="button" class="btn btn-primary" style="max-width: 300px;">Registered</button>
-      <?php
-        } else {
-      ?>
-          <a href="../controls/register.php"><button type="button" class="btn btn-primary" style="max-width: 300px;">Register</button></a>
-      <?php
-        }
-      ?>
     </div>
-  </div>
+    </div>
+    
+    
+  
 <?php
   require_once(__DIR__ . '/../includes/footer.php');
 ?>
