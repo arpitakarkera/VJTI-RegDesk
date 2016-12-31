@@ -1,0 +1,24 @@
+  /*
+   * @author:Arpita Karkera, Apeksha Gothawal,Sunaina Punyani
+   * @date: 4th December, 2016
+   * 
+   *  css for dashboard.
+   *
+   */
+
+.container {
+	padding: 10%;
+	padding-top: 5%;
+}
+.schedule {
+	border-style: solid;
+	border-color: rgb(205,234,254);
+	border-radius: 5px;
+
+	padding: 2%;
+	width:100%;
+}
+.btn-primary
+{
+	width:100%;
+}

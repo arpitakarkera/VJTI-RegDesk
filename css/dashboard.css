@@ -17,7 +17,7 @@
 	
 	text-align:left;
 	padding-top:3%;
-	padding-left:3%;
+	padding-left:2%;
 }
 .button{
     background-color:rgb(24,44,75);
@@ -30,13 +30,12 @@
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    width:100%;
 }
-#q.button
-{
-  padding:8px 44px;
-}
+
 .button:hover{
 
+  width:100%;
   background-color:rgb(14,40,41);
   color:white;
   border-style:solid;
@@ -99,7 +98,7 @@ ul
   overflow:hidden;
   background-color:rgb(172,230,191);
   margin:0;
-  padding-left:11%;
+  padding-left:8.6%;
 
 }
 li

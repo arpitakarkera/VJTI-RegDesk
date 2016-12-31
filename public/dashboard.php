@@ -24,9 +24,9 @@
 <div class="col-sm-4" id="a"> 
 <p style="font-size:40px"><?php echo htmlspecialchars($_SESSION['first_name']); ?>&nbsp;&nbsp;<?php echo htmlspecialchars($_SESSION['last_name']); ?></p>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-4">
 </div>
-<div class="col-sm-3 text-right" style="padding-top: 2.5%;">
+<div class="col-sm-2" style="padding-top: 2.5%;">
 <a href="myevents.php"><button class="button" id="q">My Events</button></a>
 <br>
 <br>
@@ -36,7 +36,7 @@
 <a href="apply.php"><button class="button">Apply for Manager</button></a>
 <?php } ?>
 </div>
-<div class="col-sm-2">
+<div class="col-sm-1">
 </div>  
 </div>
 </div>
@@ -46,9 +46,9 @@
 <li><a href="dashboard.php?cat=4#start">Lectures</a></li>
 <li><a href="dashboard.php?cat=2#start">Workshops</a></li>
 <li><a href="dashboard.php?cat=3#start">Competitions</a></li>
-<li style="float:right;padding:1% 15%;"><div class="input-group">
-	<form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-		<input type="text" name="q" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q']) && !empty($_GET['q'])) echo htmlspecialchars($_GET['q']); ?>"><button type="submit" class="input-group-addon transparent"><span class="glyphicon glyphicon-search"></span></button>
+<li style="float:right;padding:1% 10.5%;"><div class="input-group">
+	<form class="form-inline" method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+		<div class="form-group"><input type="text" name="q" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q']) && !empty($_GET['q'])) echo htmlspecialchars($_GET['q']); ?>"></div><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 	</form>
 		</div>
 </li>
@@ -113,13 +113,13 @@
 ?>
 <div class="cube" id="a">
 <div class="row">
-<div class="col-sm-2">
-<img src="../images/star.png" class="img img-responsive" style="padding-top:11%; ">
+<div class="col-sm-3" style="padding-left:4%;">
+<img src="../banners/event_default.png" class="img img-responsive" style="padding-top:5%;" width="160px" height="160px">
 </div>
-<div class="col-sm-7">
-<div style="text-align: left;padding-top: 1%;padding-left: 2%;">
+<div class="col-sm-6">
+<div style="text-align: left;">
 <p style="font-size: 10px; color: gray; padding-bottom: 0px;"><?php echo 'EV'.htmlspecialchars(str_pad($event['event_id'], 3, '0', STR_PAD_LEFT)); ?></p>
-<a href="event.php?event=<?php echo htmlspecialchars($event['event_id']); ?>"><p style="font-size:30px; padding-top: 0px;"><?php echo htmlspecialchars($event['event_name']) ?></p></a>
+<a href="event.php?event=<?php echo htmlspecialchars($event['event_id']); ?>"><p style="font-size:30px;color:rgb(65,65,65); padding-top: 0px;"><?php echo htmlspecialchars($event['event_name']) ?></p></a>
 <p style="font-size:15px;"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;
 <?php 
 	if (empty($event['end_date'])) 

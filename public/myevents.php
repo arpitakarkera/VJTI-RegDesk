@@ -1,7 +1,7 @@
 <?php
 	/*
 	 *
-	 * @author Arpita Karkera
+	 * @author Arpita Karkera,Sunaina Punyani
 	 * @date 26 December, 2016
 	 *
 	 * This page lets user see the events he/she has registered for.
@@ -19,15 +19,15 @@
 	$up_result = mysqli_query($dbc, $up_query);
 
 	// get all past events that the manager has posted
-	$past_query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM archived_events WHERE manager = ".$_SESSION['manager_id']." ORDER BY start_date DESC";
+	$past_query = "SELECT event_id, event_name, start_date, end_date, start_time, end_time, venue FROM archived_events WHERE manager = ".$_SESSION['user_id']." ORDER BY start_date DESC";
 	$past_result = mysqli_query($dbc, $past_query);
 
 	// render header
 	$title = 'My Events';
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
-<h2 style="padding-left: 11%;">All your registered events appear here.</h2>
-<div class="container-fluid" style="border-bottom: 1px solid black;">
+<h3 style="padding-left: 11%;">All your registered events appear here.</h2>
+<div class="container-fluid">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Upcoming Events</p>
 </div>
@@ -81,6 +81,7 @@
 ?>
 </div>
 </div>
+<hr>
 <div class="container-fluid">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Past Events</p>
