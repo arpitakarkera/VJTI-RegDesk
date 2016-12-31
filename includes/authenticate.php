@@ -11,6 +11,11 @@
 	// start session
 	session_start();
 
+	if( ! ini_get('date.timezone') )
+	{
+	    date_default_timezone_set('Asia/Kolkata');
+	}
+
 	$free_pages = array('index.php', 'signup.php', 'confirmsignup.php', 'activate.php', 'forgot.php', 'reset.php');
 
 	if (!in_array(basename($_SERVER['PHP_SELF']), $free_pages)) {

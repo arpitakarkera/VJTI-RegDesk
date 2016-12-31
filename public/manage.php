@@ -25,14 +25,13 @@
 	$past_result = mysqli_query($dbc, $past_query);
 ?>
 
-<div  class="container-fluid" style="border-bottom: 1px solid black;" >
+<div  class="container-fluid">
 <div style="text-align: left;padding-left:10%;padding-top:4%;padding-bottom: 3%;">
-<p style="font-size:30px; font-family: 'Raleway', sans-serif;">Post new Event</p>
-<br>
-<a href="addevent.php"><button class="btn btn-success btn-lg">Add Event</button></a>
+<a href="addevent.php"><button class="btn btn-success btn-lg">Post Event</button></a>
 </div>
 </div>
-<div class="container-fluid" style="border-bottom: 1px solid black;">
+<hr>
+<div class="container-fluid">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Upcoming Events</p>
 </div>
@@ -89,6 +88,7 @@
 ?>
 </div>
 </div>
+<hr>
 <div class="container-fluid">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Past Events</p>
