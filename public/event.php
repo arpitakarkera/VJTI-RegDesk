@@ -68,8 +68,8 @@
     </div>  
     </div>
 <br>
-    <div class="container" style="padding-top:1%;padding-bottom:0%;">
-        <img src="<?php echo '../banners/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" width="100%" max-height="300px">
+    <div class="container" style="padding-top:1%;padding-bottom:0%; max-height: 500px;">
+        <img src="<?php echo '../banners/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" style="display: block; margin: auto;">
     </div>
     <br>
     <div class="container" style="padding-top:2%;">
