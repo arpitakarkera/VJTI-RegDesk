@@ -62,7 +62,7 @@
         				$from = USER;
         				$from_name = NAME;
         				$subject = 'RegDesk Account Activation';
-        				$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>".$activation_link."</a><br><br>You can login to your account after activation.";
+        				$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>Activate</a><br><br>You can login to your account after activation.";
         				singlemail($to, $from, $from_name, $subject, $body);
 
         				// display confirmation

@@ -114,7 +114,7 @@
 <div class="cube" id="a">
 <div class="row">
 <div class="col-sm-3" style="padding-left:4%;">
-<img src="../banners/event_default.png" class="img img-responsive" style="padding-top:5%;" width="160px" height="160px">
+<img src="../banners/<?php echo htmlspecialchars(str_pad($event['event_id'], 3, 0, STR_PAD_LEFT)) ?>.jpg" class="img img-responsive" style="padding-top:5%; vertical-align: middle;" width="160px" height="160px">
 </div>
 <div class="col-sm-6">
 <div style="text-align: left;">
