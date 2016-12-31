@@ -27,7 +27,7 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 <h3 style="padding-left: 11%;">All your registered events appear here.</h2>
-<div class="container-fluid" style="border-bottom: 1px solid black;">
+<div class="container-fluid">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Upcoming Events</p>
 </div>
@@ -81,6 +81,7 @@
 ?>
 </div>
 </div>
+<hr>
 <div class="container-fluid">
 <div style="text-align:left;padding-top:3%;padding-left:10%;">
 <p style="font-size:30px; font-family: 'Raleway', sans-serif;">Past Events</p>

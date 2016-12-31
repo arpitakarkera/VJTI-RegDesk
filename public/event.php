@@ -60,7 +60,7 @@
       <?php
         } else {
       ?>
-          <a href="../controls/register.php"><button type="button" class="btn btn-primary">Register</button></a>
+          <a href="../controls/register.php?event=<?php echo htmlspecialchars($event_id); ?>"><button type="button" class="btn btn-primary">Register</button></a>
       <?php
         }
       ?>
@@ -106,7 +106,7 @@
       <?php
         } else {
       ?>
-          <a href="../controls/register.php"><button type="button" class="btn btn-primary" style="max-width: 300px;">Register</button></a>
+          <a href="../controls/register.php?event=<?php echo htmlentities($event_id); ?>"><button type="button" class="btn btn-primary" style="max-width: 300px;">Register</button></a>
       <?php
         }
       ?>
