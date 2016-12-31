@@ -69,7 +69,7 @@
     </div>
 <br>
     <div class="container" style="padding-top:1%;padding-bottom:0%;">
-        <img src="<?php echo '../images/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" width="100%" max-height="300px">
+        <img src="<?php echo '../banners/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" width="100%" max-height="300px">
     </div>
     <br>
     <div class="container" style="padding-top:2%;">
@@ -102,11 +102,11 @@
     <?php
         if ($registered) {
       ?>
-          <button type="button" class="btn btn-primary" style="max-width: 300px;">Registered</button>
+          <button type="button" class="btn btn-primary">Registered</button>
       <?php
         } else {
       ?>
-          <a href="../controls/register.php?event=<?php echo htmlentities($event_id); ?>"><button type="button" class="btn btn-primary" style="max-width: 300px;">Register</button></a>
+          <a href="../controls/register.php?event=<?php echo htmlentities($event_id); ?>"><button type="button" class="btn btn-primary">Register</button></a>
       <?php
         }
       ?>

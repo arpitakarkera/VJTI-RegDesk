@@ -58,7 +58,7 @@
 			echo '<link rel="stylesheet" type="text/css" href="../css/event.css">';
 		}
 		else {
-			if (!in_array(basename($_SERVER['PHP_SELF']), ['signup.php', 'addevent.php'])) {
+			if (!in_array(basename($_SERVER['PHP_SELF']), ['signup.php', 'addevent.php', 'editevent.php'])) {
 				// default one
 				echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';
 			}
