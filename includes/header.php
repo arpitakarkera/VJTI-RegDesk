@@ -6,6 +6,11 @@
 	 * Header template file. To be included in every page.
 	 *
 	 */
+
+	if( ! ini_get('date.timezone') )
+	{
+	    date_default_timezone_set('Asia/Kolkata');
+	}
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +26,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!--jQuery for datepicker-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+    	$( "#datepicker" ).datepicker();
+	});
+	</script>
 	<!--Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700|PT+Sans:400,700|Raleway:500" rel="stylesheet">
 	<style type="text/css">
@@ -42,10 +54,14 @@
 			
 			echo '<link rel = "stylesheet" type = "text/css" href = "../css/manageevents.css">';
 		}
-		// similarly you can add more
+		else if (basename($_SERVER['PHP_SELF']) == 'event.php') {
+			echo '<link rel="stylesheet" type="text/css" href="../css/event.css">';
+		}
 		else {
-			// default one
-			echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';
+			if (!in_array(basename($_SERVER['PHP_SELF']), ['signup.php', 'addevent.php', 'editevent.php'])) {
+				// default one
+				echo '<link rel = "stylesheet" type = "text/css" href = "../css/confirmsignup.css">';
+			}
 		}
 	?>
 </head>
@@ -54,7 +70,7 @@
 <?php
 	if (basename($_SERVER['PHP_SELF']) != 'index.php') {
 ?>
-		<header style="background-image: url('../images/background.jpg');">
+		<header style="background-image: url('../images/background.jpg'); border-bottom: 3px solid rgb(213,224,224);">
 		
 		<div class="row" style="padding-top:1.2%;padding-bottom:1.2%;">
 		<div class="span4" style="padding-left:5%;">

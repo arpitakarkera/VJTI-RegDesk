@@ -37,13 +37,15 @@
 				// correct key. reset the password
 				$reset_query = "UPDATE users SET password = SHA('$pswd1') WHERE user_id = $user_id LIMIT 1";
 				mysqli_query($dbc, $reset_query);
-				$msg = '<p>You have successfully reset your password!</p>';
+				$msg = '<p>You have successfully reset your password!<br>Go ahead and <a href="../index.php">Sign In</a></p>';
 				$_SESSION = array();
 				session_destroy();
 				// display message
 				require_once(__DIR__ . '/../includes/header.php');
-				echo '<div>'.$msg.'</div>';
+				echo '<div class="container-fluid">'.$msg.'</div>';
+				echo '<div class="footer">';
 				require_once(__DIR__ . '/../includes/footer.php');
+				echo '</div>';
 				exit();
 			}
 			else die('Invalid!');
@@ -81,7 +83,7 @@
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
-<div>
+<div class="container-fluid">
 	<h2>Reset your password</h2>
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 		<p>&nbsp;<?php echo $err_msg; ?>&nbsp;</p>
@@ -93,7 +95,9 @@
 	</form>
 </div>
 
+<div class="footer">
 <?php
 	// render footer
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
+</div>
