@@ -44,9 +44,14 @@
 						$err_msg = 'The email provided is invalid.';
 					else if (!validate_contact($contact)) // contact is invalid
 						$err_msg = 'The contact number provided is invalid.';
-					else if (!validate_id($id))
+					else if (!validate_id($id)) // id is invalid
 						$err_msg = 'The ID provided is invalid.';
+					else if (!validate_name($first_name) || !validate_name($last_name)) // name is invalid
+						$err_msg = "Invalid name! Is your name really $first_name $last_name?";
 					else {
+						$first_name = ucfirst(strtolower($first_name));
+						$last_name = ucfirst(strtolower($last_name));
+
 						// insert data into database
 						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified) VALUES ('$email', SHA('$password1'), '$id', '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0)";
         				mysqli_query($dbc, $query);
@@ -100,6 +105,10 @@
 
 		return false;
 	}
+
+	function validate_name($name) {
+		return preg_match("/^[a-zA-Z'-]+$/", $name);
+	}
 ?>
 
 <!--Render header-->
@@ -140,7 +149,7 @@
 			<input class="form-control" type="email" id="email"  name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
 		</div>
 		</div>
-		<span class="help-block">This will be used for all further communications with you. If you don't have one, you should. Seriously.</span>
+		<span class="help-block">This will be used for all further communications with you. If you don't have one, you should get one. Seriously.</span>
 	</div>
 	<br>
 	<!--password-->
