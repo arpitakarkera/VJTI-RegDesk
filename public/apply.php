@@ -14,6 +14,7 @@
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
 
+
 	if (!isset($_SESSION['manager_id'])) {
 		// user is not a manager so mail the admin to grant managerial status
 
@@ -34,7 +35,7 @@
 
 		$confirm_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']).'/confirm.php';
 
-		$to = $email;
+		$to = ADMIN;
         $from = USER;
         $from_name = NAME;
         $subject = "Manager Request";
@@ -45,9 +46,12 @@
         		"<p><a href='$confirm_link'><button>Go to confirmation page -></button></a></p>";
         $sent = singlemail($to, $from, $from_name, $subject, $body);
 
+        // render header
+        require_once(__DIR__ . '/../includes/header.php');
+
         if ($sent) {
         	// insert user_id in requests table
-        	$query = "INSERT INTO requests (user_id) VALUES (user_id)";
+        	$query = "INSERT INTO requests (user_id) VALUES ($user_id)";
         	mysqli_query($dbc, $query);
 
         	echo "<div class='container-fluid'>Your request has been recorded. We'll get back to you soon.</div>";
@@ -56,9 +60,8 @@
         	echo "<div class='container-fluid'>Sorry. The request could not be sent.</div>";
 	}
 ?>
-<div class="footer">
+
 <?php
 	// render footer
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
-</div>

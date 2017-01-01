@@ -1,7 +1,7 @@
 <?php
 	/*
 	 *
-	 * @author Arpita Karkera
+	 * @author Arpita Karkera,Sunaina Punyani
 	 * @date 16 December, 2016
 	 *
 	 * If the user clicks 'Forgot password?' or 'change password', he/she will be redirected to this page for resetting
@@ -62,10 +62,22 @@
 	<h2>Recover your account</h2>
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 		<p>Enter your email below and we will send you a link to reset your password</p>
-		<input type="email" name="email" required>
 		<br>
-		<button class="btn btn-lg btn-default" type="submit" name="submit" value="Send password reset instructions">Send password reset instructions</button>
+		<div class="form-group row">
+		<div class="col-sm-5">
+		</div>
+		<div class="col-sm-2">
+		<input  class="form-control" type="email" name="email" required>
+		</div>
+		<div class="col-sm-2">
+		</div>
+		</div>
+		<br>
+		<div class="form-group">
+		<button class="btn btn-lg btn-success" type="submit" name="submit" value="Send password reset instructions">Send password reset instructions</button>
+	</div>
 	</form>
+
 </div>
 
 
