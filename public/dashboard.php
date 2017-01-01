@@ -109,7 +109,11 @@
 	$result = mysqli_query($dbc, $query);
 	if (mysqli_num_rows($result) != 0) {
 		while ($event = mysqli_fetch_array($result)) {
+<<<<<<< HEAD
 			$filename = "../banners/".str_pad($event['event_id'], 3, 0, STR_PAD_LEFT).".jpg";
+=======
+			$filename = "../banners/".str_pad($event['event_id'], 3, 0, STR_PAD_LEFT)."jpg"
+>>>>>>> 2f280229f95020ccf399e7e172a5fc70a9744fe4
 			if (file_exists($filename)) {
 				$source = $filename;
 			}
