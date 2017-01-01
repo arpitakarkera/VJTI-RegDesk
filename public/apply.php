@@ -45,6 +45,9 @@
         		"<p><a href='$confirm_link'><button>Go to confirmation page -></button></a></p>";
         $sent = singlemail($to, $from, $from_name, $subject, $body);
 
+        // render header
+        require_once(__DIR__ . '../includes/header.php');
+
         if ($sent) {
         	// insert user_id in requests table
         	$query = "INSERT INTO requests (user_id) VALUES (user_id)";
@@ -56,9 +59,8 @@
         	echo "<div class='container-fluid'>Sorry. The request could not be sent.</div>";
 	}
 ?>
-<div class="footer">
+
 <?php
 	// render footer
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
-</div>

@@ -109,12 +109,23 @@
 	$result = mysqli_query($dbc, $query);
 	if (mysqli_num_rows($result) != 0) {
 		while ($event = mysqli_fetch_array($result)) {
+<<<<<<< HEAD
+			$filename = "../banners/".str_pad($event['event_id'], 3, 0, STR_PAD_LEFT).".jpg";
+=======
+			$filename = "../banners/".str_pad($event['event_id'], 3, 0, STR_PAD_LEFT)."jpg"
+>>>>>>> 2f280229f95020ccf399e7e172a5fc70a9744fe4
+			if (file_exists($filename)) {
+				$source = $filename;
+			}
+			else {
+				$source = "../banners/event_default.jpg";
+			}
 			
 ?>
 <div class="cube" id="a">
 <div class="row">
 <div class="col-sm-3" style="padding-left:4%;">
-<img src="../banners/event_default.png" class="img img-responsive" style="padding-top:5%;" width="160px" height="160px">
+<img src="<?php echo htmlspecialchars($source); ?>" class="img img-responsive" style="padding-top:5%; vertical-align: middle;" width="160px" height="160px">
 </div>
 <div class="col-sm-6">
 <div style="text-align: left;">
