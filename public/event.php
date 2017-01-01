@@ -68,7 +68,6 @@
     </div>  
     </div>
 <br>
-<<<<<<< HEAD
 <?php
   $filename = "../banners/".str_pad($event_id, 3, 0, STR_PAD_LEFT).".jpg";
   if (file_exists($filename)) {
@@ -80,10 +79,6 @@
 ?>
     <div class="container" style="padding-top:1%;padding-bottom:0%; max-height: 500px;">
         <img src="<?php echo $source; ?>" style="display: block; margin: auto;">
-=======
-    <div class="container" style="padding-top:1%;padding-bottom:0%; max-height: 500px;">
-        <img src="<?php echo '../banners/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" style="display: block; margin: auto;">
->>>>>>> 2f280229f95020ccf399e7e172a5fc70a9744fe4
     </div>
     <br>
     <div class="container" style="padding-top:2%;">
