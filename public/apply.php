@@ -14,6 +14,9 @@
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
 
+	require_once(__DIR__ . '/../includes/header.php');
+
+
 	if (!isset($_SESSION['manager_id'])) {
 		// user is not a manager so mail the admin to grant managerial status
 

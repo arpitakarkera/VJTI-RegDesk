@@ -9,7 +9,7 @@
 	 */
 
 	// authenticate
-	require_once(__DIR__ . '/../includes/authenticate.php');
+	//require_once(__DIR__ . '/../includes/authenticate.php');
 
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
@@ -103,7 +103,7 @@
 ?>
 <br>
 <div class="container">
-	<form class="form-horizontal" role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+	<form id="eventForm" class="form-horizontal" role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 	<div class="form-group">
 		<p style="font-size: 15px; color: rgb(230,74,60);">&nbsp;<?php echo $err_msg; ?>&nbsp;</p>
 		<!--event name-->
@@ -131,7 +131,7 @@
 			<label class="control-label" for="start">From: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<div class='input-group date' id='datepicker'>
+			<div class="input-group input-append date" id="datePicker">
 			<input class="form-control" type="text" name="start_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
 			<span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -146,7 +146,7 @@
 			<label class="control-label" for="end">To: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<div class='input-group date' id='datepicker'>
+			<div class="input-group input-append date" id="datePicker1">
 			<input class="form-control" type="text" name="end_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
 			<span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -259,7 +259,68 @@
 </div>
 </form>
 </div>
+<script>
+$(document).ready(function() {
+    $('#datePicker')
+        .datepicker({
+            format: 'mm/dd/yyyy'
+        })
+        .on('changeDate', function(e) {
+            // Revalidate the date field
+            $('#eventForm').formValidation('revalidateField', 'start_date');
+        });
 
+    $('#eventForm').formValidation({
+        framework: 'bootstrap',
+        
+        fields: {
+       
+            start_date: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date is required'
+                    },
+                    start_date: {
+                        format: 'MM/DD/YYYY',
+                        message: 'This date is not valid'
+                    }
+                }
+            }
+        }
+    });
+});
+
+
+$(document).ready(function() {
+    $('#datePicker1')
+        .datepicker1({
+            format: 'mm/dd/yyyy'
+        })
+        .on('changeDate', function(e) {
+            // Revalidate the date field
+            $('#eventForm').formValidation('revalidateField', 'end_date');
+        });
+
+    $('#eventForm').formValidation({
+        framework: 'bootstrap',
+        
+        fields: {
+       
+            end_date: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date is required'
+                    },
+                    end_date: {
+                        format: 'MM/DD/YYYY',
+                        message: 'This date is not valid'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 <!--Render footer-->
 <?php
 	require_once(__DIR__ . '/../includes/footer.php');
