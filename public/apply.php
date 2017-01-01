@@ -14,8 +14,6 @@
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
 
-	require_once(__DIR__ . '/../includes/header.php');
-
 
 	if (!isset($_SESSION['manager_id'])) {
 		// user is not a manager so mail the admin to grant managerial status
@@ -37,7 +35,7 @@
 
 		$confirm_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']).'/confirm.php';
 
-		$to = $email;
+		$to = ADMIN;
         $from = USER;
         $from_name = NAME;
         $subject = "Manager Request";
@@ -49,11 +47,11 @@
         $sent = singlemail($to, $from, $from_name, $subject, $body);
 
         // render header
-        require_once(__DIR__ . '../includes/header.php');
+        require_once(__DIR__ . '/../includes/header.php');
 
         if ($sent) {
         	// insert user_id in requests table
-        	$query = "INSERT INTO requests (user_id) VALUES (user_id)";
+        	$query = "INSERT INTO requests (user_id) VALUES ($user_id)";
         	mysqli_query($dbc, $query);
 
         	echo "<div class='container-fluid'>Your request has been recorded. We'll get back to you soon.</div>";
