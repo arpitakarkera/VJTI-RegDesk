@@ -68,8 +68,17 @@
     </div>  
     </div>
 <br>
+<?php
+  $filename = "../banners/".str_pad($event_id, 3, 0, STR_PAD_LEFT).".jpg";
+  if (file_exists($filename)) {
+    $source = $filename;
+  }
+  else {
+    $source = "../banners/event_default.jpg";
+  }
+?>
     <div class="container" style="padding-top:1%;padding-bottom:0%; max-height: 500px;">
-        <img src="<?php echo '../banners/'.str_pad($event_id, 3, 0, STR_PAD_LEFT).'.jpg'; ?>" style="display: block; margin: auto;">
+        <img src="<?php echo $source; ?>" style="display: block; margin: auto;">
     </div>
     <br>
     <div class="container" style="padding-top:2%;">
@@ -115,7 +124,7 @@
     </div>
     <div class="col-sm-6" >
        <div style="float:right;"> 
-        <p><?php echo htmlspecialchars($event['description']); ?></p>
+        <p><?php echo nl2br(htmlspecialchars($event['description'])); ?></p>
         <p>Regitration Fee: 
         <?php
           if ($event['cost'] == 0)
@@ -141,7 +150,9 @@
               echo "<br>".$event['incharge2_name']." - ".$event['incharge2_contact'];
           ?>
         </p>
-        <p><span>Note</span><br><?php echo htmlspecialchars($event['note']); ?></p>
+        <?php if (!empty($event['note'])) { ?>
+          <p><span>Note</span><br><?php echo htmlspecialchars($event['note']); ?></p>
+        <?php }?>
     </div>
     </div>
     </div>
