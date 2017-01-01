@@ -26,13 +26,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<!--jQuery for datepicker-->
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-	<script type="text/javascript">
-	$(function() {
-    	$( "#datepicker" ).datepicker();
-	});
-	</script>
+	
 	<!--Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700|PT+Sans:400,700|Raleway:500" rel="stylesheet">
 	<style type="text/css">
@@ -56,6 +50,23 @@
 		}
 		else if (basename($_SERVER['PHP_SELF']) == 'event.php') {
 			echo '<link rel="stylesheet" type="text/css" href="../css/event.css">';
+		}
+		else if (basename($_SERVER['PHP_SELF']) == 'addevent.php') {
+			echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+<style type="text/css">
+/**
+ * Override feedback icon position
+ * See http://formvalidation.io/examples/adjusting-feedback-icon-position/
+ */
+#eventForm .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
+</style>';
 		}
 		else {
 			if (!in_array(basename($_SERVER['PHP_SELF']), ['signup.php', 'addevent.php', 'editevent.php'])) {
