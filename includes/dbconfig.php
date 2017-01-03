@@ -9,7 +9,11 @@
 
 	define('DB_HOST', 'localhost: 3306');
 	define('DB_USER', 'root');
+<<<<<<< HEAD
 	define('DB_PASSWORD', '');
+=======
+	define('DB_PASSWORD','tingtong');
+>>>>>>> master
 	define('DB_NAME', 'vjti_regdesk');
 
 	// connect to the database

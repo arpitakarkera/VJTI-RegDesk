@@ -70,6 +70,8 @@
 			if (!empty($event_name) && !empty($description) && !empty($start_date) && !empty($start_time) && !empty($venue) && !empty($incharge1) && !empty($contact1) && !empty($committee) && !empty($category)) {
 				$cost = empty($cost) ? 0 : $cost;
 				$note = empty($note) ? NULL : $note;
+				$start_time = date('H:i:s', strtotime($start_time));
+				$end_time = date('H:i:s', strtotime($end_time));
 
 				$manager_id = $_SESSION['manager_id'];
 				$query = "INSERT INTO events (event_name, description, start_date, start_time, ";
@@ -80,9 +82,9 @@
 				$query .= "venue, category, committee, incharge1_name, incharge1_contact, ";
 				if (!empty($incharge2))
 					$query .= "incharge2_name, incharge2_contact, ";
-				$query .= "cost, refreshment, note, manager) VALUES ('$event_name', '$description', '$start_date', '$start_time', ";
+				$query .= "cost, refreshment, note, manager) VALUES ('$event_name', '$description', STR_TO_DATE('$start_date', '%m/%d/%Y'), '$start_time', ";
 				if (!empty($end_date))
-					$query .= "'$end_date', ";
+					$query .= "STR_TO_DATE('$end_date', '%m/%d/%Y'), ";
 				if (!empty($end_time))
 					$query .= "'$end_time', ";
 				$query .= "'$venue', $category, $committee, '$incharge1', '$contact1', ";
@@ -131,7 +133,7 @@
 			<label class="control-label" for="start">From: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<div class="input-group input-append date" id="datePicker">
+			<div class="input-group input-append date calender">
 			<input class="form-control" type="text" name="start_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($start_date)) echo $start_date; ?>" id="start" required>
 			<span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -139,14 +141,14 @@
             </div>
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="start_time" placeholder="hh:mm AM/PM"value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
+			<input class="form-control time" type="text" name="start_time" placeholder="hh:mm AM/PM"value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
 			</div>
 			</div>
 			<br>
 			<label class="control-label" for="end">To: </label>
 			<div class="row">
 			<div class="col-sm-4">
-			<div class="input-group input-append date" id="datePicker1">
+			<div class="input-group input-append date calender">
 			<input class="form-control" type="text" name="end_date" min="<?php echo date('Y-m-d'); ?>" value="<?php if(isset($end_date)) echo $end_date; ?>" id="end">
 			<span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -154,7 +156,7 @@
             </div>
 			</div>
 			<div class="col-sm-4">
-			<input class="form-control" type="time" name="end_time" placeholder="hh:mm AM/PM"value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
+			<input class="form-control time" type="text" name="end_time" placeholder="hh:mm AM/PM"value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
 			</div>
 			</div>
 			<br>
@@ -262,66 +264,8 @@
 </form>
 </div>
 <script>
-$(document).ready(function() {
-    $('#datePicker')
-        .datepicker({
-            format: 'mm/dd/yyyy'
-        })
-        .on('changeDate', function(e) {
-            // Revalidate the date field
-            $('#eventForm').formValidation('revalidateField', 'start_date');
-        });
-
-    $('#eventForm').formValidation({
-        framework: 'bootstrap',
-        
-        fields: {
-       
-            start_date: {
-                validators: {
-                    notEmpty: {
-                        message: 'The date is required'
-                    },
-                    start_date: {
-                        format: 'MM/DD/YYYY',
-                        message: 'This date is not valid'
-                    }
-                }
-            }
-        }
-    });
-});
-
-
-$(document).ready(function() {
-    $('#datePicker1')
-        .datepicker1({
-            format: 'mm/dd/yyyy'
-        })
-        .on('changeDate', function(e) {
-            // Revalidate the date field
-            $('#eventForm').formValidation('revalidateField', 'end_date');
-        });
-
-    $('#eventForm').formValidation({
-        framework: 'bootstrap',
-        
-        fields: {
-       
-            end_date: {
-                validators: {
-                    notEmpty: {
-                        message: 'The date is required'
-                    },
-                    end_date: {
-                        format: 'MM/DD/YYYY',
-                        message: 'This date is not valid'
-                    }
-                }
-            }
-        }
-    });
-});
+$('.calender').datepicker({dateFormat: 'yy-mm-dd'});
+$('.time').timepicker();
 </script>
 <!--Render footer-->
 <?php
