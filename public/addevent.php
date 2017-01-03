@@ -141,7 +141,12 @@
             </div>
 			</div>
 			<div class="col-sm-4">
+			<div class="input-group input-append time">
 			<input class="form-control time" type="text" name="start_time" placeholder="hh:mm AM/PM"value="<?php if(isset($start_time)) echo $start_time; ?>" id="start" required>
+			<span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+            </div>
 			</div>
 			</div>
 			<br>
@@ -156,7 +161,12 @@
             </div>
 			</div>
 			<div class="col-sm-4">
+			<div class="input-group input-append time">
 			<input class="form-control time" type="text" name="end_time" placeholder="hh:mm AM/PM"value="<?php if(isset($end_time)) echo $end_time; ?>" id="end">
+			<span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+			</div>
 			</div>
 			</div>
 			<br>
