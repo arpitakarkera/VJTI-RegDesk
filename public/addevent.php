@@ -9,7 +9,7 @@
 	 */
 
 	// authenticate
-	//require_once(__DIR__ . '/../includes/authenticate.php');
+	require_once(__DIR__ . '/../includes/authenticate.php');
 
 	// connect to database
 	require_once(__DIR__ . '/../includes/dbconfig.php');
