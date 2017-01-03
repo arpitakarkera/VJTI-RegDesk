@@ -256,6 +256,8 @@
 			</div>
 			</div>
 			<br>
+		    <input type="file" id="myFile">
+		    <br>
 		<button class="btn btn-lg btn-success" type="submit" name="submit">Post Event</button>
 	</form>
 </div>
