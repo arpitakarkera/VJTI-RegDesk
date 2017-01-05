@@ -55,8 +55,8 @@
         		singlemail($to, $from, $from_name, $subject, $body);
 			}
 			// remove user from responses
-			$del_query = "DELETE FROM responses WHERE user_id = ".$row['user_id'];
-			mysqli_query($dbc, $query);
+			$del_query = "DELETE FROM requests WHERE user_id = ".$row['user_id'];
+			mysqli_query($dbc, $del_query);
 		}
 	}
 
@@ -67,7 +67,7 @@
 		echo '<form method="POST" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'">';
 		echo '<table>';
 		echo '<tr><td>User ID</td><td>Name</td><td>E-mail</td><td>Response</td></tr>';
-		while ($row = mysqli_fetch_array($result,MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result)) {
 			echo '<tr>';
 			echo "<td>".$row['user_id']."</td>
 				  <td>".$row['first_name'].' '.$row['last_name']."</td>
