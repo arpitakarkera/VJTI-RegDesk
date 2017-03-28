@@ -179,6 +179,7 @@
 	</div>
 	<br>
 	<!--gender-->
+	<div class="form-group">
 	<label >Gender:</label>
 	<br>
 		<div class="row">
@@ -188,6 +189,8 @@
 		<div class="col-sm-4">
 		<input type="radio" name="gender" value="F" id="F"><label  for="F" class="radio-inline" >Female</label>
 		</div>
+	</div>
+	</div>
 	<br>
 	<br>
 	<!--id-->

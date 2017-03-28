@@ -48,9 +48,16 @@
 <li><a href="dashboard.php?cat=3#start">Competitions</a></li>
 <li style="float:right;padding:1% 10.5%;"><div class="input-group">
 	<form class="form-inline" method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-		<div class="form-group"><input type="text" name="q" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q']) && !empty($_GET['q'])) echo htmlspecialchars($_GET['q']); ?>"></div><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-	</form>
+		<div class="input-group">
+			<input type="text" name="q" class="form-control" placeholder="Search" value="<?php if (isset($_GET['q']) && !empty($_GET['q'])) echo htmlspecialchars($_GET['q']); ?>">
+			<span class = "input-group-btn">
+                  <button class = "btn btn-default" type = "submit">
+                     <span class="glyphicon glyphicon-search"></span>
+                  </button>
+            </span>
+			<!--button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>-->
 		</div>
+	</form>
 </li>
 </ul>
 <div class="container-fluid text-center" style="padding-top: 2%; font-family: 'Raleway', sans-serif; font-size: 30px;">Committees</div>
