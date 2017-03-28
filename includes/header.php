@@ -34,6 +34,7 @@
 		body {
 			font-family: 'PT Sans', sans-serif;
 			padding-bottom: 0px;
+			padding-right: 0px;
 			/*background: #e2e1e0;*/
 		}
 	</style>

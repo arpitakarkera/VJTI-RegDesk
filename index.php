@@ -22,6 +22,7 @@
 	require_once(__DIR__ . '/includes/header.php');
 ?>
 
+<section class="intro">
 <div class="container" id="p" style="min-height:100%;height:100%;width:100%">
 	<div class="row">
 		<div class="col-sm-8" style="padding-left: 20px; padding-bottom: 10%; padding-top: 15%;">
@@ -72,16 +73,20 @@
 			</form>
 		</div>
 	</div>
+	<a href="#car" class="page-scroll"><span class="glyphicon glyphicon-chevron-down"></span></a>
 </div>
+</section>
 
 <br>
 <br>
 <br>
 <br>
+<hr class="primary">
 <br>
-<p class="text-center" style="font-size:50px;">Our Partners</p>
 
+<section id="car">
 <div class="container-fluid">
+	<p class="text-center" style="font-size:50px;">Our Partners</p>
 	<br>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!--Indicators-->
@@ -180,26 +185,57 @@
 		});
 	});
 </script>
-<div class="container-fluid text-center" style="font-size:30px; color:rgb(0,0,0);">
-	<div class="row" style=" padding-top: 200px; padding-bottom: 100px;">
-		<div class="col-sm-3">
-			<img src="images/events.png" class="img-circle" alt="EVENTS">
-			<p id="category_label">Events</p>
-		</div>
-		<div class="col-sm-3">
-			<img src="images/workshop.png" class="img-circle" alt="WORKSHOPS">
-			<p id="category_label">Workshops</p>
-		</div>
-		<div class="col-sm-3">
-			<img src="images/competitions.png" class="img-circle" alt="COMPETITIONS">
-			<p id="category_label">Competitions</p>
-		</div>
-		<div class="col-sm-3">
-			<img src="images/lectures.png" class="img-circle" alt="LECTURES">
-			<p id="category_label">Lectures</p>
+</section>
+<br>
+<hr class="primary">
+<br>
+<section id="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">At Your Service</h2>
+				<hr class="primary block">
+			</div>
 		</div>
 	</div>
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 text-center">
+				<div class="service-box">
+					<img src="images/events.png" class="img-circle sr-icons" alt="EVENTS">
+					<h3>EVENTS</h3>
+					<p class="text-muted">Attend activities that interest you.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<div class="service-box">
+					<img src="images/workshop.png" class="img-circle sr-icons" alt="WORKSHOPS">
+					<h3>WORKSHOPS</h3>
+					<p class="text-muted">Learn new stuff at and hone your skills.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<div class="service-box">
+					<img src="images/competitions.png" class="img-circle sr-icons" alt="COMPETITIONS">
+					<h3>COMPETITIONS</h3>
+					<p class="text-muted">Compete and win exiting prizes.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<div class="service-box">
+					<img src="images/lectures.png" class="img-circle sr-icons" alt="LECTURES">
+					<h3>LECTURES</h3>
+					<p class="text-muted">Get some inspiration.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<br>
+<hr class="primary">
+<br>
+
 <div class="container text-center">
 	<p style="font-size:30px; color:rgb(0,0,0)">Don't miss out!</p>
 	<a href="public/signup.php"><button type="button" class="btn btn-success btn-lg">Sign Up!</button></a>
@@ -212,5 +248,6 @@
 		interval: 2000
 	});
 </script>
+<script src="js/index.js"></script>
 <!---Render footer-->
 <?php require_once(__DIR__ . '/includes/footer.php'); ?>

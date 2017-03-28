@@ -34,3 +34,29 @@
     padding-top: 8px;
     color: rgb(83, 93, 94);
 }
+
+.img-circle {
+    width: 100px;
+}
+
+hr {
+    margin: 18px;
+}
+
+.block {
+    border-color: rgb(40, 40, 40);
+    border-style: solid none;
+    border-width: 5px 0;
+    margin-right: 48%;
+    margin-left: 48%;
+}
+
+.page-scroll {
+    align-self: middle;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 30px;
+    color: ghostwhite;
+}
