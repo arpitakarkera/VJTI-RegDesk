@@ -111,108 +111,113 @@
 	}
 ?>
 
-<!--Render header-->
-<?php
+	<!--Render header-->
+	<?php
 	$title = 'Sign Up';
 	require_once(__DIR__ . '/../includes/header.php');
 ?>
 
-<div style="font-family: 'Raleway', sans-serif; padding-left: 6%; padding-top: 5%; padding-bottom: 3%; padding-right: 6%;">
-<h1 style="font-weight:bold;color:rgb(12,73,109);">Join VJTI RegDesk</h1>
-<h3 style="color:rgb(12,73,109);">Easy.&nbsp;&nbsp;Simple.&nbsp;&nbsp;Effective.</h3>
-<hr style="height: 2px;">
-</div>
-<div class="container">
-	<h3 style="font-weight:bold;color:rgb(1,56,101);">Create your account</h3>
-	<div class="form-group"><form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"></div>
-	<div class="form-group" style="color: red;"><p>&nbsp;<?php echo $err_msg; ?>&nbsp;</p></div>
-	<!--name-->
-	<div class="form-group">
-		<label for="usr">Name</label>
-		<br>
-		<div class="row">
-		<div class="col-sm-4">
-			<input class="form-control" type="text" id="usr" placeholder="First" name="first_name" required value="<?php if(isset($first_name)) echo $first_name; ?>">
+		<div style="font-family: 'Raleway', sans-serif; padding-left: 6%; padding-top: 5%; padding-bottom: 3%; padding-right: 6%;">
+			<h1 style="font-weight:bold;color:rgb(12,73,109);">Join VJTI RegDesk</h1>
+			<h3 style="color:rgb(12,73,109);">Easy.&nbsp;&nbsp;Simple.&nbsp;&nbsp;Effective.</h3>
+			<hr style="height: 2px;">
 		</div>
-		<div class="col-sm-4">
-			<input class="form-control" type="text" id="usr" placeholder="Last" name="last_name" required value="<?php if(isset($last_name)) echo $last_name; ?>">
-		</div>
-		</div>
-	</div>
-	<br>
-	<!--email-->
-	<div class="form-group">
-		<label for="email">Email</label>
-		<br>
-		<div class="row">
-		<div class="col-sm-4">
-			<input class="form-control" type="email" id="email"  name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
-		</div>
-		</div>
-		<span class="help-block">This will be used for all further communications with you. If you don't have one, you should get one. Seriously.</span>
-	</div>
-	<br>
-	<!--password-->
-	<div class="form-group">
-		<label for="pwd">Password</label>
-		<br>
-		<div class="row">
-		<div class="col-sm-4">
-			<input class="form-control" type="password" name="password1" id="pwd" placeholder="Create a password"  required>
-		</div>
-		<div class="col-sm-4">
-			<input class="form-control" type="password" name="password2" id="pwd" placeholder="Confirm password"  required>
-		</div>
-		</div>
-		<span class="help-block">No rules. Just make sure it's not easy to crack.</span>
-	</div>
-	<br>
-	<!--contact-->
-	<div class="form-group">
-		<label for="cont">Contact</label>
-		<br>
-		<div class="row">
-		<div class="col-sm-4">
-			<input class="form-control" type="text" id="cont" name="contact" placeholder="Your mobile number" value="<?php if(isset($contact)) echo $contact; ?>">
-		</div>
-		</div>
-	</div>
-	<br>
-	<!--gender-->
-	<div class="form-group">
-	<label >Gender:</label>
-	<br>
-		<div class="row">
-		<div class="col-sm-4">
-		<input type="radio" name="gender" value="M" id="M"><label for="M" class="radio-inline">Male</label>
-		</div>
-		<div class="col-sm-4">
-		<input type="radio" name="gender" value="F" id="F"><label  for="F" class="radio-inline" >Female</label>
-		</div>
-	</div>
-	</div>
-	<br>
-	<br>
-	<!--id-->
-	<div class="form-group">
-		<label for="id">ID</label>
-		<br>
-		<div class="row">
-		<div class="col-sm-4">
-			<input class="form-control" type="text" name="id" id="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
-		</div>
-		</div>
-	</div>
-	<br>
-	<!--prog and year-->
-	<div class="form-group">
-		<label>Course Details</label>
-		<br><br>
-		<div class="row">
-		<div class="col-sm-4">
-			<label  for="programme">Programme:</label>
-			
-			<select class="form-control" name="programme">
+		<div class="container">
+			<h3 style="font-weight:bold;color:rgb(1,56,101);">Create your account</h3>
+			<div class="form-group">
+				<form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+			</div>
+			<div class="form-group" style="color: red;">
+				<p>&nbsp;
+					<?php echo $err_msg; ?>&nbsp;</p>
+			</div>
+			<!--name-->
+			<div class="form-group">
+				<label for="usr">Name</label>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<input class="form-control" type="text" id="usr" placeholder="First" name="first_name" required value="<?php if(isset($first_name)) echo $first_name; ?>">
+					</div>
+					<div class="col-sm-4">
+						<input class="form-control" type="text" id="usr" placeholder="Last" name="last_name" required value="<?php if(isset($last_name)) echo $last_name; ?>">
+					</div>
+				</div>
+			</div>
+			<br>
+			<!--email-->
+			<div class="form-group">
+				<label for="email">Email</label>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<input class="form-control" type="email" id="email" name="email" placeholder="Your email address" required value="<?php if(isset($email)) echo $email; ?>">
+					</div>
+				</div>
+				<span class="help-block">This will be used for all further communications with you. If you don't have one, you should get one. Seriously.</span>
+			</div>
+			<br>
+			<!--password-->
+			<div class="form-group">
+				<label for="pwd">Password</label>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<input class="form-control" type="password" name="password1" id="pwd" placeholder="Create a password" required>
+					</div>
+					<div class="col-sm-4">
+						<input class="form-control" type="password" name="password2" id="pwd" placeholder="Confirm password" required>
+					</div>
+				</div>
+				<span class="help-block">No rules. Just make sure it's not easy to crack.</span>
+			</div>
+			<br>
+			<!--contact-->
+			<div class="form-group">
+				<label for="cont">Contact</label>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<input class="form-control" type="text" id="cont" name="contact" placeholder="Your mobile number" value="<?php if(isset($contact)) echo $contact; ?>">
+					</div>
+				</div>
+			</div>
+			<br>
+			<!--gender-->
+			<div class="form-group">
+				<label>Gender:</label>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<input type="radio" name="gender" value="M" id="M"><label for="M" class="radio-inline">Male</label>
+					</div>
+					<div class="col-sm-4">
+						<input type="radio" name="gender" value="F" id="F"><label for="F" class="radio-inline">Female</label>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<!--id-->
+			<div class="form-group">
+				<label for="id">ID</label>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<input class="form-control" type="text" name="id" id="id" placeholder="Your ID number" value="<?php if(isset($id)) echo $id; ?>">
+					</div>
+				</div>
+			</div>
+			<br>
+			<!--prog and year-->
+			<div class="form-group">
+				<label>Course Details</label>
+				<br><br>
+				<div class="row">
+					<div class="col-sm-4">
+						<label for="programme">Programme:</label>
+
+						<select class="form-control" name="programme">
 				<?php
 			$query = "SELECT programme_id, programme_name FROM programmes";
 			$programmes = mysqli_query($dbc, $query);
@@ -221,12 +226,12 @@
 			}
 		?>
 			</select>
-			
-		</div>
-		<div class="col-sm-4">
-			<label for="year">Year:</label>
-		
-			<select class="form-control" name="year">
+
+					</div>
+					<div class="col-sm-4">
+						<label for="year">Year:</label>
+
+						<select class="form-control" name="year">
 				<?php
 			$years = array('First' => 1, 'Second' => 2, 'Third' => 3, 'Fourth' => 4);
 			foreach ($years as $key => $value) {
@@ -234,17 +239,17 @@
 			}
 		?>
 			</select>
-		</div>
-	</div>
-	<br>
-	<!--branch-->
-	<div class="form-group">
-		
-		<div class="row">
+					</div>
+				</div>
+				<br>
+				<!--branch-->
+				<div class="form-group">
 
-		<div class="col-sm-4">
-		<label for="branch">Branch:</label>
-		<select class="form-control" name="branch">
+					<div class="row">
+
+						<div class="col-sm-4">
+							<label for="branch">Branch:</label>
+							<select class="form-control" name="branch">
 			<?php
 			$query = "SELECT branch_id, branch_name FROM branches";
 			$branches = mysqli_query($dbc, $query);
@@ -253,16 +258,20 @@
 			}
 		?>
 		</select>
+						</div>
+					</div>
+					<br>
+					<br>
+					<button class="btn btn-lg btn-success" type="submit" name="submit" value="Create an account">Create an account</button>
+					</form>
+				</div>
+			</div>
+			</form>
 		</div>
-	</div>
-    <br>
-    <br>
-	<button class="btn btn-lg btn-success" type="submit" name="submit" value="Create an account">Create an account</button>
-	</form>
-</div>
-</div>
-</form></div></form></div></div>
-<!--Render footer-->
-<?php
+		</form>
+		</div>
+		</div>
+		<!--Render footer-->
+		<?php
 	require_once(__DIR__ . '/../includes/footer.php');
 ?>
