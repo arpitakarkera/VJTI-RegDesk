@@ -97,7 +97,7 @@
 			</div>
 			<div class="container" id="h">
 				<?php
-	if (mysqli_num_rows($past_result) != 0) {
+	if (mysqli_num_rows($past_result)!= 0) {
 		while ($event = mysqli_fetch_array($past_result)) {
 
 ?>
