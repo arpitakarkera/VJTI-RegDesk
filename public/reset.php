@@ -35,7 +35,8 @@
 			$email = $row['email'];
 			if (md5(sha1($id.$pswd.$email)) == $key) {
 				// correct key. reset the password
-				$reset_query = "UPDATE users SET password = SHA('$pswd1') WHERE user_id = $user_id LIMIT 1";
+				$hash = password_hash($pswd, PASSWORD_BCRYPT);
+				$reset_query = "UPDATE users SET password = '$hash' WHERE user_id = $user_id LIMIT 1";
 				mysqli_query($dbc, $reset_query);
 				$msg = '<p>You have successfully reset your password!<br>Go ahead and <a href="../index.php">Sign In</a></p>';
 				$_SESSION = array();
