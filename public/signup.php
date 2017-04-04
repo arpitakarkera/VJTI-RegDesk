@@ -51,27 +51,32 @@
 					else {
 						$first_name = ucfirst(strtolower($first_name));
 						$last_name = ucfirst(strtolower($last_name));
+						$hash = password_hash($password1, PASSWORD_BCRYPT);
 
 						// insert data into database
-						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified) VALUES ('$email', SHA('$password1'), '$id', '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0)";
-        				mysqli_query($dbc, $query);
+						$query = "INSERT INTO users (email, password, id, first_name, last_name, contact, gender, programme, year, branch, verified) VALUES ('$email', '$hash', '$id', '$first_name', '$last_name', '$contact', '$gender', $programme, $year, $branch, 0)";
+        				if (mysqli_query($dbc, $query)) {
     					
-        				// send activation mail
-        				$query = "SELECT user_id FROM users WHERE email = '$email'";
-        				$result = mysqli_query($dbc, $query);
-        				$row = mysqli_fetch_array($result);
-        				$user_id = $row['user_id'];
-        				require_once(__DIR__ . '/../controls/mailer.php');
-        				$activation_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
-        				$to = $email;
-        				$from = USER;
-        				$from_name = NAME;
-        				$subject = 'RegDesk Account Activation';
-        				$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>Activate</a><br><br>You can login to your account after activation.";
-        				singlemail($to, $from, $from_name, $subject, $body);
+							// send activation mail
+							$query = "SELECT user_id FROM users WHERE email = '$email'";
+							$result = mysqli_query($dbc, $query);
+							$row = mysqli_fetch_array($result);
+							$user_id = $row['user_id'];
+							require_once(__DIR__ . '/../controls/mailer.php');
+							$activation_link = dirname((isset($_SERVER['HTTPS'])?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'])."/activate.php?id=".$user_id."&key=".md5(sha1($first_name.$last_name));
+							$to = $email;
+							$from = USER;
+							$from_name = NAME;
+							$subject = 'RegDesk Account Activation';
+							$body = "Hello $first_name!<br>To activate your VJTI RegDesk account click on the following link.<br><br><a href='$activation_link'>Activate</a><br><br>You can login to your account after activation.";
+							singlemail($to, $from, $from_name, $subject, $body);
 
-        				// display confirmation
-						header('Location: confirmsignup.php');
+							// display confirmation
+							header('Location: confirmsignup.php');
+						}
+						else {
+							echo mysqli_error($dbc);
+						}
 					}
 				}
 				else {
