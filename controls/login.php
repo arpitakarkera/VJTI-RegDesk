@@ -22,29 +22,31 @@
 			// query the database if email and password are not empty
 			if (!empty($user_email) && !empty($user_password)) {
 				// look up email and password in the database
-				$query = "SELECT user_id, first_name, last_name, verified from users WHERE email = '$user_email' AND password = SHA('$user_password')";
+				$query = "SELECT user_id, password, first_name, last_name, verified from users WHERE email = '$user_email'";
 				$result = mysqli_query($dbc,$query);
 				//echo "'$user_email'\n'$user_password'\n$query";
 
 				if (mysqli_num_rows($result) == 1) {
 					$row = mysqli_fetch_array($result);
-					$verified = $row['verified'];
-					if ($verified) {
-						$_SESSION['user_id'] = $row['user_id'];
-						$_SESSION['first_name'] = $row['first_name'];
-						$_SESSION['last_name'] = $row['last_name'];
-						// check if the user is a manager
-						$query = "SELECT manager_id FROM managers WHERE user_id = ".$row['user_id'];
-						$result = mysqli_query($dbc, $query);
-						if (mysqli_num_rows($result) == 1) {
-							$row = mysqli_fetch_array($result);
-							$_SESSION['manager_id'] = $row['manager_id'];
+					if (password_verify($user_password, $row['password'])) {
+						$verified = $row['verified'];
+						if ($verified) {
+							$_SESSION['user_id'] = $row['user_id'];
+							$_SESSION['first_name'] = $row['first_name'];
+							$_SESSION['last_name'] = $row['last_name'];
+							// check if the user is a manager
+							$query = "SELECT manager_id FROM managers WHERE user_id = ".$row['user_id'];
+							$result = mysqli_query($dbc, $query);
+							if (mysqli_num_rows($result) == 1) {
+								$row = mysqli_fetch_array($result);
+								$_SESSION['manager_id'] = $row['manager_id'];
+							}
+							header('Location: public/dashboard.php');
 						}
-						header('Location: public/dashboard.php');
-					}
-					else {
-						// account is not activated yet
-						$err_msg = "You have not activated your account yet.";
+						else {
+							// account is not activated yet
+							$err_msg = "You have not activated your account yet.";
+						}
 					}
 				}
 				else {
