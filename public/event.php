@@ -19,7 +19,7 @@
         $event_id = mysqli_real_escape_string($dbc, trim($_GET['event']));
 
         // get event details  from db for given event id
-        $query = "SELECT ev.event_name, ev.description, ev.start_date, ev.end_date, ev.start_time, ev.end_time, ev.venue, cat.category_name, com.committee_name, ev.incharge1_name, ev.incharge1_contact, ev.incharge2_name, ev.incharge2_contact, ev.cost, ev.refreshment, ev.note FROM events as ev INNER JOIN categories as cat ON ev.category = cat.category_id INNER JOIN committees as com ON ev.committee = com.committee_id WHERE ev.event_id = $event_id";
+        $query = "SELECT ev.event_name, ev.description, ev.start_date, ev.end_date, ev.start_time, ev.end_time, ev.venue, ev.banner, cat.category_name, com.committee_name, ev.incharge1_name, ev.incharge1_contact, ev.incharge2_name, ev.incharge2_contact, ev.cost, ev.refreshment, ev.note FROM events as ev INNER JOIN categories as cat ON ev.category = cat.category_id INNER JOIN committees as com ON ev.committee = com.committee_id WHERE ev.event_id = $event_id";
         $result = mysqli_query($dbc, $query);
         if (mysqli_num_rows($result) == 1) {
             $event = mysqli_fetch_array($result);
@@ -29,6 +29,14 @@
               $registered = true;
             else
               $registered = false;
+            $filename = "../banners/".str_pad($event_id, 4, 0, STR_PAD_LEFT).$event['banner'];
+			
+            if (file_exists($filename)) {
+              $source = $filename;
+            }
+            else {
+              $source = "../banners/cover_default.png";
+            }
         }
         else
             exit('Event does not exist.');
@@ -69,6 +77,7 @@
     </div>
 <br>
 <?php
+/*
   $filename = "../banners/".str_pad($event_id, 3, 0, STR_PAD_LEFT).".jpg";
   if (file_exists($filename)) {
     $source = $filename;
@@ -76,9 +85,10 @@
   else {
     $source = "../banners/event_default.jpg";
   }
+  */
 ?>
-    <div class="container" style="padding-top:1%;padding-bottom:0%; max-height: 500px;">
-        <img src="<?php echo $source; ?>" style="display: block; margin: auto;">
+    <div class="container" style="padding-top:1%;padding-bottom:0%;">
+        <img src="<?php echo $source; ?>" class="img-responsive" style="margin: auto;">
     </div>
     <br>
     <div class="container" style="padding-top:2%;">
