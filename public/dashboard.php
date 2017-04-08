@@ -24,8 +24,6 @@
 <div class="col-sm-4" id="a"> 
 <p style="font-size:40px"><?php echo htmlspecialchars($_SESSION['first_name']); ?>&nbsp;&nbsp;<?php echo htmlspecialchars($_SESSION['last_name']); ?></p>
 </div>
-<div class="col-sm-4">
-</div>
 <div class="col-sm-2" style="padding-top: 2.5%;">
 <a href="myevents.php"><button class="button" id="q">My Events</button></a>
 <br>
@@ -38,6 +36,82 @@
 </div>
 <div class="col-sm-1">
 </div>  
+<div class="col-sm-4">
+
+<!-- CALENDAR-->
+<?php
+/* Set the default timezone */
+date_default_timezone_set("America/Montreal");
+
+/* Set the date */
+$date = strtotime(date("Y-m-d"));
+
+$day = date('d', $date);
+$month = date('m', $date);
+$year = date('Y', $date);
+$firstDay = mktime(0,0,0,$month, 1, $year);
+$title = strftime('%B', $firstDay);
+$dayOfWeek = date('D', $firstDay);
+$daysInMonth = cal_days_in_month(0, $month, $year);
+/* Get the name of the week days */
+$timestamp = strtotime('next Sunday');
+$weekDays = array();
+for ($i = 0; $i < 7; $i++) {
+	$weekDays[] = strftime('%a', $timestamp);
+	$timestamp = strtotime('+1 day', $timestamp);
+}
+$blank = date('w', strtotime("{$year}-{$month}-01"));
+$id=$_SESSION['user_id'];
+$query="SELECT start_date FROM registrations LEFT JOIN events ON registrations.event_id=events.event_id where user_id=id";
+$result = mysqli_query($dbc,$query);
+$row = mysqli_fetch_array($result);
+
+
+?>
+<table class='table table-bordered' style="table-layout: fixed;">
+	<tr>
+		<th colspan="7" class="text-center" style=" background-color:rgb(172,230,191);color:black;border: 1px solid black;"> <?php echo $title ?> <?php echo $year ?> </th>
+	</tr>
+	<tr>
+		<?php 
+		foreach($weekDays as $key => $weekDay)
+			{echo'<td class="text-center" style=" background-color:rgb(172,230,191);color:black;border: 1px solid black;">'.$weekDay.'</td>';
+			}
+			?>
+	</tr>
+	<tr>
+		<?php for($i = 0; $i < $blank; $i++)
+			{ echo'<td style=" background-color:rgb(172,230,191);color:black;border: 1px solid black;"></td>';
+
+			}
+		 for($i = 1; $i <= $daysInMonth; $i++)
+			{ if(in_array($day,$row))
+				{
+					echo'<td style="background-color:rgb(172,230,191);color:red;border:1px solid black;"><strong>'.$i.'</strong></td>';
+				}
+			else if($day == $i)
+				{ 
+					echo'<td style=" background-color:rgb(172,230,191);color:black;border: 1px solid black;"><strong>'.$i.'</strong></td>';
+				}
+			else
+				{
+					echo'<td style=" background-color:rgb(172,230,191);color:black;border: 1px solid black;">'.$i.'</td>';
+				}
+			
+			if(($i + $blank) % 7 == 0)
+				{
+					echo'</tr><tr>';
+				}
+					
+		for($i = 0; ($i + $blank + $daysInMonth) % 7 != 0; $i++)
+			{
+				echo'<td style=" background-color:rgb(172,230,191);color:black;border: 1px solid black;"></td>';
+			}
+		?>
+	</tr>
+</table>
+</div>
+<!-- Calendar close-->
 </div>
 </div>
 

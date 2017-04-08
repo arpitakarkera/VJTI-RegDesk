@@ -5,7 +5,19 @@
    *  css for dashboard.
    *
    */
-
+table{
+table-layout:fixed;
+}
+th{
+    background-color: white;
+    color:black;
+    text-align: center;
+}
+td {
+  background-color: white;
+  color:black;
+    text-align: center;
+}
 #p.container-fluid{
 	
 	background-image:url('../images/dash_background.png');
