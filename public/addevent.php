@@ -92,7 +92,15 @@
 					$query .= "'$incharge2', '$contact2', ";
 				$query .= "$cost, $refreshment, '$note', $manager_id)";
 				mysqli_query($dbc, $query) or die(mysqli_error($dbc));
-				header('Location: manage.php');
+
+				if (!empty($_FILES['banner']['name'])) {
+					// add file
+					$uploadOk = 0;
+					require(__DIR__ . '/../controls/upload.php');
+				}
+
+				if ($uploadOk)
+					header('Location: manage.php');
 			}
 			else
 				$err_msg = "Please provide the mandatory details.";
@@ -105,7 +113,7 @@
 ?>
 <br>
 <div class="container">
-	<form id="eventForm" class="form-horizontal" role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+	<form id="eventForm" class="form-horizontal" role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
 	<div class="form-group">
 		<p style="font-size: 15px; color: rgb(230,74,60);">&nbsp;<?php echo $err_msg; ?>&nbsp;</p>
 		<!--event name-->
@@ -266,7 +274,7 @@
 			</div>
 			</div>
 			<br>
-		    <input type="file" id="myFile">
+		    <input class="form-control" type="file" id="banner" name='banner'>
 		    <br>
 		<button class="btn btn-lg btn-success" type="submit" name="submit">Post Event</button>
 	</form>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 01, 2017 at 01:16 PM
+-- Generation Time: Apr 08, 2017 at 01:16 PM
 -- Server version: 5.7.17
--- PHP Version: 5.6.27
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -158,6 +158,7 @@ CREATE TABLE `events` (
   `refreshment` tinyint(1) DEFAULT '0',
   `note` text,
   `manager` int(11) NOT NULL,
+  `banner` varchar(5) NOT NULL DEFAULT '.jpg',
   `post_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -165,10 +166,10 @@ CREATE TABLE `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`event_id`, `event_name`, `description`, `start_date`, `start_time`, `end_date`, `end_time`, `venue`, `category`, `committee`, `incharge1_name`, `incharge1_contact`, `incharge2_name`, `incharge2_contact`, `cost`, `refreshment`, `note`, `manager`, `post_timestamp`) VALUES
-(1, 'AI Workshop', 'Learn Machine Learning.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2016-12-31', '09:00:00', NULL, NULL, 'Lab 3, Computer Dept., VJTI', 2, 4, 'Kiranmayi Gandikota', '9999999999', NULL, NULL, 0, 0, 'Bring your own laptops.', 1, '2016-12-29 11:13:21'),
-(2, 'Cyclothon', 'On the same lines as Marathon, Enthusia also organises a Cyclothon to promote fitness and the importance of exercise and healthy living. Cyclothon is one of the main attractions of Enthusia. For further details contact the Event Heads.', '2017-01-12', '08:00:00', NULL, NULL, 'Five Gardens, Matunga', 1, 2, 'Swetha Srinivasaraghavan', '1010101010', 'Archita Ray', '9090909090', 150, 1, 'We will provide the Bicycles.', 1, '2016-12-31 12:03:46'),
-(3, 'RoboWars', 'Introduction\r\nâ€˜War does not determine who is right. Only who is leftâ€™ \r\nPassionate about Bots? Or you just like to watch things get crushed from fierce competition? The path to glory passes through the alley of destruction, lethal combats, violent bots, and flying blades! Merge your technical know-how with the ferocious gladiator in you! Make your bot fight for the ultimate glory or land up in the junk yard! \r\nSo folks, fight smart, be patient and pray. Seriously, pray because robowars just got crazier in its new avatar! \r\nTeam Specification:\r\nAny team can participate in Robowars, Technovanza. A team may consist of a maximum of 6 participants. These participants can be from same or different institutes.\r\nTeam Name: Every team must have a name which must be unique. Technovanza reserves the right to reject entries from any Team whose name it deems inappropriate, offensive or conflicting. Organizers must be notified during if a Teams name has been changed.\r\nTeam Representative: Each team must specify their Team Representative (Leader) at the time of registration on the website. All important communications between Technovanza and the registered teams will be done through their Team Representative. The Team Representatives must submit valid contact details (phone no., email ID etc.) at the time of registration.', '2017-01-12', '09:00:00', NULL, NULL, 'The Quad, VJTI', 1, 1, 'Parina Lipare', '6666666666', NULL, NULL, 0, 0, '', 1, '2016-12-31 12:11:50');
+INSERT INTO `events` (`event_id`, `event_name`, `description`, `start_date`, `start_time`, `end_date`, `end_time`, `venue`, `category`, `committee`, `incharge1_name`, `incharge1_contact`, `incharge2_name`, `incharge2_contact`, `cost`, `refreshment`, `note`, `manager`, `banner`, `post_timestamp`) VALUES
+(1, 'Game Development Workshop', 'Bored of finding prime numbers?\r\nWant to build a game?\r\nWe Promised. Now we Deliver.\r\nThe Community of Coders announces its next workshop on C++ Game Development.\r\nLearn to develop ASCII Showdown from scratch!\r\nDonâ€™t think you have it to build one? \r\nWe reckon, You do!\r\nSee you then!', '2017-04-15', '09:00:00', NULL, '17:00:00', 'Lab 3, Computer Dept., VJTI', 2, 4, 'Sunaina Punyani', '9999999999', 'Apeksha Gothawal', '8888888888', 0, 0, 'Bring your own laptops', 5, '.jpg', '2017-04-08 11:59:09'),
+(2, 'Inheritance', 'Inheritance - Student Mentorship Program\r\nGear Up! Summer is coming!\r\nAfter the year-long successful sessions of COC, we now introduce you to the Community of Coders Mentorship program, Inheritance. Being conducted this summer, your seniors will be your mentors and will guide you at every stage of your project. So come forward and submit your ideas ðŸ™‡ðŸ» in a group of 2-4. We will select the 15 best ideas ðŸ’¡, so give it your best shot!\r\nTake a look at these inheritance projects by your seniors:\r\nhttps://drive.google.com/â€¦/0B--t8PKtk-dpdnFvbHhHQ0lGLâ€¦/viewâ€¦\r\nAll you have to do is fill out this form:\r\nhttps://goo.gl/forms/0z8vCZsSAHFjjRgo1\r\nThe last date to submit your ideas is 11th May. So mark your calendars and make sure you submit your ideas well beforehand.', '2017-05-07', '00:00:00', '2017-06-30', '05:30:00', 'VJTI', 1, 4, 'Kiranmayi', '9999999999', NULL, NULL, 0, 0, '', 5, '.jpg', '2017-04-08 12:28:50'),
+(3, 'Techno Party', 'lorem ipsum', '2017-04-21', '01:30:00', NULL, '05:30:00', 'VJTI', 1, 1, 'Shruthi', '9999999999', NULL, NULL, 0, 0, '', 5, '.png', '2017-04-08 12:46:25');
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,9 @@ CREATE TABLE `managers` (
 --
 
 INSERT INTO `managers` (`manager_id`, `user_id`, `upgrade_timestamp`) VALUES
-(1, 1, '2016-12-31 14:45:50');
+(2, 1, '2017-01-01 15:44:23'),
+(4, 2, '2017-01-01 16:08:09'),
+(5, 9, '2017-04-04 10:29:08');
 
 -- --------------------------------------------------------
 
@@ -229,7 +232,12 @@ CREATE TABLE `registrations` (
 --
 
 INSERT INTO `registrations` (`registration_id`, `user_id`, `event_id`, `registration_timestamp`) VALUES
-(1, 1, 1, '2016-12-31 11:48:02');
+(1, 1, 1, '2016-12-31 11:48:02'),
+(2, 2, 2, '2017-01-01 16:09:53'),
+(3, 1, 2, '2017-03-24 19:26:34'),
+(4, 1, 3, '2017-03-26 06:50:36'),
+(5, 9, 1, '2017-04-06 06:44:12'),
+(6, 9, 3, '2017-04-08 12:53:54');
 
 -- --------------------------------------------------------
 
@@ -242,14 +250,6 @@ CREATE TABLE `requests` (
   `request_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `requests`
---
-
-INSERT INTO `requests` (`user_id`, `request_timestamp`) VALUES
-(1, '2016-12-29 07:11:29'),
-(2, '2016-12-31 14:43:39');
-
 -- --------------------------------------------------------
 
 --
@@ -259,7 +259,7 @@ INSERT INTO `requests` (`user_id`, `request_timestamp`) VALUES
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `id` varchar(9) NOT NULL,
   `first_name` varchar(32) NOT NULL,
   `last_name` varchar(32) NOT NULL,
@@ -277,12 +277,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `email`, `password`, `id`, `first_name`, `last_name`, `contact`, `gender`, `programme`, `year`, `branch`, `verified`, `join_timestamp`) VALUES
-(1, 'appukarkera@gmail.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '151071041', 'Arpita', 'Karkera', '9999999999', 'F', 1, 2, 1, 1, '2016-12-29 06:59:24'),
-(2, 'gkiranmayi97@gmail.com', '99800b85d3383e3a2fb45eb7d0066a4879a9dad0', '151071040', 'Kiranmayi', 'Gandikota', '9999999999', '', 1, 1, 1, 0, '2016-12-30 06:51:22'),
+(2, 'gkiranmayi97@gmail.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '151071040', 'Kiranmayi', 'Gandikota', '9999999999', '', 1, 1, 1, 1, '2016-12-30 06:51:22'),
 (3, 'karkeraarpita@gmail.com', '33b1eac210971fb02a3b90afce9dbff758be794d', '123456789', 'Archita', 'Ray', '9999999999', 'F', 1, 1, 1, 0, '2016-12-30 10:08:38'),
 (4, 'shru_hariharan@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '123456789', 'Shruthi', 'Hariharan', '9898214312', 'F', 1, 2, 2, 0, '2016-12-31 15:36:07'),
 (5, 'apekshagothawal58@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '123456789', '<p>testing</p>', '<!--', '9876543210', 'F', 4, 4, 11, 0, '2016-12-31 15:40:50'),
-(6, 'ramanathkarkera@gmail.com', '356a192b7913b04c54574d18c28d46e6395428ab', '123456789', 'Ramanath', 'Karkera', '9999999999', 'M', 5, 1, 6, 0, '2016-12-31 17:01:39');
+(7, 'm.himanshu2311@gmail.com', '155c432deede6730b5b01b10744ae3c818c21e68', '141070038', 'Himanshu', 'Maheshwari', '9029925535', 'M', 1, 3, 1, 1, '2017-01-22 11:45:00'),
+(9, 'appukarkera@gmail.com', '$2y$10$AgFdS7TNWrryWT48aLCJSe76Ci.tgSDFmT/K35Je0ohhGPuh8yJVy', '151071041', 'Arpita', 'Karkera', '9999999999', 'F', 1, 2, 1, 1, '2017-04-04 08:43:13');
 
 --
 -- Indexes for dumped tables
@@ -387,7 +387,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `managers`
 --
 ALTER TABLE `managers`
-  MODIFY `manager_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `manager_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `programmes`
 --
@@ -397,17 +397,17 @@ ALTER TABLE `programmes`
 -- AUTO_INCREMENT for table `registrations`
 --
 ALTER TABLE `registrations`
-  MODIFY `registration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `registration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
