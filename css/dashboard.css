@@ -11,7 +11,7 @@
 	background-image:url('../images/dash_background.png');
 	background-size:100%;
 	padding-top:1.5%;
-	padding-bottom:4%;
+	padding-bottom:0%;
 }
 #a.col-sm-4{
 	
@@ -30,12 +30,12 @@
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
-    width:100%;
+    width: 200px;
 }
 
 .button:hover{
 
-  width:100%;
+  width:200px;
   background-color:rgb(14,40,41);
   color:white;
   border-style:solid;
