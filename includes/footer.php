@@ -29,7 +29,7 @@
 			<div class="col-sm-4">
 			</div>
 			<p class="col-sm-4 text-right" style="padding: 30px; vertical-align: center; font-size: 15px;">
-				<a href="developers.php">Meet the Devs!</a>
+				<a href="<?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'public/developers.php'; else echo 'developers.php'; ?>">Meet the Devs!</a>
 		</div>
 	</div>
 </footer>
