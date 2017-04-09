@@ -26,9 +26,6 @@
 				<?php echo htmlspecialchars($_SESSION['first_name']); ?>&nbsp;&nbsp;
 				<?php echo htmlspecialchars($_SESSION['last_name']); ?>
 			</p>
-		</div>
-		
-		<div class="col-sm-2" style="padding-top: 2.5%;">
 			<a href="myevents.php"><button class="button" id="q">My Events</button></a>
 			<br>
 			<br>
@@ -38,8 +35,7 @@
 			<a href="apply.php"><button class="button">Apply for Manager</button></a>
 			<?php } ?>
 		</div>
-		<div class="col-sm-1">
-		</div>
+		<div class="col-sm-2"></div>
 		<div class="col-sm-4">
 		<?php
 /* Set the default timezone */
@@ -167,6 +163,7 @@ if ($num > 0){
 ?>
 
 		</div>
+		<div class = "col-sm-1"></div>
 	</div>
 </div>
 <?php
