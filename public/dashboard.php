@@ -27,8 +27,7 @@
 				<?php echo htmlspecialchars($_SESSION['last_name']); ?>
 			</p>
 		</div>
-		<div class="col-sm-4">
-		</div>
+		
 		<div class="col-sm-2" style="padding-top: 2.5%;">
 			<a href="myevents.php"><button class="button" id="q">My Events</button></a>
 			<br>
@@ -41,6 +40,85 @@
 		</div>
 		<div class="col-sm-1">
 		</div>
+		<div class="col-sm-4">
+		<?php
+/* Set the default timezone */
+//date_default_timezone_set("America/Montreal");
+
+/* Set the date */
+$date = strtotime(date("Y-m-d"));
+$mydate = date("Y-m-d");
+//echo $mydate;
+$day = date('d', $date);
+$month = date('m', $date);
+$year = date('Y', $date);
+$firstDay = mktime(0,0,0,$month, 1, $year);
+$title = strftime('%B', $firstDay);
+$dayOfWeek = date('D', $firstDay);
+$daysInMonth = cal_days_in_month(0, $month, $year);
+/* Get the name of the week days */
+$timestamp = strtotime('next Sunday');
+$weekDays = array();
+for ($i = 0; $i < 7; $i++) {
+	$weekDays[] = strftime('%a', $timestamp);
+	$timestamp = strtotime('+1 day', $timestamp);
+}
+$blank = date('w', strtotime("{$year}-{$month}-01"));
+$id=$_SESSION['user_id'];
+$query="SELECT DAY(events.start_date) as d FROM registrations LEFT JOIN events ON registrations.event_id=events.event_id where user_id=".$id." and MONTH(start_date)=MONTH('$mydate')";
+$result = mysqli_query($dbc,$query) or die(mysqli_err());
+$num = mysqli_num_rows($result);
+//echo $num;
+if ($num > 0){
+	$row = mysqli_fetch_array($result);
+	//$num = $num - 1;
+	//echo $row['d'];
+}
+
+
+?>
+<table class='table table-bordered' style="table-layout: fixed;">
+	<tr>
+		<th colspan="7" class="text-center" style="background-color:rgb(172,230,191);color:black;border: 1px solid black;"> <?php echo $title ?> <?php echo $year ?> </th>
+	</tr>
+	<tr>
+		<?php foreach($weekDays as $key => $weekDay) : ?>
+			<td class="text-center" style="background-color:rgb(172,230,191);color:black;border: 1px solid black;"><?php echo $weekDay ?></td>
+		<?php endforeach ?>
+	</tr>
+	<tr>
+		<?php for($i = 0; $i < $blank; $i++): ?>
+			<td style="background-color:rgb(172,230,191);color:black;border: 1px solid black;"></td>
+		<?php endfor; ?>
+		<?php for($i = 1; $i <= $daysInMonth; $i++): ?>
+			<?php 
+			
+			if($num > 0 && $i == intval($row['d'])){?>
+				<td style="background-color:rgb(67,156,35);color:black;border: 1px solid black;"><strong><?php echo $i; ?></strong></td>
+				<?php 
+				if($num >0){
+					$row = mysqli_fetch_array($result);
+					$num = $num - 1;
+				}
+				continue;
+				}?>
+				
+			<?php if($day == $i): ?>
+				<td style="background-color:rgb(25,45,74);color:white;border: 1px solid black;"><strong><?php echo $i; ?></strong></td>
+			<?php else: ?>
+				<td style="background-color:rgb(172,230,191);color:black;border: 1px solid black;"><?php echo $i; ?></td>
+			<?php endif; ?>
+			<?php if(($i + $blank) % 7 == 0): ?>
+				</tr><tr>
+			<?php endif; ?>
+		<?php endfor; ?>
+		<?php for($i = 0; ($i + $blank + $daysInMonth) % 7 != 0; $i++): ?>
+			<td style="background-color:rgb(172,230,191);color:black;border: 1px solid black;"></td>
+		<?php endfor; ?>
+	</tr>
+</table>
+		</div>
+		
 	</div>
 </div>
 
