@@ -1,7 +1,7 @@
 <?php
 	/*
-	 * @author: Arpita Karkera,Sunaina Punyani
-	 * @date: 4th December, 2016
+	 * @author: Arpita Karkera,Sunaina Punyani,Apeksha Gothawal
+	 * @date: 4th April, 2017
 	 * 
 	 * Footer template file. To be included in every page.
 	 *

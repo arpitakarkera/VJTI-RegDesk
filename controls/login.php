@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * @author: Arpita Karkera
-	 * @date: 5th December, 2016
+	 * @date: 5th March, 2017
 	 * 
 	 * Login logic. To be included in index page
 	 *

@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Arpita Karkera,Sunaina Punyani
-	 * @date 26 December, 2016
+	 * @date 26 March, 2017
 	 *
 	 * This page lets user see the events he/she has registered for.
 	 *

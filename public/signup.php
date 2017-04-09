@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * @author: Arpita Karkera, Sunaina Punyani
-	 * @date: 5th December, 2016
+	 * @date: 5th March, 2017
 	 * 
 	 * Sign Up page and logic
 	 *

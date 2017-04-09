@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Arpita Karkera
-	 * @date 16 December, 2016
+	 * @date 16 March, 2017
 	 *
 	 * If the user clicks 'Forgot password?' or 'change password', he/she will be redirected to forgot.php page for resetting
 	 * A mail with reset link will be sent to registered email id.

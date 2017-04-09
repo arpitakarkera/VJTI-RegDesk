@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * @author: Arpita Karkera
-	 * @date: 6th December, 2016
+	 * @date: 6th March, 2017
 	 * 
 	 * Logout logic. After logging out it redirects to index page.
 	 *

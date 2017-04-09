@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Arpita Karkera
-	 * @date 26 December, 2016
+	 * @date 26 March, 2017
 	 *
 	 * For editing event details. A mail is sent to all users notifying about the change
 	 *

@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Sunaina Punyani, Arpita Karkera
-	 * @date 8 December, 2016
+	 * @date 18 March, 2017
 	 *
 	 * Form to add an event
 	 *
