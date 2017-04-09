@@ -14,11 +14,11 @@
 ?>
 <section class="intro">
 <div class="container">
-	<h3 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 60px; color: rgb(0,0,0);">WHO ARE WE?</h3>
+	<h3 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 45px; color: rgb(0,0,0);">WHO ARE WE?</h3>
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
-				<img src="../images/arpita.jpg" class="img-responsive" alt="Arpita">
+				<img src="../images/arpita.png" class="img-responsive" alt="Arpita">
 				<div class="info">
 					<h2 style="text-align: center;">Arpita Karkera</h2>
 					<p style="text-align: center;">S.Y B.Tech Computer Engineering</p>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="col-sm-4">
 			<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
-				<img src="../images/sunaina.jpg" class="img-responsive" alt="Sunaina">
+				<img src="../images/sunaina.png" class="img-responsive" alt="Sunaina">
 				<div class="info">
 					<h2 style="text-align: center;">Sunaina Punyani</h2>
 					<p style="text-align: center;">S.Y B.Tech Computer Engineering</p>
@@ -38,7 +38,7 @@
 		</div>
 		<div class="col-sm-4">
 			<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
-				<img src="../images/apeksha.jpg" class="img-responsive" alt="Apeksha">
+				<img src="../images/apeksha.png" class="img-responsive" alt="Apeksha">
 				<div class="info">
 					<h2 style="text-align: center;">Apeksha Gothawal</h2>
 					<p style="text-align: center;">S.Y B.Tech Computer Engineering</p>
@@ -47,6 +47,8 @@
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
 </div>
 </section>
 <?php

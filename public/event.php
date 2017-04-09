@@ -2,7 +2,7 @@
     /*
      *
      * @author Apeksha Gothawal, Arpita Karkera,Sunaina Punyani
-     * @date 19 December, 2016
+     * @date 19 March, 2017
      *
      * Event page. Shows details of particular event.
      *

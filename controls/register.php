@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Arpita Karkera
-	 * @date 17 December, 2016
+	 * @date 17 March, 2017
 	 *
 	 * When user clicks register on an event, this script executes.
 	 * Event id is passed through url and registration is added to registrations table

@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * @author: Arpita Karkera
-	 * @date: 5th December, 2016
+	 * @date: 5th March, 2017
 	 * 
 	 * This script authenticates the user, i.e., confirms if the user is logged in to access.
 	 * If user is not logged in it redirects to index page.

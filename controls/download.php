@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Arpita Karkera
-	 * @date 19 December, 2016
+	 * @date 19 March, 2017
 	 *
 	 * Downloads a csv file of containing registered users' data of an event
 	 * event id is supplied using GET

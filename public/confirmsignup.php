@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * @author: Arpita Karkera,Sunaina Punyani
-	 * @date: 6th December, 2016
+	 * @date: 6th March, 2017
 	 * 
 	 * Displays confirmation message on successful sign up
 	 *

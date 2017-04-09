@@ -1,7 +1,7 @@
 <?php
 	/*
 	 * @author: Arpita Karkera,Sunaina Punyani
-	 * @date: 8th December, 2016
+	 * @date: 18th March, 2017
 	 * 
 	 * Verifies user. This link is sent to user for activation.
 	 *
