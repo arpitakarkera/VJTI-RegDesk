@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2017 at 12:03 PM
+-- Generation Time: Apr 09, 2017 at 07:44 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -167,7 +167,9 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`event_id`, `event_name`, `description`, `start_date`, `start_time`, `end_date`, `end_time`, `venue`, `category`, `committee`, `incharge1_name`, `incharge1_contact`, `incharge2_name`, `incharge2_contact`, `cost`, `refreshment`, `note`, `manager`, `banner`, `post_timestamp`) VALUES
-(1, 'Code Hunt', 'cbahjv Jake kj nakjlbd. n ;abf.nj n cmxhxsba lajedh can,mkwuoir', '2017-04-13', '02:30:00', NULL, '05:30:00', 'VJTI', 3, 4, 'Parina', '9999999999', NULL, NULL, 0, 0, '', 1, '.jpg', '2017-04-09 11:37:55');
+(1, 'Code Hunt', 'cbahjv Jake kj nakjlbd. n ;abf.nj n cmxhxsba lajedh can,mkwuoir', '2017-04-13', '02:30:00', NULL, '05:30:00', 'VJTI', 3, 4, 'Parina', '9999999999', NULL, NULL, 0, 0, '', 1, '.jpg', '2017-04-09 11:37:55'),
+(2, 'Cyclothon', 'The ultimate fun event is here!!\r\nBharat Cycle Co and Enthusia\r\npresent...\r\nEnthusia Cyclothon 2K16\r\nPowered by Firefox Cycles\r\nSo,push the pedal, accelerate and come be a part of it!\r\nExperience the Joyride through the heart of Matunga!', '2017-04-24', '09:00:00', NULL, '05:30:00', 'Football Ground, VJTI', 1, 10, 'Kiranmayi', '9898988998', NULL, NULL, 150, 1, 'Cycles will be available for rent.', 1, '.jpg', '2017-04-09 14:28:28'),
+(3, 'Game Development', 'Bored of finding prime numbers?\r\nWant to build a game?\r\nWe Promised. Now we Deliver.\r\nThe Community of Coders announces its next workshop on C++ Game Development.\r\nLearn to develop ASCII Showdown from scratch!\r\nDonâ€™t think you have it to build one? \r\nWe reckon, You do!\r\nSee you then!', '2017-04-21', '09:00:00', '2017-04-22', '17:00:00', 'CCF2, Mech. Dept., VJTI', 2, 4, 'Arpita Karkera', '9879879879', NULL, NULL, 0, 0, 'Bring your own laptops.', 1, '.jpg', '2017-04-09 14:51:48');
 
 -- --------------------------------------------------------
 
@@ -228,7 +230,8 @@ CREATE TABLE `registrations` (
 --
 
 INSERT INTO `registrations` (`registration_id`, `user_id`, `event_id`, `registration_timestamp`) VALUES
-(1, 1, 1, '2017-04-09 11:38:17');
+(1, 1, 1, '2017-04-09 11:38:17'),
+(2, 1, 2, '2017-04-09 15:09:44');
 
 -- --------------------------------------------------------
 
@@ -376,7 +379,7 @@ ALTER TABLE `committees`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `managers`
 --
@@ -391,7 +394,7 @@ ALTER TABLE `programmes`
 -- AUTO_INCREMENT for table `registrations`
 --
 ALTER TABLE `registrations`
-  MODIFY `registration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `registration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -448,6 +451,22 @@ ALTER TABLE `requests`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`programme`) REFERENCES `programmes` (`programme_id`),
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`branch`) REFERENCES `branches` (`branch_id`);
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`root`@`localhost` EVENT `archive_event` ON SCHEDULE EVERY 1 DAY STARTS '2017-04-10 00:01:00' ENDS '2017-04-30 00:00:00' ON COMPLETION PRESERVE ENABLE DO INSERT INTO archived_events
+SELECT event_id, event_name, start_date, start_time, end_date, end_time, venue, category, committee, incharge1_name, incharge1_contact, incharge2_name, incharge2_contact, manager, post_timestamp
+FROM events
+WHERE end_date < NOW()$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `archive_registration` ON SCHEDULE EVERY 1 DAY STARTS '2017-04-10 00:00:00' ENDS '2017-04-30 00:00:00' ON COMPLETION PRESERVE ENABLE DO INSERT INTO archived_registrations
+SELECT registrations.registration_id, registrations.user_id, registrations.event_id, registrations.registration_timestamp
+FROM registrations LEFT JOIN events ON registrations.event_id = events.event_id
+WHERE events.end_date < NOW()$$
+
+DELIMITER ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
