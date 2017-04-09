@@ -2,7 +2,7 @@
 	/*
 	 *
 	 * @author Arpita Karkera,Sunaina Punyani
-	 * @date 10 December, 2016
+	 * @date 10 March, 2017
 	 *
 	 * Send a request to admin to make the user a manager
 	 *
