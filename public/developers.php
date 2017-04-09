@@ -14,7 +14,7 @@
 ?>
 <section class="intro">
 <div class="container">
-	<h3 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 80px; color: rgb(0,0,0);">WHO ARE WE?</h3>
+	<h3 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 60px; color: rgb(0,0,0);">WHO ARE WE?</h3>
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
