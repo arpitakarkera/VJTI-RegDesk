@@ -270,9 +270,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `email`, `password`, `id`, `first_name`, `last_name`, `contact`, `gender`, `programme`, `year`, `branch`, `verified`, `join_timestamp`) VALUES
-(1, 'appukarkera@gmail.com', '$2y$10$RJGlTHFG1xFTVqT0gX1ggeqPupjZ.uusPXXk.EQm5cl/lO2NRHpxe', '151071041', 'Arpita', 'Karkera', '9999999999', 'F', 1, 2, 1, 1, '2017-04-08 20:49:26');
-
 --
 -- Indexes for dumped tables
 --
